@@ -1,0 +1,115 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.surveyProject.project.mapper.SurveyFormMapper">
+    <insert id="saveSurveyForm" parameterType="com.surveyProject.project.domain.survey.surveyform.SurveyForm" useGeneratedKeys="true" keyProperty="survey_code">
+        insert into survey_information (
+            survey_title,
+            survey_content,
+            participant_count,
+            survey_status,
+            create_date,
+            update_date
+        )
+		values (
+            #{survey_title},
+            #{survey_info},
+            0,
+            #{survey_status},
+            now(),
+            now()
+        );
+    </insert>
+
+	<insert id="applySurvey" parameterType="com.surveyProject.project.domain.survey.survey.ApplyInformation">
+        insert into apply_information (
+            application_class,
+            survey_class,
+            survey_password,
+            user_code,
+            company_code,
+            category_code,
+            survey_target_gender,
+            survey_target_age,
+            survey_per_money,
+            participant_max,
+            survey_period_start,
+            survey_period_stop
+        )
+        values (
+            #{application_class},
+            #{survey_class},
+            #{survey_password},
+            #{user_code},
+            #{company_code},
+            #{category_code},
+            #{survey_target_gender},
+            #{survey_target_age},
+            #{survey_per_money},
+            #{participant_max},
+            #{survey_period_start},
+            #{survey_period_stop}
+        )
+	</insert>
+
+    <insert id="saveSurveyStatus" parameterType="com.surveyProject.project.domain.survey.surveyform.SurveyForm">
+        insert into survey_status_dtl (
+            survey_status,
+            survey_code,
+            status_content
+        ) 
+        values 
+        (
+            #{survey_status},
+            #{survey_code},
+            #{status_content}
+        );
+    </insert>
+
+    <insert id="saveSurveyFormQuestion" parameterType="com.surveyProject.project.domain.survey.surveyform.SurveyForm">
+        insert into survey_question (
+            survey_code,
+            question_title,
+            question_essential,
+            select_type,
+            detail_question
+        )
+        values 
+        (
+            #{survey_code},
+            #{question_title},
+            #{question_essential},
+            #{select_type},
+            #{detail_question}
+        );
+        <selectKey keyProperty="question_code" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID();
+        </selectKey>
+    </insert>
+
+    <insert id="saveSurveyFormOption" parameterType="com.surveyProject.project.domain.survey.surveyform.SurveyFormOption">
+        insert into question_choice (
+            question_code,
+            option_content
+        )
+        values 
+        (
+            #{question_code},
+            #{option_content}
+        );
+    </insert>
+
+    <select id="getPaymentInfo" parameterType="Integer" resultType="com.surveyProject.project.domain.survey.pay.Payment">
+        select
+            ai.survey_code,
+            si.survey_title,
+            ai.survey_per_money,
+            ai.participant_max
+        from 
+            apply_information ai 
+        left outer join survey_information si ON(ai.survey_code = si.survey_code)
+        where
+            ai.survey_code = #{survey_code}
+    </select>
+</mapper>

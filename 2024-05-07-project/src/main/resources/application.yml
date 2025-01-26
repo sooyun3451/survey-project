@@ -1,0 +1,40 @@
+server:
+  port: 8000
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+      force-request: true
+      force-response: true
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  mvc:
+    static-path-pattern: /static/**
+  
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/survey_db
+    username: root
+    password: Cielo981011:)
+    
+mybatis:
+  mapper-locations: 
+  - /mappers/*.xml
+
+
+#파일 업로드 경로
+file:
+  path: C:/Upload/
+  url: http://localhost:8000/file/
+  #파일 사이즈
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB

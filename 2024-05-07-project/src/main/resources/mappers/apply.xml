@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="com.surveyProject.project.domain.survey.surveyform.SurveyFormRepository">
+    <insert id="applySurveyForm" parameterType="com.surveyProject.project.domain.survey.survey.ApplyInformation">
+
+        INSERT INTO apply_information
+        (survey_code, application_class, survey_class, survey_password, user_code, company_code, category_code,
+        survey_target_gender, survey_target_age, survey_per_money,
+        participant_max, survey_period_start, survey_period_stop)
+        VALUES(0, #{application_class}, #{survey_class}, #{survey_password}, #{user_code}, #{company_code}, #{category_code},  #{survey_target_gender}, #{survey_target_age}, #{survey_per_money},
+        #{participant_max}, #{survey_period_start}, #{survey_period_stop});
+
+    </insert>
+
+    <insert id="applyCompanySurveyForm" parameterType="com.surveyProject.project.domain.survey.survey.ApplyInformation">
+        INSERT INTO apply_information
+        (survey_code, application_class, survey_class, survey_password, company_code , category_code,
+        survey_target_gender, survey_target_age, survey_per_money,
+        participant_max, survey_period_start, survey_period_stop)
+        VALUES(0, #{application_class}, #{survey_class}, #{survey_password}, #{company_code}, #{category_code},  #{survey_target_gender}, #{survey_target_age}, #{survey_per_money},
+        #{participant_max}, #{survey_period_start}, #{survey_period_stop});
+    </insert>
+
+
+
+
+
+
+
+
+</mapper>

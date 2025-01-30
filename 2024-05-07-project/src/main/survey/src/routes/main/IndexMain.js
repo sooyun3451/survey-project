@@ -32,7 +32,6 @@ export default function IndexMain() {
         },
       })
       .then((response) => {
-        console.log(response);
         setTopSurvey(response.data.data);
       });
   }, []);
@@ -67,11 +66,16 @@ export default function IndexMain() {
                   href={`/notice/detail/${item.notice_code}`}
                   className="bottom-text-content"
                   key={i}
+                  onClick={(e) => {
+                    if(!token) {
+                      e.preventDefault();
+                      alert("로그인 후 이용가능합니다.")
+                    }
+                  }}
                 >
                   - {item.notice_title}
                 </a>
               ))}
-
               <div className="bottom-text-content">{} </div>
             </div>
           </div>

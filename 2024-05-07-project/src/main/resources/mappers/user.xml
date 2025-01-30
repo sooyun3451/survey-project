@@ -10,11 +10,9 @@
 		VALUES (#{user_name}, #{user_email}, #{user_password}, #{provider},
 		#{role}, #{create_date}, #{update_date});
 	</insert>
-	
-		<insert id="saveDtl"
-			parameterType="com.surveyProject.project.domain.survey.user.User">
-			INSERT INTO user_dtl (user_code, user_birth, user_gender)
-			VALUES (#{user_code}, #{user_birth}, #{user_gender});
+	<insert id="saveDtl" parameterType="com.surveyProject.project.domain.survey.user.User">
+		INSERT INTO user_dtl (user_code, user_birth, user_gender)
+		VALUES (#{user_code}, #{user_birth}, #{user_gender});
 	</insert>
 
 	<insert id="savecom"
@@ -39,5 +37,9 @@
 	
 	<select id="findByCompany" parameterType="String" resultType="com.surveyProject.project.domain.survey.user.Company">
 	    SELECT * FROM company_mst WHERE company_email = #{email};
+	</select>
+	
+	<select id="findBySnsIdAndJoinPath" parameterType="map" resultType="com.surveyProject.project.domain.survey.user.User">
+		SELECT * FROM user_mst WHERE join_path = #{join_path} AND sns_id = #{sns_id};
 	</select>
 </mapper>

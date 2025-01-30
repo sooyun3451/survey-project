@@ -24,6 +24,8 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 import com.surveyProject.project.filter.JwtAuthenticationFilter;
+import com.surveyProject.project.handler.OAuth2SuccessHandler;
+import com.surveyProject.project.service.survey.oauth2.OAuth2UserServiceImpl;
 
 import java.util.List;
 
@@ -37,6 +39,8 @@ public class WebSecurityConfig {
 	@Lazy
 	@Autowired
 	private JwtAuthenticationFilter jwtAuthenticationFilter;
+    private final OAuth2SuccessHandler oAuth2SuccessHandler;
+    private final OAuth2UserServiceImpl oAuth2Service;
 	
 	@Bean
 	public CorsFilter corsFilter() {
@@ -78,6 +82,12 @@ public class WebSecurityConfig {
                 				)
                 		.permitAll()
                 		.anyRequest().authenticated())
+                .oauth2Login(oauth2 -> oauth2
+                        .redirectionEndpoint(endPoint -> endPoint.baseUri("/oauth2/callback/*"))
+                        .authorizationEndpoint(endPoint -> endPoint.baseUri("/api/v1/auth/sns-sign-in"))
+                        .userInfoEndpoint(endPoint -> endPoint.userService(oAuth2Service))
+                        .successHandler(oAuth2SuccessHandler)
+                )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }

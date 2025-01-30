@@ -23,6 +23,8 @@ public class UserServiceImpl implements UserService{
         String name = signupReqDto.getUserName();
         String birth = signupReqDto.getBirth();
         String gender = signupReqDto.getGender();
+        String joinPath = signupReqDto.getJoinPath();
+        String snsId = signupReqDto.getSnsId();
         
         
         if (userEmail == null || userEmail.isEmpty()) {
@@ -49,6 +51,10 @@ public class UserServiceImpl implements UserService{
             return false;
         }
         
+        joinPath = signupReqDto.getJoinPath();
+        if (joinPath == null || joinPath.isEmpty()) {
+            joinPath = "Home"; 
+        }
         
         try {
         	String encodedPassword = bCryptPasswordEncoder.encode(password);
@@ -62,6 +68,8 @@ public class UserServiceImpl implements UserService{
         			.role(signupReqDto.getRole())
         			.create_date(signupReqDto.getCreateDate())
         			.update_date(signupReqDto.getUpdateDate())
+        			.join_path(joinPath)
+        			.sns_id(snsId)
         			.build();
         	
         	userMapper.save(user);

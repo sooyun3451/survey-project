@@ -24,4 +24,6 @@ public class User {
     private int user_money;
     private LocalDateTime create_date;
     private LocalDateTime update_date;
+    private String join_path;
+    private String sns_id;
 }

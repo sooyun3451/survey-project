@@ -176,15 +176,6 @@
     display: block;
 }
 
-
-/* sns 로고 */
-.login_image{
-    
-    vertical-align: middle;
-    width: 40px;
-    height: 40px;
-
-}
 /* 회원가입 태그 */
 .signin-tag{
     display: block;

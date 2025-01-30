@@ -1,15 +1,15 @@
-.signup_container{
+.signup_container {
     display: flex;
 }
 
 /* 회원가입 왼쪽화면 */
-.signup_left{
+.signup_left {
     margin-right: 200px;
     box-sizing: border-box;
     width: 50%;
 }
 
-.logo_image{
+.logo_image {
     margin-top: -100px;
     margin-left: 100px;
     width: 669px;
@@ -21,94 +21,93 @@
 }
 
 
-.logo_title{
-   width: 50%;
+.logo_title {
+    width: 50%;
     margin-left: 650px;
 
 
 }
 
 /* 회원가입 오른쪽 화면 */
-.signup_right{
-  
+.signup_right {
     margin-top: 50px;
     width: 350px;
-    height: 580px;
+    height: 630px;
     box-sizing: border-box;
     border: 2px solid black;
     border-radius: 10%;
     background-color: white;
-    
-    
+
+
 }
+
 /* 회원가입 오른쪽 화면 상단 */
-.signup_box{
+.signup_box {
     text-align: center;
     margin-bottom: 30x;
     position: relative;
-    
- 
 }
-.signup_box>img{
+
+.signup_box>img {
     text-align: center;
     align-items: center;
-    
-    opacity: 0.5; 
+
+    opacity: 0.5;
     margin-top: 20px;
-    
+
     width: 250px;
     height: 160px;
     font-size: 20px;
     font-weight: bold;
 }
 
-.signup_box>span{
+.signup_box>span {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate( -50%, -30% );
+    transform: translate(-50%, -30%);
     font-size: 20px;
     font-weight: 700;
     opacity: 0.5;
-    
-    
+
+
 }
 
-.signup-linkbox{
+.signup-linkbox {
     display: flex;
     justify-content: center;
     margin-top: -50px;
     position: relative;
     z-index: 999;
-    
 }
-.signup-link-button{
+
+.signup-link-button {
     border: none;
     width: 60px;
     height: 30px;
     color: black;
     background-color: white;
-    
+
 }
-.signup-link-button:hover{
+
+.signup-link-button:hover {
     background-color: #0F3360;
     color: white;
 }
-.signup-link-button:focus{
+
+.signup-link-button:focus {
     background-color: #0F3360;
     color: white;
 }
 
 /* 회원가입 오른쪽 화면 하단 */
-.social-box{
+.social-box {
     margin-top: 40px;
     margin-left: 25px;
 }
 
-
-
 /* 회원가입 인풋박스 */
-.signup-input{ 
+.signup-input {
     display: inline-block;
     margin-top: 10px;
     margin-left: 30px;
@@ -122,7 +121,7 @@
 }
 
 /* 성별 인풋박스 */
-.index-gender-box{
+.index-gender-box {
     display: inline-block;
     margin-top: 10px;
     margin-left: 30px;
@@ -134,13 +133,15 @@
     width: 250px;
     height: 30px;
 }
-.gender{
+
+.gender {
     vertical-align: middle;
     font-weight: 700;
     font-size: 15px;
     opacity: 0.5;
 }
-.gender-radio{
+
+.gender-radio {
     vertical-align: middle;
     margin-left: 50px;
     font-weight: 700;
@@ -150,33 +151,33 @@
 
 /* 남여버튼  - 기본 스타일 없애고 버튼 모양 구현 */
 input[type='radio'] {
-    -webkit-appearance: none; 
-    -moz-appearance: none; 
-    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     width: 18px;
     height: 18px;
-    border: 2px solid #ccc; 
+    border: 2px solid #ccc;
     border-radius: 50%;
     outline: none;
     cursor: pointer;
     vertical-align: middle;
-    
-  }
 
-  /* 남여버튼 - 체크될 시에 변화되는 스타일 */
-  input[type='radio']:checked {
-    background-color: #22d3ee; 
-    border: 3px solid white; 
-    box-shadow: 0 0 0 1.6px #22d3ee; 
-    
-  }
+}
 
-  /* .add-file{
+/* 남여버튼 - 체크될 시에 변화되는 스타일 */
+input[type='radio']:checked {
+    background-color: #22d3ee;
+    border: 3px solid white;
+    box-shadow: 0 0 0 1.6px #22d3ee;
+
+}
+
+/* .add-file{
   
   } */
 
-  .file_input{
-    
+.file_input {
+
     margin-top: 2px;
     margin-left: -10px;
     padding-left: 10px;
@@ -186,10 +187,10 @@ input[type='radio'] {
     font-size: 15px;
     width: 250px;
     height: 30px;
-  }
+}
 
 
-.login-btn{
+.login-btn {
     margin-top: 15px;
     margin-left: 30px;
     align-items: center;
@@ -204,29 +205,31 @@ input[type='radio'] {
     height: 30px;
     display: block;
 }
-.login-btn:hover{
+
+.login-btn:hover {
     color: white;
     background-color: #0b72f0;
 }
 
 
 /* sns 로고 */
-.login_image{
-    
+.login_image {
+
     vertical-align: middle;
     width: 40px;
     height: 40px;
 
 }
+
 /* 회원가입 태그 */
-.signup-tag{
+.signup-tag {
     display: block;
     margin-top: 20px;
     text-align: center;
     font-weight: 700;
 }
 
-.birth-date-box{
+.birth-date-box {
     margin-top: 10px;
     margin-left: 30px;
     padding-left: 10px;
@@ -239,22 +242,22 @@ input[type='radio'] {
     opacity: 0.6;
 }
 
-.birth-date-label{
-margin-right: 40px;    
+.birth-date-label {
+    margin-right: 40px;
 
 }
 
-.birth-date-input{
+.birth-date-input {
     border: none;
     font-weight: 600;
     font-size: 15px;
 }
 
 /* 로고 이미지 바텀 */
-.logo_image-bottom{
+.logo_image-bottom {
     margin-top: 300px;
     margin-left: 600px;
-    
+
 
     width: 669px;
     height: 392px;
@@ -264,13 +267,87 @@ margin-right: 40px;
     z-index: -100;
 }
 
+.signup-btn {
+    margin-top: 15px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    align-items: center;
+    text-align: center;
+    border: 1px solid black;
+    color: white;
+    background-color: #0F3360;
+    opacity: 0.8;
+    border-radius: 5px;
+    font-weight: 600;
+    width: 250px;
+    height: 30px;
+    display: block;
+}
 
+.sns-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
 
+.kakao {
+    display: flex;
+    justify-content: center;
+    width: 250px;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    align-items: center;
+    background-color: #FEE500;
+    cursor: pointer;
 
+    :hover {
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
+    &>img {
+        width: 25px;
+        height: 25px;
+        margin-right: 20px;
+        border-radius: 25%;
+    }
 
+    &>span {
+        margin-right: 40px;
+        font-size: 10px;
+        font-weight: 600;
+    }
 
-  
-  
+}
 
+.naver {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 250px;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    align-items: center;
+    background-color: rgb(3, 199, 90);
+    cursor: pointer;
 
+    :hover {
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    &>img {
+        width: 25px;
+        height: 25px;
+        margin-right: 15px;
+        border-radius: 25%;
+    }
+
+    &>span {
+        margin-right: 40px;
+        font-size: 10px;
+        font-weight: 600;
+    }
+}

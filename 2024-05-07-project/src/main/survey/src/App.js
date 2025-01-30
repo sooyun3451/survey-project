@@ -1,5 +1,5 @@
 import "./App.css";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
 
 import NavigationBar from "./components/NavigationBar";
 import IndexMain from "./routes/main/IndexMain";
@@ -34,8 +34,25 @@ import IndexPassword from "./routes/mypage/IndexPassword";
 import IndexSurvey from "./routes/survey/IndexSurvey";
 import IndexResult from "./routes/result/IndexResult";
 import Footer from "./components/Footer";
+import { useEffect } from "react";
+import { useCookies } from "react-cookie";
 
 function App() {
+  const [cookies] = useCookies(["token"]);
+  const token = cookies.token;
+
+  const navigate = useNavigate();
+
+  const EXCLUDED_PATHS = ["/auth/signup/person", "/auth/signup/company"];
+
+  useEffect(() => {
+    const currentPath = window.location.pathname;
+    const isExcludedPath = EXCLUDED_PATHS.some(path => currentPath.includes(path));
+    if (!token && !isExcludedPath) {
+        navigate("/");
+    }
+}, [token]);
+
   return (
     <>
       <div className="containerApp">

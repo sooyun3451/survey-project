@@ -1,25 +1,34 @@
 // 파일 이름 변경
 import "./indexSignup.css";
 import google from "../../images/google.png";
-import facebook from "../../images/facebook.png";
+import kakao from "../../images/kakao.webp";
 import naver from "../../images/naver.png";
 import logo2 from "../../images/logo2.png";
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 // 날짜 : 2024.05.08
 // 작성자 : 심규창
 export default function IndexSignup() {
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const snsId = params.get("snsId");
+  const joinPath = params.get("joinPath");
+
+  const onSnsButtonClickHandler = (sns) => {
+    window.location.href = `${"http://localhost:8000/api/v1/auth/sns-sign-in/"}${sns}`;
+  };
+
   //초기값 세팅
-  let [email, setEmail] = useState("");
-  let [pwd, setPwd] = useState("");
-  let [name, setName] = useState("");
-  let [nickname, setNickname] = useState("");
-  let [gender, setGender] = useState(0);
-  let [role, setRole] = useState("");
-  let [rank, setRank] = useState("");
-  let [birth, setBirth] = useState("");
+  const [email, setEmail] = useState("");
+  const [pwd, setPwd] = useState("");
+  const [name, setName] = useState("");
+  const [nickname, setNickname] = useState("");
+  const [gender, setGender] = useState(0);
+  const [role, setRole] = useState("");
+  const [rank, setRank] = useState("");
+  const [birth, setBirth] = useState("");
 
   // 오류메세지 상태 저장
   const [emailMessage, setEmailMessage] = React.useState("");
@@ -177,7 +186,7 @@ export default function IndexSignup() {
             />
           </div>
           <button
-            className="login-btn"
+            className="signup-btn"
             type="submit"
             onClick={() => {
               axios
@@ -188,6 +197,8 @@ export default function IndexSignup() {
                   gender: gender,
                   provider: rank,
                   birth: birth,
+                  snsId: snsId,
+                  joinPath: joinPath ? joinPath : "Home"
                 })
                 .then((response) => {
                   console.log(response.data.data);
@@ -205,8 +216,12 @@ export default function IndexSignup() {
           >
             회원가입{" "}
           </button>
-        </div>
+        <div className="sns-box">
+        <div className='kakao' onClick={() => onSnsButtonClickHandler("kakao")}><img src={kakao} alt="kakao"/><span>카카오로 회원가입</span></div>
+        <div className='naver' onClick={() => onSnsButtonClickHandler("naver")}><img src={naver} alt="naver"/><span>네이버로 회원가입</span></div>
       </div>
+        </div>
+        </div>
       <img className="logo_image-bottom" src={logo2} alt="logoImg"></img>
     </div>
   );

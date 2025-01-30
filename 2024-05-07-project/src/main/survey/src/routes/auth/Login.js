@@ -146,10 +146,9 @@ export default function Login() {
           <a className="signin-tag">
             <Link to="/auth/signup/person">회원가입 할래?</Link>
           </a>
-
-          {/* <div className='google-box'><img className='login_image' src={'../google.png'}/><span id='login-text'>google로 계속하기</span></div>
+          <div className='google-box'><img className='login_image' src={'../google.png'}/><span id='login-text'>google로 계속하기</span></div>
           <div className='naver-box'><img className='login_image' src={'../naver.png'}/><span id='login-text'>naver로 계속하기</span></div>
-          <div className='facebook-box'><img className='login_image' src={'../facebook.png'}/><span id='login-text'>facebook로 계속하기</span></div> */}
+          <div className='facebook-box'><img className='login_image' src={'../facebook.png'}/><span id='login-text'>facebook로 계속하기</span></div>
         </div>
       </div>
       <img className="logo_image-bottom" src={logo2} alt="logoImg"></img>

@@ -15,6 +15,8 @@ public interface UserMapper {
 	 
 	 User findByUser(String email);
 	 
+	 User findBySnsIdAndJoinPath(String snsId, String joinPath);
+	 
 	 Company findByCompany(String email);
 	 
 	 int savecom(Company company);

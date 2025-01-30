@@ -17,8 +17,7 @@ export default function Search() {
   const [categoryCode, setCategoryCode] = useState("");
   const [catecoryList, setCategoryList] = useState([]);
 
-  //검색창
-
+  //검색
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
 

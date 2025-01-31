@@ -15,7 +15,7 @@ export default function IndexAdmin2() {
   const load = () => {
     Axios.get(`/api/v1/adminpage/survey/${page}/${20}`, {
       headers:{
-        'Authorization' :`Bearer ${token}` //헤더에 토큰 추가
+        'Authorization' :`Bearer ${token}` 
       }
     })
     .then((response) => {
@@ -59,7 +59,7 @@ export default function IndexAdmin2() {
                       <button onClick={() => {
                         Axios.put(`/api/v1/adminpage/survey/${survey.surveyCode}`, {
                           headers:{
-                            'Authorization' :`Bearer ${token}` //헤더에 토큰 추가
+                            'Authorization' :`Bearer ${token}`
                           }
                         })
                         .then((response) => {
@@ -72,7 +72,7 @@ export default function IndexAdmin2() {
                       <button onClick={() => {
                         Axios.delete(`/api/v1/adminpage/survey/${survey.surveyCode}`, {
                           headers:{
-                            'Authorization' :`Bearer ${token}` //헤더에 토큰 추가
+                            'Authorization' :`Bearer ${token}`
                           }
                         })
                         .then((response) => {

@@ -15,13 +15,7 @@ import { useCookies } from 'react-cookie';
 
 
 Modal.setAppElement('#root')
-/* #root를 앱의 최상위 요소로 설정,
-모달창이 열리면 그 외의 부분은 사용자에게 비활성화 되어야 하므로 react-modal
-라이브러리의 setAppElement메서드를 사용하였다. */
 
-
-
-//설문조사 단체 페이지
 export default function SurveyGroup() { 
 
 const [modal, setModal] = useState(false);
@@ -30,8 +24,6 @@ const [cookies] = useCookies(["token"]);
 const token = cookies.token;
 const[page,setPage] = useState(1);
 const[surveyData, setSurveyData] = useState([]);
-
-//성별선택
 const [selectedGender, setSelectedGender] = useState([]);
 const [selectedCategories, setSelectedCategories] = useState([]);
 const [selectedAges, setSelectedAges] = useState([]);
@@ -46,8 +38,6 @@ const handleGenderChange = (gender) => {
     });
     };
 
-//카테고리 선택
-
 const handleCategoryChange = (categoryName) => {
     setSelectedCategories(prevCategories => {
         if (prevCategories.includes(categoryName)) {
@@ -58,7 +48,6 @@ const handleCategoryChange = (categoryName) => {
     });
     };
 
-//연령 선택
 const handleAgeChange =(age) => {
     setSelectedAges(preAges => {
         if(preAges.includes(age)){
@@ -71,12 +60,11 @@ const handleAgeChange =(age) => {
     })
 }
 
-//데이터 전체 불러오기
 useEffect (() => {
     axios.get('http://localhost:8000/survey/group/list/surveyList',
     {
         headers:{
-            'Authorization' :`Bearer ${token}` //헤더에 토큰 추가
+            'Authorization' :`Bearer ${token}` 
             }
     }).then(response=>{
         console.log(response.data.data)

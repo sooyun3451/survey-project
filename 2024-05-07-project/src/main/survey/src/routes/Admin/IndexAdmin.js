@@ -15,7 +15,7 @@ export default function IndexAdmin() {
   const load = () => {
     Axios.get(`/api/v1/adminpage/company/${page}/${17}`, {
       headers:{
-        'Authorization' :`Bearer ${token}` //헤더에 토큰 추가
+        'Authorization' :`Bearer ${token}` 
       }
     })
     .then((response) => {
@@ -58,7 +58,7 @@ export default function IndexAdmin() {
                     <button onClick={() => {
                       Axios.put(`/api/v1/adminpage/company/${company.companyCode}`, {
                         headers:{
-                          'Authorization' :`Bearer ${token}` //헤더에 토큰 추가
+                          'Authorization' :`Bearer ${token}` 
                         }
                       })
                       .then((response) => {
@@ -71,7 +71,7 @@ export default function IndexAdmin() {
                     <button onClick={() => {
                       Axios.delete(`/api/v1/adminpage/company/${company.companyCode}`, {
                         headers:{
-                          'Authorization' :`Bearer ${token}` //헤더에 토큰 추가
+                          'Authorization' :`Bearer ${token}`
                         }
                       })
                       .then((response) => {

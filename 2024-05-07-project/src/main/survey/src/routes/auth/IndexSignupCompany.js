@@ -6,9 +6,7 @@ import logo2 from "../../images/logo2.png";
 import { useEffect, useState } from "react";
 // import Axios from 'axios';
 import axios from "axios";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import ko from "date-fns/locale/ko";
 import { Link } from "react-router-dom";
 import React from "react";
 

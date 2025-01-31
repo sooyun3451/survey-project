@@ -43,7 +43,7 @@ function App() {
 
   const navigate = useNavigate();
 
-  const EXCLUDED_PATHS = ["/auth/signup/person", "/auth/signup/company"];
+  const EXCLUDED_PATHS = ["/auth/signup/person", "/auth/signup/company", "/auth/login", "/auth/login/com"];
 
   useEffect(() => {
     const currentPath = window.location.pathname;

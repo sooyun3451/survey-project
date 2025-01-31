@@ -15,5 +15,4 @@ public class ReadUserSurveyList {
 	private String surveyTitle;
 	private int surveyPerMoney;
 	private LocalDateTime applyDate;
-
 }

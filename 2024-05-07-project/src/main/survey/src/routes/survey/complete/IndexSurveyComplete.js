@@ -19,7 +19,7 @@ export default function IndexSurveyComplete() {
     const loadSurveyComplete = () => {
         Axios.get(`/survey/personal/list/${state.surveyCode}/complete`, {
             headers: {
-                'Authorization' :`Bearer ${token}` //헤더에 토큰 추가
+                'Authorization' :`Bearer ${token}` 
             }
         })
         .then((response) => {
@@ -34,7 +34,7 @@ export default function IndexSurveyComplete() {
     const updateSurveyComplete = () => {
         Axios.put(`/survey/personal/list/${state.surveyCode}/complete/${userCode}/${surveyData.surveyPerMoney}`, {
             headers: {
-                'Authorization' :`Bearer ${token}` //헤더에 토큰 추가
+                'Authorization' :`Bearer ${token}` 
             }
         })
         .then((response) => {

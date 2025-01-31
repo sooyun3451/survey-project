@@ -161,8 +161,7 @@
 
 
 .login-btn{
-    margin-top: 15px;
-    margin-left: 30px;
+    margin: 15px 0px 10px 30px;
     align-items: center;
     text-align: center;
     border: 1px solid black;
@@ -174,6 +173,74 @@
     width: 250px;
     height: 30px;
     display: block;
+}
+
+.sns-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.kakao {
+    display: flex;
+    justify-content: center;
+    width: 250px;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    align-items: center;
+    background-color: #FEE500;
+    cursor: pointer;
+
+    :hover {
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    &>img {
+        width: 25px;
+        height: 25px;
+        margin-right: 20px;
+        border-radius: 25%;
+    }
+
+    &>span {
+        margin-right: 40px;
+        font-size: 10px;
+        font-weight: 600;
+    }
+
+}
+
+.naver {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 250px;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    align-items: center;
+    background-color: rgb(3, 199, 90);
+    cursor: pointer;
+
+    :hover {
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    &>img {
+        width: 25px;
+        height: 25px;
+        margin-right: 15px;
+        border-radius: 25%;
+    }
+
+    &>span {
+        margin-right: 40px;
+        font-size: 10px;
+        font-weight: 600;
+    }
 }
 
 /* 회원가입 태그 */
@@ -196,3 +263,5 @@
     position: absolute;
     z-index: -100;
 }
+
+

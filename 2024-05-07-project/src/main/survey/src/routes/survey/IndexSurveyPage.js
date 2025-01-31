@@ -25,7 +25,6 @@ export default function IndexSurveyPage2() {
         }
       )
       .then((response) => {
-        console.log(response.data.data);
         setSurveyDetailTitle(response.data.data.survey_title);
         setSurveyDetailContent(response.data.data.survey_content);
         setSurveyDetailQuestion(response.data.data.questionResDtoList);

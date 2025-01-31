@@ -32,7 +32,7 @@ export default function IndexMypageModify() {
   const userInfoLoad = () => {
     Axios.get(`/mypage/modify/${userCode}`, {
       headers:{
-        'Authorization' :`Bearer ${token}` //헤더에 토큰 추가
+        'Authorization' :`Bearer ${token}`
       }
     })
     .then((response) => {
@@ -95,7 +95,7 @@ export default function IndexMypageModify() {
       userImg: userImg
     }, {
       headers:{
-        'Authorization' :`Bearer ${token}` //헤더에 토큰 추가
+        'Authorization' :`Bearer ${token}`
       }
     })
     .then((response) => {

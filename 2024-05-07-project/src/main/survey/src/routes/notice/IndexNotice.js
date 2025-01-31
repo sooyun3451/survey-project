@@ -23,7 +23,6 @@ const [cookies] = useCookies(["token"]);
 const token = cookies.token;
 const userCode = localStorage.getItem("userCode");
 
-//요청,불러온 후 page + 1 해서 다음 요청시에는 다음 페이지를 불러오게 
 const notices = () => {
 axios.get('/api/v1/survey/notice',{
   params : {page,contentCount : 20}
@@ -41,7 +40,7 @@ const users = () => {
 if(token) {
   axios.get(`/api/v1/survey/notice/user/${userCode}`,{
   headers:{
-  'Authorization' :`Bearer ${token}` //헤더에 토큰 추가
+  'Authorization' :`Bearer ${token}` 
   }
 })
 .then((response) => {
@@ -53,18 +52,15 @@ if(token) {
   }
 }
 
-//처음에 noticedata를 빈 배열로 초기화 -> 하지 않으니 20개의 공지사항이 나오고 다시 처음부터 나와서 초기화
 useEffect(() => {
   setNoticeData([]);
   setPage(1);
   users();
 }, []);
 
-//inView변경시 공지사항 불러오기 (inView값이 true일때 스크롤하여 ref값이 보일때 notices()호출)
-//inView => ref가 보일시에 true 
+
 useEffect(() => {
 if(inView) {
-  console.log("스크롤 요청");
   notices();
 }
 },[inView]);

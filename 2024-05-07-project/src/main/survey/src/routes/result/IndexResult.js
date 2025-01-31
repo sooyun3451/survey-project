@@ -16,7 +16,7 @@ export default function IndexResult() {
   const surveyResult = () => {
     Axios.get(`/result/${state.surveyCode}/${userCode}`, {
       headers: {
-        'Authorization' :`Bearer ${token}` //헤더에 토큰 추가
+        'Authorization' :`Bearer ${token}` 
       }
     })
     .then((response) => {

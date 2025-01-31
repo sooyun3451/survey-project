@@ -16,7 +16,7 @@ export default function IndexNoticeDetail() {
 
   const [noticeDetail, setNoticeDetail] = useState('');
 
-  const {noticeCode} = useParams(); //path의 params명과 동일하게
+  const {noticeCode} = useParams(); 
   
   const [role,setRole] = useState('');
   const [cookies] = useCookies(["token"]);

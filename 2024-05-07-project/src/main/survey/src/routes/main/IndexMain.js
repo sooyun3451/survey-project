@@ -10,30 +10,33 @@ export default function IndexMain() {
   const [topSurvey, setTopSurvey] = useState([]);
   const [data, setData] = useState([]);
 
-  //메인페이지 최신 공지사항 3개 띄우기
-  useEffect(() => {
+
+  const getNotice = () => {
     axios
       .get("/api/v1/survey/main/notice", {
         headers: {
-          Authorization: `Bearer ${token}`, //헤더에 토큰 추가
+          Authorization: `Bearer ${token}`, 
         },
       })
       .then((response) => {
         setData(response.data);
       });
-  }, []);
-
-  //메인 페이지 조회수 많은 설문 3개 띄우기
-  useEffect(() => {
+  };
+  const getSurvey = () => {
     axios
       .get("/survey/personal/list/main/survey", {
         headers: {
-          Authorization: `Bearer ${token}`, //헤더에 토큰 추가
+          Authorization: `Bearer ${token}`, 
         },
       })
       .then((response) => {
         setTopSurvey(response.data.data);
       });
+  };
+
+  useEffect(() => {
+    getNotice();
+    getSurvey();
   }, []);
 
   return (

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Login.css";
-import google from "../../images/google.png";
-import facebook from "../../images/facebook.png";
+import kakao from "../../images/kakao.webp";
 import naver from "../../images/naver.png";
 import logo2 from "../../images/logo2.png";
 import IndexSignup from "./indexSignup";
@@ -19,12 +18,10 @@ export default function Login() {
   const {login} = useAuthStore();
 
   const onEmail = (e) => {
-    console.log(e.target.value);
     setEmail(e.target.value);
   };
 
   const onPwd = (e) => {
-    console.log(e.target.value);
     setPwd(e.target.value);
   };
 
@@ -119,36 +116,14 @@ export default function Login() {
           <button className="login-btn" type="submit" onClick={submit}>
             로그인{" "}
           </button>
-          <div className="google-box">
-            <button
-              style={{ border: "none", background: "none" }}
-              onClick={handleOAuthGoogleLogin}
-            >
-              <img className="login_image" src={google} alt="구글 로고"/>
-            </button>
-          </div>
-          <div className="naver-box">
-            <button
-              style={{ border: "none", background: "none" }}
-              onClick={handleOAuthNaverLogin}
-            >
-              <img className="login_image" src={naver} alt="네이버 로고"/>
-            </button>
-          </div>
-          <div className="facebook-box">
-            <button
-              style={{ border: "none", background: "none" }}
-              onClick={handleOAuthfacebookLogin}
-            >
-              <img className="login_image" src={facebook} alt="페이스북 로고"/>
-            </button>
+          <div className="sns-box">
+          <div className='kakao'><img src={kakao} alt="kakao"/><span>카카오로 회원가입</span></div>
+          <div className='naver'><img src={naver} alt="naver"/><span>네이버로 회원가입</span></div>
           </div>
           <a className="signin-tag">
             <Link to="/auth/signup/person">회원가입 할래?</Link>
           </a>
-          <div className='google-box'><img className='login_image' src={'../google.png'}/><span id='login-text'>google로 계속하기</span></div>
-          <div className='naver-box'><img className='login_image' src={'../naver.png'}/><span id='login-text'>naver로 계속하기</span></div>
-          <div className='facebook-box'><img className='login_image' src={'../facebook.png'}/><span id='login-text'>facebook로 계속하기</span></div>
+
         </div>
       </div>
       <img className="logo_image-bottom" src={logo2} alt="logoImg"></img>

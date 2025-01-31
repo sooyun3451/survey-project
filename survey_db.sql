@@ -19,7 +19,7 @@ CREATE TABLE `user_mst` (
   `provider` VARCHAR(50) DEFAULT NULL,
   `create_date` DATETIME NOT NULL,
   `update_date` DATETIME NOT NULL,
-  `join_path` VARCHAR(5) NOT NULL COMMENT '가입경로 (HOME, KAKAO, NAVER)',
+  `join_path` VARCHAR(5) NOT NULL DEFAULT 'Home' COMMENT '가입경로 (HOME, KAKAO, NAVER)',
   `sns_id` VARCHAR(255) DEFAULT NULL COMMENT 'OAuth 사용자 아이디'
 );
 

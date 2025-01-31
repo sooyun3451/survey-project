@@ -6,9 +6,7 @@ import { startOfDay } from "date-fns";
 import { useCookies } from "react-cookie";
 
 export default function IndexSurveyApplyPerson() {
-  //페이지 이동
   const navigate = useNavigate();
-  //변수 설정
   const [name, setName] = useState("");
   const [surveyClass, setSurveyClass] = useState("");
   const [pwd, setPwd] = useState("");
@@ -21,7 +19,6 @@ export default function IndexSurveyApplyPerson() {
   const [category, setCategory] = useState("");
   const [file, setFile] = useState("");
 
-  //버튼 선택
   const onAgree = (e) => {
     if (e.target.id === "no") alert("개인정보 수집에 동의해주셔야합니다.");
   };
@@ -118,7 +115,7 @@ export default function IndexSurveyApplyPerson() {
       },
       {
         headers: {
-          Authorization: `Bearer ${token}`, //헤더에 토큰 추가
+          Authorization: `Bearer ${token}`, 
         },
       }
     );
@@ -310,6 +307,7 @@ export default function IndexSurveyApplyPerson() {
                 <input
                   type="number"
                   step={50}
+                  min={0}
                   style={{
                     border: "none",
                     outline: "none",
@@ -324,6 +322,7 @@ export default function IndexSurveyApplyPerson() {
                 <input
                   type="number"
                   step={10}
+                  min={0}
                   style={{
                     border: "none",
                     outline: "none",
@@ -341,6 +340,7 @@ export default function IndexSurveyApplyPerson() {
                     type="date"
                     name="startPeriod"
                     id="startPeriod"
+                    min={new Date().toISOString().split('T')[0]}
                     onChange={onStart}
                     value={periodStart}
                   ></input>
@@ -353,6 +353,7 @@ export default function IndexSurveyApplyPerson() {
                     type="date"
                     name="endPeriod"
                     id="endPeriod"
+                    min={new Date().toISOString().split('T')[0]}
                     onChange={onStop}
                     value={periodStop}
                   ></input>

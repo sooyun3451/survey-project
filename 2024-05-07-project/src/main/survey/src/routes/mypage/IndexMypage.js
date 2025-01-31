@@ -39,7 +39,7 @@ export default function IndexMypage() {
   const userInfoLoad = () => {
     Axios.get(`/mypage/${userCode}`, {
       headers:{
-        'Authorization' :`Bearer ${token}` //헤더에 토큰 추가
+        'Authorization' :`Bearer ${token}` 
       }
     })
     .then((response) => {
@@ -53,7 +53,6 @@ export default function IndexMypage() {
           {key: '계좌', value: response.data.data.userAccount}
         ]
       );
-      console.log("userMoney", response.data.data.userMoney);
       setUserImg(response.data.data.userImg);
       setUserPoint(response.data.data.userMoney);
     })
@@ -66,11 +65,10 @@ export default function IndexMypage() {
     Axios.get('/mypage/getApplyList', {
       params: {code: userCode, type: 'user'},
       headers:{
-        'Authorization' :`Bearer ${token}` //헤더에 토큰 추가
+        'Authorization' :`Bearer ${token}` 
       }
     })
     .then((response) => {
-      console.log(response.data.data);
       setApplyList(response.data.data);
     })
     .catch((err) => {
@@ -85,11 +83,10 @@ export default function IndexMypage() {
           userCode: userCode
         },
         headers:{
-          'Authorization' :`Bearer ${token}` //헤더에 토큰 추가
+          'Authorization' :`Bearer ${token}`
         }
     })
     .then((response) => {
-      console.log(response.data.data);
       setPointList(response.data.data);
     })
     .catch((err) => {
@@ -112,7 +109,7 @@ export default function IndexMypage() {
       setUserPoint(updateUserPoint);
       Axios.put(`/mypage/${userCode}/${updateUserPoint}`, data, {
         headers: {
-            'Authorization' :`Bearer ${token}` //헤더에 토큰 추가
+            'Authorization' :`Bearer ${token}`
         }
       })
       .then((response) => {
@@ -251,18 +248,23 @@ export default function IndexMypage() {
             <div className='infoFrame'>
               <div className='leftBox'>
                 <div className='profileImg'>
-                  <img src={userImg} alt='userImg'/>
+                  {
+                    userImg ? (
+                      <img src={userImg} alt='userImg'/>
+                    ) : (
+                    <img src={userImage} alt='userImg'></img>
+                    )
+                  }
                 </div>
                 <div className='changePoints'>
                   <img src={P} alt='Point'/>
                   <h4 style={{
                     fontSize: '16px'
-                  }}>{userPoint}</h4> {/* user_money 불러오기 */}
+                  }}>{userPoint}</h4>
                 </div>
               </div>
               <div className='rightBox'>
                 <div className='userInfo'>
-                  {/* user_mst, user_dtl에서 불러오기 */}
                   {
                     userInfo.map((user) => (
                       <h4>{user.key} : {user.value}</h4>
@@ -297,7 +299,6 @@ export default function IndexMypage() {
               </div>
               <div className='list'>
                   <ul>
-                    {/* survey_title, survey_money 가져오기 */}
                     {
                       pointList.map(list => (
                         <li>{list.surveyTitle} - {list.surveyPerMoney}P</li>

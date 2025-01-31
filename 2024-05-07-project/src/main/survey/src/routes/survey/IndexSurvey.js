@@ -36,7 +36,7 @@ export default function IndexSurvey() {
     axios
       .get("/survey/personal/list/main/surveyList", {
         headers: {
-          Authorization: `Bearer ${token}`, //헤더에 토큰 추가
+          Authorization: `Bearer ${token}`, 
         },
       })
       .then((response) => {
@@ -48,7 +48,6 @@ export default function IndexSurvey() {
       });
   }, []);
 
-  //성별선택
   const [selectedGender, setSelectedGender] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedAges, setSelectedAges] = useState([]);
@@ -63,7 +62,6 @@ export default function IndexSurvey() {
     });
   };
 
-  //카테고리 선택
   const handleCategoryChange = (categoryName) => {
     setSelectedCategories((prevCategories) => {
       if (prevCategories.includes(categoryName)) {
@@ -74,7 +72,6 @@ export default function IndexSurvey() {
     });
   };
 
-  //연령 선택
   const handleAgeChange = (age) => {
     setSelectedAges((preAges) => {
       if (preAges.includes(age)) {
@@ -96,17 +93,17 @@ export default function IndexSurvey() {
     }
   }, [location.state]);
 
-  const [modal, setModal] = useState(false); //react-modal을 활용한 모달창 띄우기
-  const [message, setMessage] = useState(""); //모달창의 2가지 메시지
+  const [modal, setModal] = useState(false); 
+  const [message, setMessage] = useState(""); 
 
   const openModal = (message) => {
-    setModal(!modal); //modal의 상태를 동적으로 변경하기 위해 true 또는 false가 아닌 !moda을 써야 함
+    setModal(!modal);
     setMessage(message);
   };
 
   const closeModal = () => {
     setModal(!modal);
-    setMessage(""); //메시지를 빈 문자열로 초기화
+    setMessage(""); 
   };
 
   const CustomModal = ({ modal, message }) => {

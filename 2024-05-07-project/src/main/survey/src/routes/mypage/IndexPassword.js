@@ -26,7 +26,7 @@ export default function IndexPassword() {
         newPW: newPw
       }, {
         headers: {
-          'Authorization' :`Bearer ${token}` //헤더에 토큰 추가
+          'Authorization' :`Bearer ${token}` 
         }
       })
       .then((response) => {

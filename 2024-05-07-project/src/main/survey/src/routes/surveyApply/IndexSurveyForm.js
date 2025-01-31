@@ -24,9 +24,7 @@ const [cookies] = useCookies(["token"]);
 const token = cookies.token;
 const navigate = useNavigate();
 
-
-//apply정보
-let location = useLocation();
+const location = useLocation();
 const applyClass = location.state.applyClass
 const surveyClass = location.state.surveyClass
 const pwd = location.state.pwd
@@ -56,7 +54,6 @@ const reader = new FileReader();
   }
 }
 
-// option들을 관리할 변수 (현재 편집중인)
 const initialOptions = [
   {option: '', optionImg: ''},
   {option: '', optionImg: ''},
@@ -69,7 +66,6 @@ const [options, setOptions] = useState(initialOptions);
 
 const QUESTION = [];
 
-// question들을 관리할 변수
 const [questions, setQuestions] = useState(QUESTION);
 
 const onChangeTitle = (e) => {
@@ -114,7 +110,7 @@ const onClickDetailQuestion = () => {
 const onClickQuestionPlus = () => {
   const newQuestion = {
     questionTitle: questionTitle,
-    questionOptions: options, //배열 
+    questionOptions: options, 
     questionSelectOption: selectOption, 
     questionEssential: essential, 
     detailQuestion: detailQuestion,
@@ -133,7 +129,6 @@ const resetForm = () => {
   setDetailQuestionStatus(false);
 }
 
-// 추가된 설문지에 대한 함수 정의(수정)
 const onChangeAddedQuestionTitle = (e) => {
   const {value, name} = e.target;
   const questionsTitle = [...questions];
@@ -236,7 +231,7 @@ axios.post('/api/v1/survey/surveyform', {
   detailQuestion : detailQuestions
 },{
   headers:{
-    'Authorization' :`Bearer ${token}` //헤더에 토큰 추가
+    'Authorization' :`Bearer ${token}` 
   }
 })
 .then((response) => {
@@ -252,7 +247,7 @@ const pay = () => {
 {state:{surveyTitle, perMoney, participantNum }},
 {
   headers:{
-    'Authorization' :`Bearer ${token}` //헤더에 토큰 추가
+    'Authorization' :`Bearer ${token}`
   }
 })
 }
@@ -261,8 +256,6 @@ return (
   <div>
     <div className='container_surveyform'>
       <div className='survey_main_form'>
-
-        {/* 설문조사 제목, 설명 박스 */}
         <div className='survey2_title_box'>
           <div style={{
             backgroundColor: '#0F3360',
@@ -300,7 +293,6 @@ return (
               }} placeholder='설문지 설명을 입력하세요.' />
             </div>
           </div>
-        {/* 추가된 질문박스들 */}
         {
           questions.map((question, i) => (
             <div className='question_box_input'>

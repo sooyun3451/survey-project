@@ -32,7 +32,7 @@
 .signup_right {
     margin-top: 50px;
     width: 350px;
-    height: 630px;
+    height: 550px;
     box-sizing: border-box;
     border: 2px solid black;
     border-radius: 10%;
@@ -282,72 +282,4 @@ input[type='radio']:checked {
     width: 250px;
     height: 30px;
     display: block;
-}
-
-.sns-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-right: 15px;
-}
-
-.kakao {
-    display: flex;
-    justify-content: center;
-    width: 250px;
-    height: 30px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    align-items: center;
-    background-color: #FEE500;
-    cursor: pointer;
-
-    :hover {
-        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    &>img {
-        width: 25px;
-        height: 25px;
-        margin-right: 20px;
-        border-radius: 25%;
-    }
-
-    &>span {
-        margin-right: 40px;
-        font-size: 10px;
-        font-weight: 600;
-    }
-
-}
-
-.naver {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    width: 250px;
-    height: 30px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    align-items: center;
-    background-color: rgb(3, 199, 90);
-    cursor: pointer;
-
-    :hover {
-        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    &>img {
-        width: 25px;
-        height: 25px;
-        margin-right: 15px;
-        border-radius: 25%;
-    }
-
-    &>span {
-        margin-right: 40px;
-        font-size: 10px;
-        font-weight: 600;
-    }
 }

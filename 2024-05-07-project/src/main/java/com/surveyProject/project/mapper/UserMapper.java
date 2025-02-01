@@ -1,6 +1,7 @@
 package com.surveyProject.project.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.surveyProject.project.domain.survey.user.Company;
 import com.surveyProject.project.domain.survey.user.User;
@@ -15,7 +16,7 @@ public interface UserMapper {
 	 
 	 User findByUser(String email);
 	 
-	 User findBySnsIdAndJoinPath(String snsId, String joinPath);
+	 User findBySnsIdAndJoinPath(@Param("sns_id") String sns_id, @Param("join_path") String join_path);
 	 
 	 Company findByCompany(String email);
 	 

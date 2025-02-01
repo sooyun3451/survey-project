@@ -198,7 +198,7 @@ export default function IndexSignup() {
                   provider: rank,
                   birth: birth,
                   snsId: snsId,
-                  joinPath: joinPath ? joinPath : "Home"
+                  joinPath: joinPath ? joinPath : "Home",
                 })
                 .then((response) => {
                   console.log(response.data.data);
@@ -216,12 +216,8 @@ export default function IndexSignup() {
           >
             회원가입{" "}
           </button>
-        <div className="sns-box">
-        <div className='kakao' onClick={() => onSnsButtonClickHandler("kakao")}><img src={kakao} alt="kakao"/><span>카카오로 회원가입</span></div>
-        <div className='naver' onClick={() => onSnsButtonClickHandler("naver")}><img src={naver} alt="naver"/><span>네이버로 회원가입</span></div>
+        </div>
       </div>
-        </div>
-        </div>
       <img className="logo_image-bottom" src={logo2} alt="logoImg"></img>
     </div>
   );

@@ -32,6 +32,7 @@ export default function Login() {
         password: pwd,
       })
       if(response.data) {
+        console.log(response.data.data);
         signInSuccessresponse(response.data.data);
         }
     } catch (e) {
@@ -58,7 +59,7 @@ export default function Login() {
       });
       navigate("/");
     } else {
-      alert("실패");
+      alert("이메일 또는 비밀번호가 틀렸습니다.");
     }
   }
 

@@ -51,9 +51,8 @@ public class UserServiceImpl implements UserService{
             return false;
         }
         
-        joinPath = signupReqDto.getJoinPath();
         if (joinPath == null || joinPath.isEmpty()) {
-            joinPath = "Home"; 
+            return false; 
         }
         
         try {
@@ -169,7 +168,8 @@ public class UserServiceImpl implements UserService{
         			.expirationTime(exprTime)
         			.build();
         	
-        	return loginResDto;        	
+        	return loginResDto;     
+        	
         } catch(Exception e) {
         	e.printStackTrace();
         	return null;

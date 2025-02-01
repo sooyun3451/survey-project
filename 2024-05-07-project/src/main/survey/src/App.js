@@ -5,6 +5,7 @@ import NavigationBar from "./components/NavigationBar";
 import IndexMain from "./routes/main/IndexMain";
 import IndexMypage from "./routes/mypage/IndexMypage";
 import Login from "./routes/auth/Login";
+import ReadySignUp from "./routes/auth/ReadySignUp";
 import IndexSurveyInfo from "./routes/surveyinfo/IndexSurveyInfo";
 import IndexWebInfo from "./routes/webinfo/IndexWebInfo";
 import IndexNotice from "./routes/notice/IndexNotice";
@@ -43,7 +44,7 @@ function App() {
 
   const navigate = useNavigate();
 
-  const EXCLUDED_PATHS = ["/auth/signup/person", "/auth/signup/company", "/auth/login", "/auth/login/com"];
+  const EXCLUDED_PATHS = ["/auth/ready/signup", "/auth/signup/person", "/auth/signup/company", "/auth/login", "/auth/login/com"];
 
   useEffect(() => {
     const currentPath = window.location.pathname;
@@ -62,6 +63,7 @@ function App() {
           <Route path="/mypage" element={<IndexMypage />} />
           <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/login/com" element={<LoginCompany />} />
+          <Route path="/auth/ready/signup" element={<ReadySignUp />}></Route>
           <Route path="/auth/signup/person" element={<IndexSignup />} />
           <Route path="/auth/signup/company" element={<IndexSignupCompany />} />
           <Route path="/surveyinfo" element={<IndexSurveyInfo />} />

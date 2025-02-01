@@ -51,6 +51,7 @@ public class UserController {
     //개인 로그인
     @PostMapping(LOGIN)
     public ResponseEntity<?> login(@RequestBody LoginReqDto loginReqDto) {
+    	System.out.println("request" + loginReqDto);
         LoginResDto loginResDto = null;
 
         try {

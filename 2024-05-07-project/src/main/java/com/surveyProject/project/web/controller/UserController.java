@@ -22,7 +22,7 @@ public class UserController {
 
     @PostMapping(SIGNUP)
     public ResponseEntity<?> signup(@RequestBody SignupReqDto signupReqDto){
-    	System.out.println(signupReqDto);
+    	System.out.println(signupReqDto.getJoinPath());
         boolean status = false;
         try {
             status = userService.signup(signupReqDto);

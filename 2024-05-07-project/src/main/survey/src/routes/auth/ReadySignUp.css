@@ -1,26 +1,39 @@
-.signup-btn {
-  margin-top: 15px;
-  margin-left: 30px;
-  margin-bottom: 10px;
-  align-items: center;
-  text-align: center;
-  border: 1px solid black;
-  color: white;
-  background-color: #0F3360;
-  opacity: 0.8;
-  border-radius: 5px;
-  font-weight: 600;
-  width: 250px;
-  height: 30px;
-  display: block;
-}
-
-.sns-box {
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-right: 15px;
+  height: 100vh;
+}
+
+.signup-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  width: 600px;
+  padding: 32px;
+}
+
+.ready-signup-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  background-color: #0F3360;
+  border-radius: 5px;
+  font-weight: 600;
+  width: 250px;
+  height: 30px;
+  margin-bottom: 10px;
+
+  &>span {
+    font-size: 10px;
+    color: white;
+  }
 }
 
 .kakao {

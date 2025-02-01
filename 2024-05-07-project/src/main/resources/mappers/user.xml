@@ -6,9 +6,9 @@
 		parameterType="com.surveyProject.project.domain.survey.user.User"
 		useGeneratedKeys="true" keyProperty="user_code">
 		INSERT INTO user_mst (user_name, user_email, user_password, provider,
-		role, create_date, update_date)
+		role, create_date, update_date, join_path, sns_id)
 		VALUES (#{user_name}, #{user_email}, #{user_password}, #{provider},
-		#{role}, #{create_date}, #{update_date});
+		#{role}, #{create_date}, #{update_date}, #{join_path}, #{sns_id});
 	</insert>
 	<insert id="saveDtl" parameterType="com.surveyProject.project.domain.survey.user.User">
 		INSERT INTO user_dtl (user_code, user_birth, user_gender)

@@ -6,6 +6,7 @@ import IndexMain from "./routes/main/IndexMain";
 import IndexMypage from "./routes/mypage/IndexMypage";
 import Login from "./routes/auth/Login";
 import ReadySignUp from "./routes/auth/ReadySignUp";
+import SnsSuccess from "./routes/auth/SnsSuccess";
 import IndexSurveyInfo from "./routes/surveyinfo/IndexSurveyInfo";
 import IndexWebInfo from "./routes/webinfo/IndexWebInfo";
 import IndexNotice from "./routes/notice/IndexNotice";
@@ -63,7 +64,8 @@ function App() {
           <Route path="/mypage" element={<IndexMypage />} />
           <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/login/com" element={<LoginCompany />} />
-          <Route path="/auth/ready/signup" element={<ReadySignUp />}></Route>
+          <Route path="/auth/ready/signup" element={<ReadySignUp />} />
+          <Route path="/sns-success" element={<SnsSuccess />} />
           <Route path="/auth/signup/person" element={<IndexSignup />} />
           <Route path="/auth/signup/company" element={<IndexSignupCompany />} />
           <Route path="/surveyinfo" element={<IndexSurveyInfo />} />

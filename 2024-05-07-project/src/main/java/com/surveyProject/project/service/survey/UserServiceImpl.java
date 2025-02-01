@@ -52,8 +52,9 @@ public class UserServiceImpl implements UserService{
         }
         
         if (joinPath == null || joinPath.isEmpty()) {
-            return false; 
-        }
+        	    return false;
+        	}
+
         
         try {
         	String encodedPassword = bCryptPasswordEncoder.encode(password);

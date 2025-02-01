@@ -16,10 +16,6 @@ export default function IndexSignup() {
   const snsId = params.get("snsId");
   const joinPath = params.get("joinPath");
 
-  const onSnsButtonClickHandler = (sns) => {
-    window.location.href = `${"http://localhost:8000/api/v1/auth/sns-sign-in/"}${sns}`;
-  };
-
   //초기값 세팅
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
@@ -198,7 +194,7 @@ export default function IndexSignup() {
                   provider: rank,
                   birth: birth,
                   snsId: snsId,
-                  joinPath: joinPath ? joinPath : "Home",
+                  joinPath: joinPath ? joinPath : "HOME"
                 })
                 .then((response) => {
                   console.log(response.data.data);

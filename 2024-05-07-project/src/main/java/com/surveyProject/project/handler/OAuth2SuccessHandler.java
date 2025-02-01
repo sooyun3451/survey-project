@@ -43,10 +43,8 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 
         // 회원가입 O
         if (existed) {
-            User optionalUser = userMapper.findByUser(customOAuth2User.getName());
-            User user = null;
+            User user = userMapper.findByUser(customOAuth2User.getName());
             String accessToken = null;
-            user = optionalUser;
             if (user != null) {
                 accessToken = jwtProvider.generateJwtToken(user.getUser_email());
             }

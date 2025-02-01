@@ -11,8 +11,8 @@ import useAuthStore from "../../store/auth.store";
 // 날짜 : 2024.05.08
 // 작성자 : 심규창
 export default function Login() {
-  let [email, setEmail] = useState("");
-  let [pwd, setPwd] = useState("");
+  const [email, setEmail] = useState("");
+  const [pwd, setPwd] = useState("");
   const navigate = useNavigate();
   const [, setCookies] = useCookies(["token"]);
   const {login} = useAuthStore();
@@ -23,6 +23,10 @@ export default function Login() {
 
   const onPwd = (e) => {
     setPwd(e.target.value);
+  };
+
+  const onSnsButtonClickHandler = (sns) => {
+    window.location.href = `${"http://localhost:8000/api/v1/auth/sns-sign-in/"}${sns}`;
   };
 
   const submit = async () => {
@@ -63,24 +67,6 @@ export default function Login() {
     }
   }
 
-  const params = useParams();
-
-  const handleOAuthGoogleLogin = async (google) => {
-    window.location.href = `http://localhost:8000/oauth2/authorization/google`;
-  };
-  const handleOAuthNaverLogin = async (naver) => {
-    window.location.href = `http://localhost:8000/oauth2/authorization/naver`;
-  };
-  const handleOAuthfacebookLogin = async (kakao) => {
-    window.location.href = `http://localhost:8000/oauth2/authorization/facebook`;
-  };
-
-
-  const apiBaseUrl = "http:localhost:8000";
-  const oauth2RedirectUrl = "http://localhost:3000/oauth2/redirect";
-  const googleOauthUrl =
-    apiBaseUrl + "/oauth2/authorize/google?redirect_uri=" + oauth2RedirectUrl;
-
   return (
     <div className="signin_container">
       <div className="signin_left">
@@ -118,8 +104,8 @@ export default function Login() {
             로그인{" "}
           </button>
           <div className="sns-box">
-          <div className='kakao'><img src={kakao} alt="kakao"/><span>카카오로 회원가입</span></div>
-          <div className='naver'><img src={naver} alt="naver"/><span>네이버로 회원가입</span></div>
+          <div className='kakao' onClick={() => onSnsButtonClickHandler("kakao")}><img src={kakao} alt="kakao"/><span>카카오로 로그인</span></div>
+          <div className='naver' onClick={() => onSnsButtonClickHandler("naver")}><img src={naver} alt="naver"/><span>네이버로 로그인</span></div>
           </div>
           <a className="signin-tag">
             <Link to="/auth/signup/person">회원가입 할래?</Link>

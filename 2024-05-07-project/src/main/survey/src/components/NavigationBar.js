@@ -166,7 +166,7 @@ export default function NavigationBar() {
               </a>
             ) : (
               <a
-                href="/auth/signup/person"
+                href="/auth/ready/signup"
                 style={{
                   color: "white",
                   fontWeight: "700",

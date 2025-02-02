@@ -19,6 +19,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
@@ -49,7 +51,9 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
                 accessToken = jwtProvider.generateJwtToken(user.getUser_email());
             }
             int expirTime = jwtProvider.getExpiration();
-            response.sendRedirect("http://localhost:3000/sns-success?accessToken=" + accessToken + "&expiration= + " + expirTime);
+            String userName = URLEncoder.encode(user.getUser_name(), StandardCharsets.UTF_8.toString()); 
+            int userCode = user.getUser_code();
+            response.sendRedirect("http://localhost:3000/sns-success?accessToken=" + accessToken + "&expiration= + " + expirTime + "&userName= + " + userName + "&userCode= + " + userCode);
         }
         // 회원가입 X
         else {

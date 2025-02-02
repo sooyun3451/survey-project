@@ -10,27 +10,34 @@ export default function SnsSuccess() {
   const [queryParam] = useSearchParams();
   const accessToken = queryParam.get("accessToken");
   const expiration = queryParam.get("expiration");
+  const userName = queryParam.get("userName");
+  const userCode = queryParam.get("userCode");
 
   const navigator = useNavigate();
 
   const {login} = useAuthStore();
 
-
   useEffect(() => {
     if (accessToken && expiration) {
       const expires = new Date(Date.now() + Number(expiration));
       console.log(expires);
+
       setCookies("token", accessToken, {
         path: "/",
         expires,
       });
+
+      if(userName && userCode) {
+        localStorage.setItem("userName", userName);
+        localStorage.setItem("userCode", userCode);
+      }
 
       login({
         token: accessToken,
       });
 
       navigator("/");
-    } else navigator("/auth/signup/preson");
+    } else navigator("/auth/signup/person");
   }, [accessToken, expiration, navigator, setCookies, login]);
 
   return <></>;

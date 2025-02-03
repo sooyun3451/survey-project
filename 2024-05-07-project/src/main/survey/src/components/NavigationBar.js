@@ -48,7 +48,6 @@ export default function NavigationBar() {
   const handleLogout = () => {
     setCookies("token", "", { path: "/", expires: new Date(0) }); 
     logout();
-    console.log("로그아웃 성공");
     localStorage.removeItem("userCode");
     localStorage.removeItem("userName");
     navigate("/");

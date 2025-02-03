@@ -10,7 +10,7 @@ export default function ReadySignUp() {
   };
 
   return (
-    <div className="container">
+    <div className="signUpContainer">
       <div className="signup-box">
         <Link to="/auth/signup/person">
         <div className="ready-signup-btn"><span>설문할래로 회원가입</span></div>

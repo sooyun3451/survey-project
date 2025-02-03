@@ -20,10 +20,7 @@ export default function IndexSignup() {
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
   const [name, setName] = useState("");
-  const [nickname, setNickname] = useState("");
   const [gender, setGender] = useState(0);
-  const [role, setRole] = useState("");
-  const [rank, setRank] = useState("");
   const [birth, setBirth] = useState("");
 
   // 오류메세지 상태 저장
@@ -70,18 +67,13 @@ export default function IndexSignup() {
     setName(e.target.value);
   };
 
-  const onNickname = (e) => {
-    setNickname(e.target.value);
-  };
+
 
   const onGender = (e) => {
     setGender(e.target.value);
   };
 
-  const onRole = (e) => {
-    setRole(e.target.value);
-  };
-  useEffect(() => {}, [birth]);
+
 
   const onBirth = (e) => {
     setBirth(e.target.value);
@@ -89,7 +81,6 @@ export default function IndexSignup() {
     console.log(birth);
   };
 
-  const [visible, setVisible] = useState(false);
 
   return (
     <div className="signup_container">
@@ -178,6 +169,7 @@ export default function IndexSignup() {
               id="input-date"
               className="birth-date-input"
               onChange={onBirth}
+              max={new Date().toISOString().split('T')[0]}
               type="date"
             />
           </div>
@@ -191,7 +183,6 @@ export default function IndexSignup() {
                   userName: name,
                   password: pwd,
                   gender: gender,
-                  provider: rank,
                   birth: birth,
                   snsId: snsId,
                   joinPath: joinPath ? joinPath : "HOME"

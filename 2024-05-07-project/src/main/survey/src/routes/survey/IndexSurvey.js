@@ -350,6 +350,7 @@ const categories = [
   "미용",
   "기타",
 ];
+
 const CategoryFilter = ({ selectedCategories, onCategoryChange }) => {
   return (
     <>
@@ -414,6 +415,7 @@ const GenderFilter = ({ selectedGender, handleGenderChange }) => {
     </>
   );
 };
+
 const Ages = ["10", "20", "30", "40", "50", "60"];
 const AgeFilter = ({ handleAgeChange, selectedAges }) => {
   return (

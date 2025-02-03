@@ -19,13 +19,13 @@ import IndexSurveyApplyPerson from "./routes/surveyApply/IndexSurveyApplyPerson"
 import IndexSurveyApplyPeople from "./routes/surveyApply/IndexSurveyApplyPeople";
 import IndexAdmin from "./routes/Admin/IndexAdmin";
 import SurveyGroup from "./routes/survey/group/SurveyGroup";
-import IndexSurveyStart from "./routes/survey/IndexSurveyStart";
-import IndexSurveyPage from "./routes/survey/IndexSurveyPage";
-import SurveyGroupStart from "./routes/survey/SurveyGroupStart";
+import IndexSurveyStart from "./routes/survey/surveyStart/IndexSurveyStart";
+import IndexSurveyPage from "./routes/survey/surveyPage/IndexSurveyPage";
+import SurveyGroupStart from "./routes/survey/surveyStart/SurveyGroupStart";
 import IndexSurveyComplete from "./routes/survey/complete/IndexSurveyComplete";
 import SurveyGroupComplete from "./routes/survey/complete/SurveyGroupComplete";
 import IndexMypageModify from "./routes/mypage/IndexMypageModify";
-import IndexSurveyForm from "./routes/surveyApply/IndexSurveyForm";
+import IndexSurveyForm from "./routes/surveyApply/surveyForm/IndexSurveyForm";
 import IndexAdmin2 from "./routes/Admin/IndexAdmin2";
 import IndexSignupCompany from "./routes/auth/IndexSignupCompany";
 import LoginCompany from "./routes/auth/LoginCompany";

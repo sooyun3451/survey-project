@@ -14,8 +14,8 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
   const navigate = useNavigate();
-  const [, setCookies] = useCookies(["token"]);
-  const {login} = useAuthStore();
+  const [, setCookies, removeCookies] = useCookies(["token"]);
+  const {login, logout} = useAuthStore();
 
   const onEmail = (e) => {
     setEmail(e.target.value);
@@ -65,6 +65,20 @@ export default function Login() {
     } else {
       alert("이메일 또는 비밀번호가 틀렸습니다.");
     }
+  }
+
+  const setAutoLogout = (expirationTime) => {
+    setTimeout(() => {
+      logoutUser();
+    }, expirationTime);
+  }
+
+  const logoutUser = () => {
+    removeCookies("token", {path: "/"});
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userCode");
+    logout();
+    navigate("/auth/login")
   }
 
   return (

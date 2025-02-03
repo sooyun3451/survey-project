@@ -28,6 +28,7 @@ export default function IndexSurveyPage2() {
         setSurveyDetailTitle(response.data.data.survey_title);
         setSurveyDetailContent(response.data.data.survey_content);
         setSurveyDetailQuestion(response.data.data.questionResDtoList);
+        console.log(response.data.data.questionResDtoList);
       })
       .catch((error) => {
         console.log(error);
@@ -113,6 +114,7 @@ export default function IndexSurveyPage2() {
               ) : question.select_type === 1 ? (
                 <div className="survey_form_options">
                   {question.optionResDtoList.map((option, index2) => (
+                      option.option_content !== "" && (
                     <div>
                       <div>
                         <input type="radio" name="question_option" readOnly />
@@ -127,11 +129,13 @@ export default function IndexSurveyPage2() {
                         />
                       </div>
                     </div>
+                    )
                   ))}
                 </div>
               ) : question.select_type === 2 ? (
                 <div className="survey_form_options">
                   {question.optionResDtoList.map((option, index2) => (
+                    option.option_content !== "" && (
                     <div>
                       <div>
                         <input type="checkbox" name="question_checkbox" />
@@ -155,6 +159,7 @@ export default function IndexSurveyPage2() {
                         />
                       </form>
                     </div>
+                    )
                   ))}
                 </div>
               ) : null}

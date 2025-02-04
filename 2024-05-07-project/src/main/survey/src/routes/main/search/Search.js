@@ -9,7 +9,6 @@ import { useCookies } from "react-cookie";
 export default function Search() {
   let [text, setText] = useState("");
   const onChange = (e) => {
-    console.log(e.target.value);
     setText(e.target.value);
   };
   const [cookies] = useCookies(["token"]);
@@ -62,7 +61,6 @@ export default function Search() {
 
   const changeCategory = (e) => {
     setCategoryCode(e.target.value);
-    console.log(categoryCode);
   };
 
   const changeCategoryCount = () => {

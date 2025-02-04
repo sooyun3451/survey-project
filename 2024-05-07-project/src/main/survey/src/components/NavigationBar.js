@@ -23,7 +23,11 @@ export default function NavigationBar() {
     if (sessionId === null) {
       alert("로그인을 해주세요.");
       window.location.replace("http://localhost:3000/auth/login");
-    } else if (window.localStorage.getItem("companyName")) {
+    }
+    else if (!token) {
+      alert("로그인 후 이용가능합니다.")
+    }
+    else if (window.localStorage.getItem("companyName")) {
       alert("개인계정으로 로그인해주세요");
       navigate("/apply");
     } else {
@@ -36,7 +40,11 @@ export default function NavigationBar() {
     if (sessionId === null) {
       alert("로그인을 해주세요.");
       window.location.replace("http://localhost:3000/auth/login");
-    } else if (window.localStorage.getItem("userName")) {
+    }
+    else if (!token) {
+      alert("로그인 후 이용가능합니다.")
+    } 
+    else if (window.localStorage.getItem("userName")) {
       alert("회사계정으로 로그인해주세요");
       navigate("/apply");
     } else {

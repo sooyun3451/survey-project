@@ -61,6 +61,7 @@ export default function Login() {
       login({
         token: token,
       });
+      setAutoLogout(expirationTime);
       navigate("/");
     } else {
       alert("이메일 또는 비밀번호가 틀렸습니다.");

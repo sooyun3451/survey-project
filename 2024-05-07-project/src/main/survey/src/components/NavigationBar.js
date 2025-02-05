@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../images/Logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import "./NavigationBar.css";
@@ -14,10 +14,10 @@ export default function NavigationBar() {
 
   const navigate = useNavigate();
 
+  const userNsme = localStorage.getItem("userName");
+  const companyName = localStorage.getItem("companyName")
   const [dropdownStatus, setDropdownStatus] = useState(false);
-  const userName = localStorage.getItem("userName");
-  const companyName = localStorage.getItem("companyName");
-  const sessionId = userName || companyName;
+  const [sessionId, setSessionId] = useState(userNsme || companyName);
 
   const onPerson = () => {
     if (sessionId === null) {
@@ -53,13 +53,23 @@ export default function NavigationBar() {
     localStorage.setItem("applyClass", "단체");
   };
 
+  const handleLogIn = () => {
+    setSessionId(userNsme || companyName);
+  }
+
   const handleLogout = () => {
     setCookies("token", "", { path: "/", expires: new Date(0) }); 
     logout();
     localStorage.removeItem("userCode");
     localStorage.removeItem("userName");
+
+    setSessionId(null);
     navigate("/");
 }
+
+useEffect(() => {
+  handleLogIn();
+})
 
   return (
     <div

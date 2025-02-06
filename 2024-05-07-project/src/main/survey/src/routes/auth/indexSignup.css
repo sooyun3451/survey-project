@@ -20,12 +20,9 @@
     z-index: -1;
 }
 
-
 .logo_title {
     width: 50%;
     margin-left: 650px;
-
-
 }
 
 /* 회원가입 오른쪽 화면 */
@@ -37,8 +34,6 @@
     border: 2px solid black;
     border-radius: 10%;
     background-color: white;
-
-
 }
 
 /* 회원가입 오른쪽 화면 상단 */
@@ -69,25 +64,6 @@
     font-size: 20px;
     font-weight: 700;
     opacity: 0.5;
-
-
-}
-
-.signup-linkbox {
-    display: flex;
-    justify-content: center;
-    margin-top: -50px;
-    position: relative;
-    z-index: 999;
-}
-
-.signup-link-button {
-    border: none;
-    width: 60px;
-    height: 30px;
-    color: black;
-    background-color: white;
-
 }
 
 .signup-link-button:hover {
@@ -102,7 +78,6 @@
 
 /* 회원가입 오른쪽 화면 하단 */
 .social-box {
-    margin-top: 40px;
     margin-left: 25px;
 }
 
@@ -172,12 +147,7 @@ input[type='radio']:checked {
 
 }
 
-/* .add-file{
-  
-  } */
-
 .file_input {
-
     margin-top: 2px;
     margin-left: -10px;
     padding-left: 10px;
@@ -214,7 +184,6 @@ input[type='radio']:checked {
 
 /* sns 로고 */
 .login_image {
-
     vertical-align: middle;
     width: 40px;
     height: 40px;
@@ -244,7 +213,6 @@ input[type='radio']:checked {
 
 .birth-date-label {
     margin-right: 40px;
-
 }
 
 .birth-date-input {
@@ -257,8 +225,6 @@ input[type='radio']:checked {
 .logo_image-bottom {
     margin-top: 300px;
     margin-left: 600px;
-
-
     width: 669px;
     height: 392px;
     opacity: 0.7;

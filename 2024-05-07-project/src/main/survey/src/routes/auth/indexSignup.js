@@ -92,14 +92,6 @@ export default function IndexSignup() {
           <img src={logo2}></img>
           <span>회원가입 할래?</span>
         </div>
-        <div className="signup-linkbox">
-          <Link to={"/auth/signup/person"}>
-            <button className="signup-link-button">개인</button>
-          </Link>
-          <Link to={"/auth/signup/company"}>
-            <button className="signup-link-button">단체</button>
-          </Link>
-        </div>
         <div className="social-box">
           <input
             className="signup-input"

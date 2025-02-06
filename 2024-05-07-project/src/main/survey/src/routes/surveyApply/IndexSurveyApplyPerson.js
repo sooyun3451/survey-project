@@ -353,7 +353,7 @@ export default function IndexSurveyApplyPerson() {
                     type="date"
                     name="endPeriod"
                     id="endPeriod"
-                    max={new Date().toISOString().split('T')[0]}
+                    min={new Date().toISOString().split('T')[0]}
                     onChange={onStop}
                     value={periodStop}
                   ></input>

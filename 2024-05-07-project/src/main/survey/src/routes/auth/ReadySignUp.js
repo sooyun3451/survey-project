@@ -12,22 +12,25 @@ export default function ReadySignUp() {
   return (
     <div className="signUpContainer">
       <div className="signup-box">
+        <Link to="/auth/signup/company">
+        <div className="ready-signup-btn"><span>기업으로 회원가입</span></div>
+        </Link>
         <Link to="/auth/signup/person">
-        <div className="ready-signup-btn"><span>설문할래로 회원가입</span></div>
+        <div className="ready-signup-btn"><span>개인으로 회원가입</span></div>
         </Link>
           <div
             className="kakao"
             onClick={() => onSnsButtonClickHandler("kakao")}
           >
             <img src={kakao} alt="kakao" />
-            <span>카카오로 회원가입</span>
+            <span>카카오로 회원가입(개인)</span>
           </div>
           <div
             className="naver"
             onClick={() => onSnsButtonClickHandler("naver")}
           >
             <img src={naver} alt="naver" />
-            <span>네이버로 회원가입</span>
+            <span>네이버로 회원가입(개인)</span>
           </div>
       </div>
     </div>

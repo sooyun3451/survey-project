@@ -13,6 +13,7 @@ import useAuthStore from "../../store/auth.store";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
+  const [activeButton, setActiveButton] = useState("personal");
   const navigate = useNavigate();
   const [, setCookies, removeCookies] = useCookies(["token"]);
   const {login, logout} = useAuthStore();
@@ -95,10 +96,16 @@ export default function Login() {
         </div>
         <div className="signup-linkbox">
           <Link to={"/auth/login"}>
-            <button className="signup-link-button">개인</button>
+            <button className="login-link-button" style={{
+              backgroundColor: activeButton === "personal" ? "#0F3360" : "white",
+              color: activeButton === "personal" ? "white" : "black"
+            }} onClick={() => setActiveButton("personal")}>개인</button>
           </Link>
           <Link to={"/auth/login/com"}>
-            <button className="signup-link-button">단체</button>
+            <button className="login-link-button" style={{
+              backgroundColor: activeButton === "group" ? "#0F3360" : "white",
+              color: activeButton === "group" ? "white" : "black"
+            }} onClick={() => setActiveButton("group")}>단체</button>
           </Link>
         </div>
         <div className="social-box">
@@ -118,14 +125,15 @@ export default function Login() {
           <button className="login-btn" type="submit" onClick={submit}>
             로그인{" "}
           </button>
+          <Link to="/auth/ready/signup">
+            <div className="signup-button">
+              <span>회원가입</span>
+            </div>
+          </Link>
           <div className="sns-box">
           <div className='kakao' onClick={() => onSnsButtonClickHandler("kakao")}><img src={kakao} alt="kakao"/><span>카카오로 로그인</span></div>
           <div className='naver' onClick={() => onSnsButtonClickHandler("naver")}><img src={naver} alt="naver"/><span>네이버로 로그인</span></div>
           </div>
-          <a className="signin-tag">
-            <Link to="/auth/signup/person">회원가입 할래?</Link>
-          </a>
-
         </div>
       </div>
       <img className="logo_image-bottom" src={logo2} alt="logoImg"></img>

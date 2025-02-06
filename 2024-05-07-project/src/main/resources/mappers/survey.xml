@@ -26,8 +26,6 @@
         LEFT OUTER JOIN survey_information si ON (ai.survey_code = si.survey_code)
     WHERE
         1=1
-        <!-- 카테고리 필터 -->
-        <!-- collectioin값은 params라는 맵의 키값과 동일해야 함 -->
         <if test="categoryCode != null and categoryCode.size() > 0">
             and ai.category_code IN
             <foreach item="category" collection="categoryCode" open="(" separator="," close=")">

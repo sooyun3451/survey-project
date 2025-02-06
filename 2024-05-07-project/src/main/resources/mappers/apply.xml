@@ -25,12 +25,4 @@
         VALUES(0, #{application_class}, #{survey_class}, #{survey_password}, #{company_code}, #{category_code},  #{survey_target_gender}, #{survey_target_age}, #{survey_per_money},
         #{participant_max}, #{survey_period_start}, #{survey_period_stop});
     </insert>
-
-
-
-
-
-
-
-
 </mapper>

@@ -24,10 +24,8 @@
 
 
 .logo_title{
-   width: 50%;
+    width: 50%;
     margin-left: 650px;
-
-
 }
 
 /* 로그인 오른쪽 화면 */
@@ -41,13 +39,32 @@
     border-radius: 10%;
     
 }
+
 /* 로그인 오른쪽 화면 상단 */
 .signin_box{
     text-align: center;
     margin-bottom: 40x;
     position: relative;
- 
 }
+
+.signup-linkbox {
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-link-button {
+    width: 50px;
+    height: 30px;
+    border: 1px solid rgb(85, 84, 84);
+    border-radius: 3px;
+    background-color: white;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
 .signin_box>img{
     text-align: center;
     align-items: center;
@@ -62,8 +79,6 @@
 }
 
 .signin_box>span{
-    /* margin-top: 80px;
-    margin-right: 50px; */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -72,68 +87,6 @@
     font-weight: 700;
     opacity: 0.5;
     
-    
-}
-
-.social-box{
-    margin-top: 30px;
-    margin-left: 25px;
-}
-
-/* 로그인 오른쪽 화면 하단 */
-.google-box{
-    
-    /* box-sizing: border-box;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 30px;
-    
-    border-radius: 10px;
-   
-    background-color: #f2f2f2;
-    font-weight: bolder;
-    text-align: center;
-   
-    width: 250px;
-    height: 30px; */
-    margin-left: 70px;
-    margin-top: 40px;
-    margin-right: 25px;
-    display: inline-block;
-    
-}
-
-.naver-box{
-    /* box-sizing: border-box;
-    margin-bottom: 20px;
-    margin-left: 30px;
-    
-    border-radius: 10px;
-    background-color: #03c75a;
-    
-    font-weight: bolder;
-    text-align: center;
-
-    width: 250px;
-    height: 30px; */
-    margin-right: 25px;
-    display: inline-block;
-
-}
-
-.facebook-box{
-    margin-right: 25px;
-    display: inline-block;
-    /* margin-bottom: 20px;
-    margin-left: 30px;
-
-    
-    border-radius: 10px;
-    background-color: #0866FF;
-    font-weight: bolder;
-    text-align: center;
-    width: 250px;
-    height: 30px; */
     
 }
 
@@ -173,6 +126,27 @@
     width: 250px;
     height: 30px;
     display: block;
+}
+
+
+/* 회원가입 태그 */
+.signup-button{
+    margin: 0px 0px 10px 30px;
+    align-items: center;
+    text-align: center;
+    border: 1px solid black;
+    color: white;
+    background-color: #0F3360;
+    opacity: 0.8;
+    border-radius: 5px;
+    font-weight: 600;
+    width: 250px;
+    height: 30px;
+    display: block;
+
+    & > span {
+        font-size: 11px;
+    }
 }
 
 .sns-box {
@@ -241,14 +215,6 @@
         font-size: 10px;
         font-weight: 600;
     }
-}
-
-/* 회원가입 태그 */
-.signin-tag{
-    display: block;
-    margin-top: 20px;
-    text-align: center;
-    font-weight: 700;
 }
 
 .logo_image-bottom{

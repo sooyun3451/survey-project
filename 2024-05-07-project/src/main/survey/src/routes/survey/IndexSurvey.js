@@ -26,17 +26,17 @@ export default function IndexSurvey() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(!token) {
+    if (!token) {
       alert("로그인 후 사용 가능합니다.");
       navigate("/auth/signup/person");
     }
-  })
+  });
 
   useEffect(() => {
     axios
       .get("/survey/personal/list/main/surveyList", {
         headers: {
-          Authorization: `Bearer ${token}`, 
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((response) => {
@@ -93,8 +93,8 @@ export default function IndexSurvey() {
     }
   }, [location.state]);
 
-  const [modal, setModal] = useState(false); 
-  const [message, setMessage] = useState(""); 
+  const [modal, setModal] = useState(false);
+  const [message, setMessage] = useState("");
 
   const openModal = (message) => {
     setModal(!modal);
@@ -103,7 +103,7 @@ export default function IndexSurvey() {
 
   const closeModal = () => {
     setModal(!modal);
-    setMessage(""); 
+    setMessage("");
   };
 
   const CustomModal = ({ modal, message }) => {

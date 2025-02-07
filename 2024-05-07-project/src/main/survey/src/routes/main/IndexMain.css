@@ -1,5 +1,5 @@
 /* 이미지 들어간 검색창 박스 */
-.search-img-box{
+.search-img-box {
     width: 300x;
     height: 392px;
     display: flex;
@@ -12,12 +12,12 @@
 }
 
 /* 메인페이지 배경 로고 */
-.img-url-container{
+.img-url-container {
     display: flex;
     justify-content: center;
 }
 
-.search-img-url{
+.search-img-url {
     margin-top: -150px;
     display: flex;
     justify-content: center;
@@ -30,7 +30,7 @@
 }
 
 /* 검색창 */
-.search-search-container{   
+.search-search-container {
     display: flex;
     justify-content: center;
     box-sizing: border-box;
@@ -41,21 +41,21 @@
     border: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    
+
 }
 
 /* search-total-search 스타일 수정 */
 .search-total-search {
     padding-left: 10px;
-    width: 200px; 
+    width: 200px;
     border-right: 2px solid black;
     height: 40px;
     font-size: 18px;
     border: none;
     background-color: #f0f0f0;
-    appearance: none; 
+    appearance: none;
     -webkit-appearance: none;
-    -moz-appearance: none; 
+    -moz-appearance: none;
     background-position: right 10px center;
     background-repeat: no-repeat;
     background-size: 15px;
@@ -64,7 +64,7 @@
 }
 
 .search-total-search:focus {
-    outline: none; 
+    outline: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -73,17 +73,17 @@
 }
 
 /* 통합검색 인풋 박스 */
-.search-search-input{
+.search-search-input {
     display: flex;
     justify-content: center;
     margin-top: 5px;
     width: 360px;
     height: 35px;
     padding: 5px;
-    border: none;    
+    border: none;
 }
 
-.search-search-btn{
+.search-search-btn {
     display: flex;
     border: none;
     width: 40px;
@@ -91,23 +91,23 @@
     border-top-right-radius: 5px;
 }
 
-.search-search-input:focus{
+.search-search-input:focus {
     outline: none;
 }
 
 /* 검색 폼태그 */
-.search-search-form{
+.search-search-form {
     display: flex;
 }
 
 
 /* 돋보기 모양 */
-.search-search-img{
+.search-search-img {
     /* margin-left: 50px; */
     display: flex;
-    width: auto;    
+    width: auto;
     height: 40px;
-    background:radial-gradient(#1e66c1, #1e66c1);
+    background: radial-gradient(#1e66c1, #1e66c1);
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     cursor: pointer;
@@ -119,19 +119,19 @@
     margin-top: 10px;
 }
 
-.search-popular-search-word{
+.search-popular-search-word {
     font-weight: 500;
-    font-size: 15px;  
+    font-size: 15px;
 }
 
 /* 인기순위 및 공지사항 큰틀 */
-.indexMain-container{
+.indexMain-container {
     display: flex;
     justify-content: space-evenly;
 }
 
 /* 인기 순위 */
-.popular-rank{
+.popular-rank {
     margin-top: 40px;
     border: 1px solid black;
     border-radius: 10px;
@@ -140,7 +140,7 @@
 }
 
 /* 이번 주 인기 설문 */
-.top-text{
+.top-text {
     background-color: #77a1d7;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -150,16 +150,16 @@
     font-weight: 700;
     color: white;
     text-align: center;
-    
+
 }
 
 /* 이번 주 인기 설문 세부사항 */
-.bottom-text{
+.bottom-text {
     margin-top: 15px;
     margin-left: 15px;
 }
 
-.bottom-text-content{
+.bottom-text-content {
     display: block;
     margin-bottom: 15px;
     font-weight: 400;
@@ -169,7 +169,7 @@
 }
 
 /* 공지사항 */
-.main-notice{
+.main-notice {
     margin-top: 40px;
     /* margin-left: 200px; */
     display: inline-block;
@@ -179,7 +179,7 @@
     height: 200px;
 }
 
-.main-notice-top{
+.main-notice-top {
     background-color: #77a1d7;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -191,19 +191,19 @@
     text-align: center;
 }
 
-.main-notice-bottom{
+.main-notice-bottom {
     margin-top: 15px;
     margin-left: 15px;
 
 }
 
-.search-input-btn{
+.search-input-btn {
     margin-left: 50px;
     color: black;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     cursor: pointer;
-    
+
     background-image: url('../../images/search.png');
     background-size: cover;
     background-repeat: no-repeat;

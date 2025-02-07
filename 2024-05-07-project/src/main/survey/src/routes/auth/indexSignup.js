@@ -67,20 +67,15 @@ export default function IndexSignup() {
     setName(e.target.value);
   };
 
-
-
   const onGender = (e) => {
     setGender(e.target.value);
   };
-
-
 
   const onBirth = (e) => {
     setBirth(e.target.value);
 
     console.log(birth);
   };
-
 
   return (
     <div className="signup_container">
@@ -161,7 +156,7 @@ export default function IndexSignup() {
               id="input-date"
               className="birth-date-input"
               onChange={onBirth}
-              max={new Date().toISOString().split('T')[0]}
+              max={new Date().toISOString().split("T")[0]}
               type="date"
             />
           </div>
@@ -177,7 +172,7 @@ export default function IndexSignup() {
                   gender: gender,
                   birth: birth,
                   snsId: snsId,
-                  joinPath: joinPath ? joinPath : "HOME"
+                  joinPath: joinPath ? joinPath : "HOME",
                 })
                 .then((response) => {
                   console.log(response.data.data);

@@ -1,38 +1,38 @@
- /* 2024.5.16 최소윤 */
- /* 공지사항 등록 */
- 
+/* 2024.5.16 최소윤 */
+/* 공지사항 등록 */
+
 .container {
     display: flex;
     flex-direction: column;
 }
-  
+
 /* 그라데이션 바 */
 .surveyBox-create {
     display: flex;
-    margin-top : 35px;
-  
-    width : 874px;
-    height : 60px;
-  
-    border-bottom-right-radius : 20px;
-    background : linear-gradient(to right,#0F3360,#1F69C6);
-    color : white;
+    margin-top: 35px;
+
+    width: 874px;
+    height: 60px;
+
+    border-bottom-right-radius: 20px;
+    background: linear-gradient(to right, #0F3360, #1F69C6);
+    color: white;
 }
-  
+
 /* 그라데이션 바 안 박스들 */
 .infoBox-create {
     padding-top: 15px;
-  
+
     text-align: center;
     justify-content: center;
-  
+
     width: 200px;
     height: 100%;
-    
+
     border-right: 1px solid white;
 }
 
-.infoBox-create > span {
+.infoBox-create>span {
     font-size: 20px;
     font-weight: 700;
 }
@@ -41,19 +41,19 @@
     width: 40px;
     height: 40px;
 }
-  
+
 /* 마지막 박스 오른쪽 흰줄 안보이게*/
 .surveyBox-create :last-child {
     border-right: none;
 }
-  
+
 main {
     display: flex;
     margin-top: 30px;
 }
 
 /* main-box */
-.notice-create-main{
+.notice-create-main {
     margin-left: 80px;
 
     width: 800px;
@@ -62,8 +62,8 @@ main {
     border: 1px solid black;
     border-radius: 8px;
 }
-  
- /* main-box-top */
+
+/* main-box-top */
 .notice-create-main-top {
     display: flex;
     justify-content: space-between;
@@ -77,25 +77,25 @@ main {
 .notice-create-main-top-left {
     margin: 25px 47px;
 }
-  
-  
+
+
 .notice-create-main-top-right {
     margin: 25px 47px;
     display: flex;
     align-items: center;
 }
-  
-.notice-create-main-top-right > img {
+
+.notice-create-main-top-right>img {
     width: 74px;
     height: 43px;
 }
-  
-.notice-create-text {
-  margin-left : 5px;
 
-  color: white;
-  font-size : 18px;
-  font-weight : 700;
+.notice-create-text {
+    margin-left: 5px;
+
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
 }
 
 /* 공지사항 하늘색 큰박스 */
@@ -149,26 +149,27 @@ main {
 }
 
 .notice-create-content>textarea {
-   border: none;
-   outline: none;
+    border: none;
+    outline: none;
 
-   width: 680px;
-   height: 380px;
-   resize: none;
+    width: 680px;
+    height: 380px;
+    resize: none;
 
-   font-size: 16px;
+    font-size: 16px;
 }
 
 /* 작성취소,완료 버튼 */
 
 .notice-create-buttons {
-   float: right;
+    float: right;
 
-   margin-top: 20px;
-   margin-right: 32px;
+    margin-top: 20px;
+    margin-right: 32px;
 }
 
-.create-cancle-button, .create-complete-button {
+.create-cancle-button,
+.create-complete-button {
     margin-left: 10px;
 
     width: 100px;
@@ -182,4 +183,3 @@ main {
 
     cursor: pointer;
 }
-

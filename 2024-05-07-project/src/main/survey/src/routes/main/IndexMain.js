@@ -10,12 +10,11 @@ export default function IndexMain() {
   const [topSurvey, setTopSurvey] = useState([]);
   const [data, setData] = useState([]);
 
-
   const getNotice = () => {
     axios
       .get("/api/v1/survey/main/notice", {
         headers: {
-          Authorization: `Bearer ${token}`, 
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((response) => {
@@ -26,7 +25,7 @@ export default function IndexMain() {
     axios
       .get("/survey/personal/list/main/survey", {
         headers: {
-          Authorization: `Bearer ${token}`, 
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((response) => {
@@ -48,13 +47,16 @@ export default function IndexMain() {
             <div className="top-text">이번 주 인기 설문</div>
             <div className="bottom-text">
               {topSurvey.map((item, i) => (
-                <a href={`/survey/personal/list/start/${item.surveyCode}`} className="bottom-text-content" key={i} 
-                onClick={(e) => {
-                  if(!token) {
-                    e.preventDefault();
-                    alert("로그인 후 이용가능합니다.");
-                  }
-                }}
+                <a
+                  href={`/survey/personal/list/start/${item.surveyCode}`}
+                  className="bottom-text-content"
+                  key={i}
+                  onClick={(e) => {
+                    if (!token) {
+                      e.preventDefault();
+                      alert("로그인 후 이용가능합니다.");
+                    }
+                  }}
                 >
                   - {item.surveyTitle}
                 </a>
@@ -70,9 +72,9 @@ export default function IndexMain() {
                   className="bottom-text-content"
                   key={i}
                   onClick={(e) => {
-                    if(!token) {
+                    if (!token) {
                       e.preventDefault();
-                      alert("로그인 후 이용가능합니다.")
+                      alert("로그인 후 이용가능합니다.");
                     }
                   }}
                 >

@@ -1,13 +1,13 @@
-    import React, { useState, useEffect } from "react";
-    import axios from "axios";
-    import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-    import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
-    import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
-    import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-    import { useNavigate, useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
+import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate, useParams } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
-    export default function IndexSurveyStart() {
+export default function IndexSurveyStart() {
     const { surveyCode } = useParams();
     const [surveyTitle, setSurveyTitle] = useState("");
     const [surveyPeriodStart, setSurveyPeridoStart] = useState("");
@@ -242,4 +242,4 @@ import { useCookies } from "react-cookie";
         </div>
         </>
     );
-    }
+}

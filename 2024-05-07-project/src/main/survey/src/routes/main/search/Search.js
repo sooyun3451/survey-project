@@ -41,7 +41,7 @@ export default function Search() {
       .get("/api/v1/survey/category", {
         params: { page: 1, categoryCount: 4 },
         headers: {
-          Authorization: `Bearer ${token}`, 
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((response) => {
@@ -72,7 +72,7 @@ export default function Search() {
         },
         {
           headers: {
-            Authorization: `Bearer ${token}`, 
+            Authorization: `Bearer ${token}`,
           },
         }
       )

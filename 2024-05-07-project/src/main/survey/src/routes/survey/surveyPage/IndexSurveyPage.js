@@ -113,54 +113,60 @@ export default function IndexSurveyPage2() {
                 </div>
               ) : question.select_type === 1 ? (
                 <div className="survey_form_options">
-                  {question.optionResDtoList.map((option, index2) => (
+                  {question.optionResDtoList.map(
+                    (option, index2) =>
                       option.option_content !== "" && (
-                    <div>
-                      <div>
-                        <input type="radio" name="question_option" readOnly />
-                        <input
-                          value={option.option_content}
-                          name={[i, index2]}
-                          style={{
-                            marginLeft: "10px",
-                          }}
-                          placeholder={"옵션" + (index2 + 1)}
-                          readOnly
-                        />
-                      </div>
-                    </div>
-                    )
-                  ))}
+                        <div>
+                          <div>
+                            <input
+                              type="radio"
+                              name="question_option"
+                              readOnly
+                            />
+                            <input
+                              value={option.option_content}
+                              name={[i, index2]}
+                              style={{
+                                marginLeft: "10px",
+                              }}
+                              placeholder={"옵션" + (index2 + 1)}
+                              readOnly
+                            />
+                          </div>
+                        </div>
+                      )
+                  )}
                 </div>
               ) : question.select_type === 2 ? (
                 <div className="survey_form_options">
-                  {question.optionResDtoList.map((option, index2) => (
-                    option.option_content !== "" && (
-                    <div>
-                      <div>
-                        <input type="checkbox" name="question_checkbox" />
-                        <input
-                          value={option.option_content}
-                          name={[i, index2]}
-                          style={{
-                            marginLeft: "10px",
-                          }}
-                          placeholder={"옵션" + (index2 + 1)}
-                          readOnly
-                        />
-                      </div>
-                      <form>
-                        <input
-                          type="file"
-                          name={[i, index2]}
-                          accept=".jpg, .png, .gif, .jpeg"
-                          className="inputImage"
-                          readOnly
-                        />
-                      </form>
-                    </div>
-                    )
-                  ))}
+                  {question.optionResDtoList.map(
+                    (option, index2) =>
+                      option.option_content !== "" && (
+                        <div>
+                          <div>
+                            <input type="checkbox" name="question_checkbox" />
+                            <input
+                              value={option.option_content}
+                              name={[i, index2]}
+                              style={{
+                                marginLeft: "10px",
+                              }}
+                              placeholder={"옵션" + (index2 + 1)}
+                              readOnly
+                            />
+                          </div>
+                          <form>
+                            <input
+                              type="file"
+                              name={[i, index2]}
+                              accept=".jpg, .png, .gif, .jpeg"
+                              className="inputImage"
+                              readOnly
+                            />
+                          </form>
+                        </div>
+                      )
+                  )}
                 </div>
               ) : null}
               {question.detail_question &&

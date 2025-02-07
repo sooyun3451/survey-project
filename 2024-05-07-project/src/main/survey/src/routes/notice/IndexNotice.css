@@ -3,18 +3,18 @@
   flex-direction: column;
 }
 
-  /* 그라데이션 바 */
+/* 그라데이션 바 */
 .surveyBox-notice {
   display: flex;
-  margin-top : 35px;
-  width : 874px;
-  height : 60px;
-  border-bottom-right-radius : 20px;
-  background : linear-gradient(to right,#0F3360,#1F69C6);
-  color : white;
+  margin-top: 35px;
+  width: 874px;
+  height: 60px;
+  border-bottom-right-radius: 20px;
+  background: linear-gradient(to right, #0F3360, #1F69C6);
+  color: white;
 }
-  
-  /* 그라데이션 바 안 박스들 */
+
+/* 그라데이션 바 안 박스들 */
 .infoBox-notice {
   padding-top: 15px;
   text-align: center;
@@ -24,21 +24,21 @@
   border-right: 1px solid white;
 }
 
-.infoBox-notice > span {
+.infoBox-notice>span {
   font-size: 20px;
   font-weight: 700;
 }
-  
+
 /* 마지막 박스 오른쪽 흰줄 안보이게*/
 .surveyBox-notice :last-child {
-  border-right: none;  
+  border-right: none;
 }
 
 .houseImg-notice {
   width: 40px;
   height: 40px;
 }
-  
+
 main {
   display: flex;
   margin-top: 30px;
@@ -66,7 +66,7 @@ main {
   display: flex;
   flex-direction: column;
 }
-  
+
 /* main-box-top */
 .notice-main-top {
   display: flex;
@@ -82,24 +82,24 @@ main {
   font-size: 18px;
   font-weight: 700;
 }
-  
-  
+
+
 .notice-main-top-right {
   margin: 25px 47px;
   display: flex;
   align-items: center;
 }
-  
-.notice-main-top-right > img {
+
+.notice-main-top-right>img {
   width: 74px;
   height: 43px;
 }
-  
+
 .notice-main-text {
-  margin-left : 5px;
+  margin-left: 5px;
   color: white;
-  font-size : 18px;
-  font-weight : 700;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .notice-main-under {

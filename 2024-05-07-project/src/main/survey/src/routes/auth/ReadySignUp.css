@@ -48,20 +48,20 @@
   cursor: pointer;
 
   :hover {
-      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
   }
 
   &>img {
-      width: 25px;
-      height: 25px;
-      margin-right: 20px;
-      border-radius: 25%;
+    width: 25px;
+    height: 25px;
+    margin-right: 20px;
+    border-radius: 25%;
   }
 
   &>span {
-      margin-right: 40px;
-      font-size: 10px;
-      font-weight: 600;
+    margin-right: 40px;
+    font-size: 10px;
+    font-weight: 600;
   }
 
 }
@@ -79,19 +79,19 @@
   cursor: pointer;
 
   :hover {
-      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
   }
 
   &>img {
-      width: 25px;
-      height: 25px;
-      margin-right: 15px;
-      border-radius: 25%;
+    width: 25px;
+    height: 25px;
+    margin-right: 15px;
+    border-radius: 25%;
   }
 
   &>span {
-      margin-right: 40px;
-      font-size: 10px;
-      font-weight: 600;
+    margin-right: 40px;
+    font-size: 10px;
+    font-weight: 600;
   }
 }

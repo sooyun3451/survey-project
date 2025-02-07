@@ -45,7 +45,9 @@
   height: 245px;
 }
 
-.apply_table, .apply_tr, .apply_td  {
+.apply_table,
+.apply_tr,
+.apply_td {
   border: 1px solid #0F3360;
   border-collapse: collapse;
 }

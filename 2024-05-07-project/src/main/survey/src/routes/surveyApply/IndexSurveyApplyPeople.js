@@ -351,7 +351,7 @@ export default function IndexSurveyApplyPeople() {
                   <input
                     type="date"
                     name="startPeriod"
-                    min={new Date().toISOString().split('T')[0]}
+                    min={new Date().toISOString().split("T")[0]}
                     onClick={onStart}
                   ></input>
                 </label>
@@ -360,7 +360,12 @@ export default function IndexSurveyApplyPeople() {
                 <label>
                   {" "}
                   마감 :
-                  <input type="date" name="endPeriod" onClick={onStop} min={new Date().toISOString().split('T')[0]}></input>
+                  <input
+                    type="date"
+                    name="endPeriod"
+                    onClick={onStop}
+                    min={new Date().toISOString().split("T")[0]}
+                  ></input>
                 </label>
               </td>
             </tr>

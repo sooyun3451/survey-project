@@ -17,222 +17,222 @@ const [surveyPeriodStart, setSurveyPeridoStart] = useState("");
 const [surveyPeriodStop, setSurveyPeriodStop] = useState("");
 
 const buttonStyle = {
-    width: "120px",
-    height: "40px",
-    fontSize: "20px",
-    color: "#fefefe",
-    border: "none",
-    borderRadius: "15px",
-    backgroundColor: "#1581FF",
-    boxShadow: isPressed ? "none" : "2px 2px 4px rgba(0, 0, 0, 0.5)",
-    transform: isPressed ? "translateY(0.2px)" : "translateY(-1.5px)",
-    transition: "all 0.1s ease-in-out",
+width: "120px",
+height: "40px",
+fontSize: "20px",
+color: "#fefefe",
+border: "none",
+borderRadius: "15px",
+backgroundColor: "#1581FF",
+boxShadow: isPressed ? "none" : "2px 2px 4px rgba(0, 0, 0, 0.5)",
+transform: isPressed ? "translateY(0.2px)" : "translateY(-1.5px)",
+transition: "all 0.1s ease-in-out",
 };
 
 useEffect(() => {
-    console.log(surveyCode);
-    axios
+console.log(surveyCode);
+axios
     .get(`/survey/group/list/start/${surveyCode}`, {
-        headers: {
+    headers: {
         Authorization: `Bearer ${token}`,
-        },
+    },
     })
     .then((response) => {
-        const surveyStart = response.data.data;
-        console.log(response.data.data);
-        setSurveyTitle(surveyStart.surveyTitle);
-        setSurveyPeridoStart(surveyStart.surveyPeriodStart);
-        setSurveyPeriodStop(surveyStart.surveyPeriodStop);
+    const surveyStart = response.data.data;
+    console.log(response.data.data);
+    setSurveyTitle(surveyStart.surveyTitle);
+    setSurveyPeridoStart(surveyStart.surveyPeriodStart);
+    setSurveyPeriodStop(surveyStart.surveyPeriodStop);
     })
     .catch((error) => {
-        console.log(error);
+    console.log(error);
     });
 });
 
 const navigate = useNavigate();
 
 const handleSurveyPageClick = () => {
-    navigate(`/survey/survey/page/${surveyCode}`, { state: { surveyCode } });
+navigate(`/survey/survey/page/${surveyCode}`, { state: { surveyCode } });
 };
 
 return (
-    <div
+<div
     className="container"
     style={{
-        width: "900px",
-        height: "750px",
-        padding: "70px",
-        margin: "auto",
-        marginTop: "50px",
-        marginBottom: "50px",
-        border: "4px solid #9f9f9f",
-        borderRadius: "12px",
-        display: "flex",
-        justifyContent: "center",
+    width: "900px",
+    height: "750px",
+    padding: "70px",
+    margin: "auto",
+    marginTop: "50px",
+    marginBottom: "50px",
+    border: "4px solid #9f9f9f",
+    borderRadius: "12px",
+    display: "flex",
+    justifyContent: "center",
     }}
-    >
+>
     {/* 설문조사 안내 + 테이블 */}
     <div style={{ marginBottom: "40px" }}>
-        <div className="survey-info-title" style={{ marginBottom: "30px" }}>
+    <div className="survey-info-title" style={{ marginBottom: "30px" }}>
         <h1>설문조사 안내</h1>
-        </div>
-        <table
+    </div>
+    <table
         className="survey-info-table"
         style={{ width: "700px", fontSize: "20px" }}
+    >
+        <tr>
+        <th
+            style={{
+            width: "200px",
+            height: "35px",
+            backgroundColor: "#e8e8e8",
+            borderTop: "3px solid #79797c",
+            borderBottom: "2px dotted #79797c",
+            }}
         >
-        <tr>
-            <th
-            style={{
-                width: "200px",
-                height: "35px",
-                backgroundColor: "#e8e8e8",
-                borderTop: "3px solid #79797c",
-                borderBottom: "2px dotted #79797c",
-            }}
-            >
             조사명
-            </th>
-            <td
+        </th>
+        <td
             style={{
-                display: "flex",
-                justifyContent: "center",
-                height: "35px",
-                borderTop: "3px solid #79797c",
-                borderBottom: "2px dotted #79797c",
+            display: "flex",
+            justifyContent: "center",
+            height: "35px",
+            borderTop: "3px solid #79797c",
+            borderBottom: "2px dotted #79797c",
             }}
-            >
+        >
             {surveyTitle}
-            </td>
+        </td>
         </tr>
         <tr>
-            <th
+        <th
             style={{
-                height: "35px",
-                backgroundColor: "#e8e8e8",
-                borderBottom: "2px dotted #79797c",
+            height: "35px",
+            backgroundColor: "#e8e8e8",
+            borderBottom: "2px dotted #79797c",
             }}
-            >
+        >
             조사기간
-            </th>
-            <td
+        </th>
+        <td
             style={{
-                display: "flex",
-                justifyContent: "center",
-                height: "35px",
-                borderBottom: "2px solid #79797c",
+            display: "flex",
+            justifyContent: "center",
+            height: "35px",
+            borderBottom: "2px solid #79797c",
             }}
-            >
+        >
             {surveyPeriodStart} ~ {surveyPeriodStop}
-            </td>
+        </td>
         </tr>
-        </table>
+    </table>
     </div>
     {/* 설문조사 안내 + 테이블 */}
 
     {/* 조사 참여 가이드 */}
     <div
-        className="survey-participate-guide"
-        style={{
+    className="survey-participate-guide"
+    style={{
         display: "flex",
         justifyContent: "center",
         flexDirection: "column",
-        }}
+    }}
     >
-        <h2>조사 참여 가이드</h2>
-        <br></br>
-        <ol style={{ paddingLeft: "16px" }}>
+    <h2>조사 참여 가이드</h2>
+    <br></br>
+    <ol style={{ paddingLeft: "16px" }}>
         <li>설문조사 도중 뒤로가기 버튼을 사용하실 수 없습니다.</li>
 
         <br></br>
 
         {/* zIndex는 정수 값을 가지며, 값이 클수록 해당 요소는 다른 요소
-                위에 표시됨, 즉 zIndex값이 큰 요소가 zIndex값이 작은 요소를 덮음 */}
+            위에 표시됨, 즉 zIndex값이 큰 요소가 zIndex값이 작은 요소를 덮음 */}
         <div style={{ display: "flex", flexDirection: "row" }}>
-            <div>
+        <div>
             <FontAwesomeIcon
-                icon={faArrowLeftLong}
-                width={130}
-                style={{
+            icon={faArrowLeftLong}
+            width={130}
+            style={{
                 fontSize: "50px",
                 transform: "scale(1.4, 1.2)",
                 position: "relative",
                 zIndex: 1,
-                }}
+            }}
             />
             <FontAwesomeIcon
-                icon={faCircleXmark}
-                style={{
+            icon={faCircleXmark}
+            style={{
                 fontSize: "50px",
                 transform: "scale(0.7, 0.7)",
                 color: "#ff0000",
                 position: "relative",
                 zIndex: 2,
                 left: -82,
-                }}
+            }}
             />
-            </div>
+        </div>
 
-            <div>
+        <div>
             <FontAwesomeIcon
-                icon={faChevronLeft}
-                width={64}
-                style={{
+            icon={faChevronLeft}
+            width={64}
+            style={{
                 fontSize: "50px",
                 transform: "scale(1.2, 1.2)",
                 position: "absolute",
                 zIndex: 1,
-                }}
+            }}
             />
             <FontAwesomeIcon
-                icon={faCircleXmark}
-                style={{
+            icon={faCircleXmark}
+            style={{
                 fontSize: "50px",
                 transform: "scale(0.7, 0.7)",
                 color: "#ff0000",
                 position: "relative",
                 zIndex: 2,
-                }}
+            }}
             />
-            </div>
+        </div>
         </div>
 
         <br></br>
 
         <li>
-            설문조사를 통해 습득한 모든 정보는 외부 발설 및 유포시 법적 불이익을
-            받을 수 있습니다.
+        설문조사를 통해 습득한 모든 정보는 외부 발설 및 유포시 법적 불이익을
+        받을 수 있습니다.
         </li>
 
         <br></br>
 
         <li>
-            설문조사 응답이 불성실하다고 판단될 경우 조사가 즉시 종료될 수
-            있으며, 여러번 반복될 경우 강제 탈퇴 <br></br> 또는 적립금 미지급
-            등의 불이익이 있을 수 있습니다.{" "}
+        설문조사 응답이 불성실하다고 판단될 경우 조사가 즉시 종료될 수
+        있으며, 여러번 반복될 경우 강제 탈퇴 <br></br> 또는 적립금 미지급
+        등의 불이익이 있을 수 있습니다.{" "}
         </li>
-        </ol>
-        {/* 조사 참여 가이드 */}
+    </ol>
+    {/* 조사 참여 가이드 */}
 
-        {/* 버튼 */}
-        <div
+    {/* 버튼 */}
+    <div
         onClick={handleSurveyPageClick}
         style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "43px",
+        display: "flex",
+        justifyContent: "center",
+        marginTop: "43px",
         }}
-        >
+    >
         <input
-            type="button"
-            value={"조사참여"}
-            style={buttonStyle}
-            onMouseDown={() => setIsPressed(true)}
-            onMouseUp={() => setIsPressed(false)}
-            onMouseLeave={() => setIsPressed(false)}
+        type="button"
+        value={"조사참여"}
+        style={buttonStyle}
+        onMouseDown={() => setIsPressed(true)}
+        onMouseUp={() => setIsPressed(false)}
+        onMouseLeave={() => setIsPressed(false)}
         />
-        </div>
-        {/* 버튼 */}
     </div>
+    {/* 버튼 */}
     </div>
+</div>
 );
 }

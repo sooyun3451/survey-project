@@ -1,14 +1,14 @@
 .surveyBox_apply {
   display: flex;
-  margin-top : 35px;
-  width : 874px;
-  height : 60px;
-  border-bottom-right-radius : 20px;
-  background : linear-gradient(to right,#0F3360,#1F69C6);
-  color : white;
+  margin-top: 35px;
+  width: 874px;
+  height: 60px;
+  border-bottom-right-radius: 20px;
+  background: linear-gradient(to right, #0F3360, #1F69C6);
+  color: white;
 }
 
-.infoBox_apply{
+.infoBox_apply {
   width: 200px;
   height: 100%;
   text-align: center;
@@ -23,7 +23,7 @@
   border-right: none;
 }
 
-.houseImg_apply{
+.houseImg_apply {
   width: 40px;
   height: 40px;
 }
@@ -36,7 +36,7 @@
   margin-top: 40px;
 }
 
-.Boxes > div {
+.Boxes>div {
   display: flex;
   cursor: pointer;
 }

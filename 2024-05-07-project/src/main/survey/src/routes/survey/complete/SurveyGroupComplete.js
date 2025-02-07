@@ -8,106 +8,106 @@ export default function SurveyGroupComplete() {
 const [isPressed, setIsPressed] = useState(false);
 
 const buttonStyle = {
-    width: "120px",
-    height: "40px",
-    fontSize: "20px",
-    color: "#fefefe",
-    border: "none",
-    borderRadius: "15px",
-    backgroundColor: "#1581FF",
-    boxShadow: isPressed ? "none" : "2px 2px 4px rgba(0, 0, 0, 0.5)",
-    transform: isPressed ? "translateY(0.2px)" : "translateY(-1.5px)",
-    transition: "all 0.1s ease-in-out",
+width: "120px",
+height: "40px",
+fontSize: "20px",
+color: "#fefefe",
+border: "none",
+borderRadius: "15px",
+backgroundColor: "#1581FF",
+boxShadow: isPressed ? "none" : "2px 2px 4px rgba(0, 0, 0, 0.5)",
+transform: isPressed ? "translateY(0.2px)" : "translateY(-1.5px)",
+transition: "all 0.1s ease-in-out",
 };
 
 return (
-    <>
+<>
     {
+    <div
+        style={{
+        display: "flex",
+        justifyContent: "center",
+        margin: "auto",
+        marginTop: "150px",
+        }}
+    >
         <div
         style={{
-            display: "flex",
-            justifyContent: "center",
-            margin: "auto",
-            marginTop: "150px",
-        }}
-        >
-        <div
-            style={{
             display: "flex",
             justifyContent: "space-around",
             alignContent: "center",
             flexDirection: "column",
             width: "400px",
             height: "400px",
-            }}
+        }}
         >
-            <FontAwesomeIcon
+        <FontAwesomeIcon
             icon={faCircleCheck}
             style={{
-                color: "#198fc2",
-                fontSize: "60px",
-                transform: "scale(2, 2)",
+            color: "#198fc2",
+            fontSize: "60px",
+            transform: "scale(2, 2)",
             }}
-            />
+        />
 
-            <div
+        <div
             style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
             }}
-            >
+        >
             <span>소중한 의견 감사드립니다.</span>
             <span>설문조사가 정상적으로 종료되었습니다.</span>
-            </div>
+        </div>
 
-            <table className="survey-info-table">
+        <table className="survey-info-table">
             <tr>
-                <th
+            <th
                 style={{
-                    alignContent: "center",
-                    height: "35px",
-                    backgroundColor: "#e8e8e8",
-                    borderTop: "3px solid #79797c",
-                    borderBottom: "2px dotted #79797c",
+                alignContent: "center",
+                height: "35px",
+                backgroundColor: "#e8e8e8",
+                borderTop: "3px solid #79797c",
+                borderBottom: "2px dotted #79797c",
                 }}
-                >
+            >
                 조사명
-                </th>
-                <th
+            </th>
+            <th
                 style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignContent: "center",
-                    height: "35px",
-                    borderTop: "3px solid #79797c",
-                    borderBottom: "2px solid #79797c",
+                display: "flex",
+                justifyContent: "center",
+                alignContent: "center",
+                height: "35px",
+                borderTop: "3px solid #79797c",
+                borderBottom: "2px solid #79797c",
                 }}
-                >
+            >
                 {}
-                </th>
+            </th>
             </tr>
-            </table>
+        </table>
 
-            <div style={{ display: "flex", justifyContent: "center" }}>
+        <div style={{ display: "flex", justifyContent: "center" }}>
             {
-                <Link to={"/"}>
+            <Link to={"/"}>
                 <input
-                    type="button"
-                    value={"확인"}
-                    style={buttonStyle}
-                    onMouseDown={() => setIsPressed(true)}
-                    onMouseUp={() => setIsPressed(false)}
-                    onMouseLeave={() => setIsPressed(false)}
-                    onClick
+                type="button"
+                value={"확인"}
+                style={buttonStyle}
+                onMouseDown={() => setIsPressed(true)}
+                onMouseUp={() => setIsPressed(false)}
+                onMouseLeave={() => setIsPressed(false)}
+                onClick
                 />
-                </Link>
+            </Link>
             }
-            </div>
         </div>
         </div>
+    </div>
     }
-    </>
+</>
 );
 }

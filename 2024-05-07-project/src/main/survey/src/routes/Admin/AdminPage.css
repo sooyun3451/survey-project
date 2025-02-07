@@ -7,7 +7,7 @@
   overflow-y: scroll;
 }
 
-.listBoxAdmin > h1 {
+.listBoxAdmin>h1 {
   background-color: #0F3360;
   color: white;
 }
@@ -20,12 +20,12 @@
   margin-left: 5px;
 }
 
-#AdminList > ol {
+#AdminList>ol {
   display: flex;
   justify-content: space-between;
   font-size: 20px;
 }
 
-.AdminBoxes > button{
+.AdminBoxes>button {
   margin: 5px;
 }

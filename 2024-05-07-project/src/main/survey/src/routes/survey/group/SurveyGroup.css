@@ -7,33 +7,33 @@
 
 .surveyBox-surveygroup {
     display: flex;
-    margin-top : 35px;
-    
-    width : 874px;
-    height : 60px;
-    
-    border-bottom-right-radius : 20px;
-    background : linear-gradient(to right,#0F3360,#1F69C6);
-    color : white;
+    margin-top: 35px;
+
+    width: 874px;
+    height: 60px;
+
+    border-bottom-right-radius: 20px;
+    background: linear-gradient(to right, #0F3360, #1F69C6);
+    color: white;
 }
-    
-.infoBox-surveygroup { 
+
+.infoBox-surveygroup {
     padding-top: 15px;
-    
+
     text-align: center;
     justify-content: center;
-    
+
     width: 200px;
     height: 100%;
-    
+
     border-right: 1px solid white;
 }
-    
-.infoBox-surveygroup > span {
+
+.infoBox-surveygroup>span {
     font-size: 20px;
     font-weight: 700;
 }
-    
+
 .houseImg-surveygroup {
     width: 40px;
     height: 40px;

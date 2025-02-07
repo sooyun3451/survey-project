@@ -15,7 +15,7 @@ export default function SnsSuccess() {
 
   const navigator = useNavigate();
 
-  const {login} = useAuthStore();
+  const { login } = useAuthStore();
 
   useEffect(() => {
     if (accessToken && expiration) {
@@ -27,7 +27,7 @@ export default function SnsSuccess() {
         expires,
       });
 
-      if(userName && userCode) {
+      if (userName && userCode) {
         localStorage.setItem("userName", userName);
         localStorage.setItem("userCode", userCode);
       }

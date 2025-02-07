@@ -1,14 +1,14 @@
 .surveyBox_mypage {
   display: flex;
-  margin-top : 35px;
-  width : 874px;
-  height : 60px;
-  border-bottom-right-radius : 20px;
-  background : linear-gradient(to right,#0F3360,#1F69C6);
-  color : white;
+  margin-top: 35px;
+  width: 874px;
+  height: 60px;
+  border-bottom-right-radius: 20px;
+  background: linear-gradient(to right, #0F3360, #1F69C6);
+  color: white;
 }
 
-.infoBox_mypage{
+.infoBox_mypage {
   width: 200px;
   height: 100%;
   text-align: center;
@@ -23,12 +23,12 @@
   border-right: none;
 }
 
-.houseImg_mypage{
+.houseImg_mypage {
   width: 40px;
   height: 40px;
 }
 
-.infoFrame{
+.infoFrame {
   display: flex;
   margin: auto;
   margin-top: 40px;
@@ -47,14 +47,14 @@
   border-radius: 5px;
 }
 
-.profileImg > img {
+.profileImg>img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 4px;
 }
 
-.profileImg > label > img {
+.profileImg>label>img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -80,7 +80,7 @@
   background-color: #FCFDFF;
 }
 
-.changePoints > img {
+.changePoints>img {
   padding-right: 10px;
   border-right: 1px solid #0F3360;
 }
@@ -118,7 +118,7 @@
 }
 
 
-.list > ul > li {
+.list>ul>li {
   padding-bottom: 20px;
 }
 
@@ -139,7 +139,8 @@
   width: 450px;
 }
 
-.userInfo > form > h4, .userInfo > h4 {
+.userInfo>form>h4,
+.userInfo>h4 {
   margin: 20px;
   font-size: 14px;
   font-weight: 500;
@@ -151,7 +152,8 @@
   margin: 20px;
 }
 
-.buttons > div > button, .blueButton {
+.buttons>div>button,
+.blueButton {
   width: 104px;
   height: 27px;
   border-radius: 5px;
@@ -216,13 +218,13 @@
   text-align: center;
 }
 
-.pointBoxes > p {
+.pointBoxes>p {
   margin-bottom: 10px;
   font-size: 16px;
   font-weight: 500;
 }
 
-.pointRange > div{
+.pointRange>div {
   margin: 5px 0px;
   width: 40px;
   height: 20px;
@@ -260,7 +262,7 @@
   margin-right: 20px;
 }
 
-.deleteButtons > div {
+.deleteButtons>div {
   margin: 0px 10px;
   background: #EA7C7C;
   width: 60px;
@@ -272,10 +274,10 @@
   cursor: pointer;
 }
 
-.deleteButtons > div:hover {
+.deleteButtons>div:hover {
   background-color: #CB4E4E;
 }
 
-.applyList_mypage > *{
+.applyList_mypage>* {
   font-size: 13px;
 }

@@ -20,7 +20,7 @@
 
 .survey-title-box {
     margin: auto;
-    margin-top: 30px; 
+    margin-top: 30px;
     width: 600px;
     height: 140px;
     border: 1px solid #0F3360;
@@ -41,7 +41,7 @@
     margin: 0px 20px;
 }
 
-.info-box-surveypage > span {
+.info-box-surveypage>span {
     font-size: 14px;
 }
 
@@ -62,7 +62,7 @@
     border-bottom: 1px solid #0F3360;
 }
 
-.question-title-box > div > span {
+.question-title-box>div>span {
     font-size: 16px;
 }
 
@@ -76,14 +76,14 @@
     margin: 10px 20px;
 }
 
-.survey-page-options > div {
+.survey-page-options>div {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.survey-page-options > div > img {
+.survey-page-options>div>img {
     width: 20px;
 }
 
@@ -101,7 +101,7 @@
     border-top: 1px solid #0F3360;
 }
 
-.question-bottom-box > div > span {
+.question-bottom-box>div>span {
     font-size: 16px;
 }
 
@@ -110,7 +110,8 @@
     margin-right: 50px;
 }
 
-.surveypage-cancel-button, .surveypage-submit-button {
+.surveypage-cancel-button,
+.surveypage-submit-button {
     width: 80px;
     height: 30px;
     border-radius: 8px;

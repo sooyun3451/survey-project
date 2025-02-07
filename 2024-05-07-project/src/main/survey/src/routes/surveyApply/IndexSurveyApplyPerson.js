@@ -54,11 +54,9 @@ export default function IndexSurveyApplyPerson() {
     setPeriodStop(e.target.value);
   };
 
-  useEffect(() => {
-  },[periodStart]);
+  useEffect(() => {}, [periodStart]);
 
-  useEffect(() => {
-  },[periodStop]);
+  useEffect(() => {}, [periodStop]);
 
   const onCategory = (e) => {
     let newCategory = e.target.value;
@@ -115,7 +113,7 @@ export default function IndexSurveyApplyPerson() {
       },
       {
         headers: {
-          Authorization: `Bearer ${token}`, 
+          Authorization: `Bearer ${token}`,
         },
       }
     );
@@ -312,7 +310,7 @@ export default function IndexSurveyApplyPerson() {
                     border: "none",
                     outline: "none",
                   }}
-                  onChange={onMoney}     
+                  onChange={onMoney}
                 />
               </td>
             </tr>
@@ -340,7 +338,7 @@ export default function IndexSurveyApplyPerson() {
                     type="date"
                     name="startPeriod"
                     id="startPeriod"
-                    min={new Date().toISOString().split('T')[0]}
+                    min={new Date().toISOString().split("T")[0]}
                     onChange={onStart}
                     value={periodStart}
                   ></input>
@@ -353,7 +351,7 @@ export default function IndexSurveyApplyPerson() {
                     type="date"
                     name="endPeriod"
                     id="endPeriod"
-                    min={new Date().toISOString().split('T')[0]}
+                    min={new Date().toISOString().split("T")[0]}
                     onChange={onStop}
                     value={periodStop}
                   ></input>

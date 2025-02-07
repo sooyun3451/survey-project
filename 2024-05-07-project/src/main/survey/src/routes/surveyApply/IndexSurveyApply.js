@@ -10,7 +10,7 @@ export default function IndexSurveyApply() {
   const sessionId =
     window.localStorage.getItem("userName") ||
     window.localStorage.getItem("companyName");
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const onPerson = () => {
     if (sessionId === null) {
@@ -63,25 +63,25 @@ export default function IndexSurveyApply() {
         </div>
       </div>
       <div className="Boxes_apply">
-            <div className="applyPerson">
-              <img
-                src={person}
-                htmlfor="person"
-                alt="person"
-                className="classImages"
-                onClick={onPerson}
-              />
-              <h6>설문 신청 개인</h6>
-            </div>
-            <div className="applyPeople">
-              <img
-                src={people}
-                alt="people"
-                className="classImages"
-                onClick={onPeople}
-              />
-              <h6>설문 신청 단체</h6>
-            </div>
+        <div className="applyPerson">
+          <img
+            src={person}
+            htmlfor="person"
+            alt="person"
+            className="classImages"
+            onClick={onPerson}
+          />
+          <h6>설문 신청 개인</h6>
+        </div>
+        <div className="applyPeople">
+          <img
+            src={people}
+            alt="people"
+            className="classImages"
+            onClick={onPeople}
+          />
+          <h6>설문 신청 단체</h6>
+        </div>
       </div>
     </div>
   );

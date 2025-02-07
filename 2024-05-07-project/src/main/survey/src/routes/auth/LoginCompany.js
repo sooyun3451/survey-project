@@ -78,13 +78,24 @@ export default function LoginCompany() {
         </div>
         <div className="signup-linkbox">
           <Link to={"/auth/login"}>
-            <button className="login-link-button" onClick={() => setActiveButton("personal")}>개인</button>
+            <button
+              className="login-link-button"
+              onClick={() => setActiveButton("personal")}
+            >
+              개인
+            </button>
           </Link>
           <Link to={"/auth/login/com"}>
-            <button className="login-link-button" style={{
-              backgroundColor: activeButton === "group" ? "#0F3360" : "white",
-              color: activeButton === "group" ? "white" : "black"
-            }} onClick={() => setActiveButton("group")}>단체</button>
+            <button
+              className="login-link-button"
+              style={{
+                backgroundColor: activeButton === "group" ? "#0F3360" : "white",
+                color: activeButton === "group" ? "white" : "black",
+              }}
+              onClick={() => setActiveButton("group")}
+            >
+              단체
+            </button>
           </Link>
         </div>
         <div className="social-box">

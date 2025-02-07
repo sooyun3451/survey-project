@@ -16,7 +16,7 @@ export default function Login() {
   const [activeButton, setActiveButton] = useState("personal");
   const navigate = useNavigate();
   const [, setCookies, removeCookies] = useCookies(["token"]);
-  const {login, logout} = useAuthStore();
+  const { login, logout } = useAuthStore();
 
   const onEmail = (e) => {
     setEmail(e.target.value);
@@ -32,33 +32,36 @@ export default function Login() {
 
   const submit = async () => {
     try {
-      const response = await axios.post("http://localhost:8000/api/v1/auth/login", {
-        email: email,
-        password: pwd,
-      })
-      if(response.data) {
+      const response = await axios.post(
+        "http://localhost:8000/api/v1/auth/login",
+        {
+          email: email,
+          password: pwd,
+        }
+      );
+      if (response.data) {
         console.log(response.data.data);
         signInSuccessresponse(response.data.data);
-        }
+      }
     } catch (e) {
       console.error(e);
       alert("로그인 실패");
     }
-  }
+  };
 
   const setToken = (token, exprTime) => {
     const expires = new Date(Date.now() + exprTime);
-    setCookies("token", token, {path: "/", expires});
-  }
+    setCookies("token", token, { path: "/", expires });
+  };
 
   const signInSuccessresponse = (data) => {
-    if(data) {
+    if (data) {
       console.log(data);
-      const {token, expirationTime} = data;
+      const { token, expirationTime } = data;
       setToken(token, expirationTime);
       localStorage.setItem("userName", data.user_name);
       localStorage.setItem("userCode", data.user_code);
-    
+
       login({
         token: token,
       });
@@ -67,21 +70,21 @@ export default function Login() {
     } else {
       alert("이메일 또는 비밀번호가 틀렸습니다.");
     }
-  }
+  };
 
   const setAutoLogout = (expirationTime) => {
     setTimeout(() => {
       logoutUser();
     }, expirationTime);
-  }
+  };
 
   const logoutUser = () => {
-    removeCookies("token", {path: "/"});
+    removeCookies("token", { path: "/" });
     localStorage.removeItem("userName");
     localStorage.removeItem("userCode");
     logout();
-    navigate("/auth/login")
-  }
+    navigate("/auth/login");
+  };
 
   return (
     <div className="signin_container">
@@ -96,16 +99,29 @@ export default function Login() {
         </div>
         <div className="signup-linkbox">
           <Link to={"/auth/login"}>
-            <button className="login-link-button" style={{
-              backgroundColor: activeButton === "personal" ? "#0F3360" : "white",
-              color: activeButton === "personal" ? "white" : "black"
-            }} onClick={() => setActiveButton("personal")}>개인</button>
+            <button
+              className="login-link-button"
+              style={{
+                backgroundColor:
+                  activeButton === "personal" ? "#0F3360" : "white",
+                color: activeButton === "personal" ? "white" : "black",
+              }}
+              onClick={() => setActiveButton("personal")}
+            >
+              개인
+            </button>
           </Link>
           <Link to={"/auth/login/com"}>
-            <button className="login-link-button" style={{
-              backgroundColor: activeButton === "group" ? "#0F3360" : "white",
-              color: activeButton === "group" ? "white" : "black"
-            }} onClick={() => setActiveButton("group")}>단체</button>
+            <button
+              className="login-link-button"
+              style={{
+                backgroundColor: activeButton === "group" ? "#0F3360" : "white",
+                color: activeButton === "group" ? "white" : "black",
+              }}
+              onClick={() => setActiveButton("group")}
+            >
+              단체
+            </button>
           </Link>
         </div>
         <div className="social-box">
@@ -131,8 +147,20 @@ export default function Login() {
             </div>
           </Link>
           <div className="sns-box">
-          <div className='kakao' onClick={() => onSnsButtonClickHandler("kakao")}><img src={kakao} alt="kakao"/><span>카카오로 로그인</span></div>
-          <div className='naver' onClick={() => onSnsButtonClickHandler("naver")}><img src={naver} alt="naver"/><span>네이버로 로그인</span></div>
+            <div
+              className="kakao"
+              onClick={() => onSnsButtonClickHandler("kakao")}
+            >
+              <img src={kakao} alt="kakao" />
+              <span>카카오로 로그인</span>
+            </div>
+            <div
+              className="naver"
+              onClick={() => onSnsButtonClickHandler("naver")}
+            >
+              <img src={naver} alt="naver" />
+              <span>네이버로 로그인</span>
+            </div>
           </div>
         </div>
       </div>

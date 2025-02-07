@@ -17,7 +17,7 @@
   width: 700px;
 }
 
-.survey_form_buttons{
+.survey_form_buttons {
   display: flex;
   justify-content: end;
   width: 600px;
@@ -87,7 +87,7 @@
   margin: 10px 20px;
 }
 
-.survey_form_options > div {
+.survey_form_options>div {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -108,7 +108,7 @@ form input::file-selector-button {
   display: none;
 }
 
-.survey_form_options > div > img {
+.survey_form_options>div>img {
   width: 20px;
 }
 
@@ -122,7 +122,7 @@ form input::file-selector-button {
   margin-top: 10px;
 }
 
-.detail_question_title > input {
+.detail_question_title>input {
   font-size: 15px;
   border: none;
   background-color: #f4f4f4;
@@ -141,7 +141,7 @@ form input::file-selector-button {
 }
 
 
-.testImg{
+.testImg {
   width: 50px;
   height: auto;
 }

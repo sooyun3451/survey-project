@@ -1,7 +1,3 @@
-// 2024.5.16 최소윤
-//공지사항 수정
-//2024.5.30 axios연결
-
 import React, { useEffect, useState } from "react";
 import "./IndexDetailModify.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,7 +19,7 @@ export default function IndexDetailModify() {
   const token = cookies.token;
   const userCode = localStorage.getItem("userCode");
 
-  const { noticeCode } = useParams(); //path의 params명과 동일하게
+  const { noticeCode } = useParams(); 
 
   const saveNoticeTitle = (e) => {
     setNoticeTitle(e.target.value);

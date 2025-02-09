@@ -83,7 +83,6 @@ public class NoticeController{
 		}
 		
 
-	//notice 작성 
 	@PostMapping(CREATENOTICE)
 	public ResponseEntity<?> createnotice(@RequestBody Createnotice createnotice, @AuthenticationPrincipal String email){
 		boolean status = false;
@@ -99,7 +98,6 @@ public class NoticeController{
 	}
 	
 	
-	//notice 수정
 	@PutMapping(UPDATENOTICE)
 	public ResponseEntity<?> updatenotice(@PathVariable int noticeCode, @RequestBody UpdateNoticeReqDto updateNoticeReqDto, @AuthenticationPrincipal String email) {
 		boolean status = false;
@@ -115,7 +113,6 @@ public class NoticeController{
 	}
 	
 	
-	//notice삭제 
 	@DeleteMapping(DELETENOTICE)
 	public ResponseEntity<?> deletenotice(@PathVariable int noticeCode, @AuthenticationPrincipal String email) {
 		boolean status = false;

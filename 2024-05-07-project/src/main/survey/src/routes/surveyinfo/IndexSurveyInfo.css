@@ -3,11 +3,9 @@
   flex-direction: column;
 }
 
-/* 그라데이션 바 */
 .surveyBox-surveyinfo {
   display: flex;
   margin-top: 35px;
-
   width: 874px;
   height: 60px;
   border-bottom-right-radius: 20px;
@@ -15,16 +13,12 @@
   color: white;
 }
 
-/* 그라데이션 바 안 박스들 */
 .infoBox-surveyinfo {
   padding: 15px;
-
   width: 200px;
   height: 100%;
-
   text-align: center;
   justify-content: center;
-
   border-right: 1px solid white;
 }
 
@@ -48,22 +42,17 @@ main {
   margin-top: 10px;
 }
 
-/* 가장 큰 박스 */
 .survey-info-main {
   margin-left: 80px;
-
   width: 800px;
   height: 630px;
-
   border: 1px solid black;
   border-radius: 8px;
 }
 
-/* main-box-top */
 .survey-info-main-top {
   display: flex;
   justify-content: space-between;
-
   height: 70px;
   background-color: #0F3360;
   border-top-left-radius: 6px;
@@ -72,7 +61,6 @@ main {
 
 .survey-info-main-top-left {
   margin: 20px 30px;
-
   font-size: 18px;
   font-weight: 700;
 }
@@ -97,14 +85,11 @@ main {
   font-weight: 700;
 }
 
-/* 설문조사 안내글 적혀있는 박스 */
 .survey-info-main-main {
   margin: auto;
   margin-top: 24px;
-
   width: 750px;
   height: 510px;
-
   border: 1px solid black;
   border-radius: 8px;
   background-color: #F0F7FF;

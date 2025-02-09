@@ -39,7 +39,6 @@ public class SurveyFormController {
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "Success", status));
 	}
 
-	// 설문신청 도입부
 	@PostMapping(APPLYFORM)
 	public ResponseEntity<?> applyForm(@RequestBody SurveyApplyReqDto surveyApplyReqDto, @AuthenticationPrincipal String email) {
 		boolean status = false;

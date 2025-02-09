@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-//단체 설문조사 완료 시 뜨는 페이지
 export default function SurveyGroupComplete() {
 const [isPressed, setIsPressed] = useState(false);
 

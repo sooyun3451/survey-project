@@ -49,7 +49,6 @@ public class MypageController {
 			readUserinfo = mypageService.getUserInfo(userCode);
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println(e);
 			return ResponseEntity.internalServerError().body(new CMRespDto<>(-1, "Failed", null));
 		}
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "Success", readUserinfo));

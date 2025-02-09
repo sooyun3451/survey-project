@@ -1,15 +1,9 @@
-// 파일 이름 변경
 import "./indexSignup.css";
-import google from "../../images/google.png";
-import kakao from "../../images/kakao.webp";
-import naver from "../../images/naver.png";
 import logo2 from "../../images/logo2.png";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-// 날짜 : 2024.05.08
-// 작성자 : 심규창
 export default function IndexSignup() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
@@ -28,7 +22,6 @@ export default function IndexSignup() {
   const [passwordMessage, setPasswordMessage] = React.useState("");
 
   //유효성 검사
-
   const [isEmail, setIsEmail] = React.useState(false);
   const [isPassword, setIsPassword] = React.useState(false);
 
@@ -84,7 +77,7 @@ export default function IndexSignup() {
       </div>
       <div className="signup_right">
         <div className="signup_box">
-          <img src={logo2}></img>
+          <img src={logo2} alt="logo2"></img>
           <span>회원가입 할래?</span>
         </div>
         <div className="social-box">

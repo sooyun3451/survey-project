@@ -1,7 +1,3 @@
-//2024.5.13 최소윤
-//공지사항 detail
-// useEffect완성 2024.6.3
-
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";

@@ -5,8 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import useAuthStore from "../../store/auth.store";
-// 날짜 : 2024.05.08
-// 작성자 : 심규창
 
 export default function LoginCompany() {
   const [email, setEmail] = useState("");

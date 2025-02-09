@@ -31,7 +31,6 @@ public class KakaoPayController {
 private final KakaoPayService kakaoPayService;
 private final SurveyFormService surveyFormService;
 
-	// 정보가져오기 
 	@GetMapping("/{surveyCode}")
 	public ResponseEntity<?> getPaymentInfo(@PathVariable int surveyCode, @AuthenticationPrincipal String email) {
 		PaymentDto paymentDto = null;
@@ -46,14 +45,12 @@ private final SurveyFormService surveyFormService;
 	}
     
 
-	// 결제요청 
 	@PostMapping("/ready")
 	public KakaoReadyResponse readyToKakaoPay(@RequestBody PaymentDto paymentDto, @AuthenticationPrincipal String email) {
 	    return kakaoPayService.kakaoPayReady(paymentDto);
 	}
 	
 
-	// 결제성공 
 	@GetMapping("/success")
 	public ResponseEntity<?> afterPayRequest(@RequestParam("pg_token") String pgToken) {
 	
@@ -63,19 +60,16 @@ private final SurveyFormService surveyFormService;
 	}
 	
 
-	// 결제 진행 중 취소 
 	@GetMapping("/cancel")
 	public void cancel(@AuthenticationPrincipal String email) {
 	    throw new BusinessLogicException(ExceptionCode.PAY_CANCEL);
 	}
 	
-	// 결제 실패 
 	@GetMapping("/fail")
 	public void fail(@AuthenticationPrincipal String email) {
 	    throw new BusinessLogicException(ExceptionCode.PAY_FAILED);
 	}
 	
-	// 환불 
     @PostMapping("/refund")
     public ResponseEntity<?> refund(@AuthenticationPrincipal String email) {
 

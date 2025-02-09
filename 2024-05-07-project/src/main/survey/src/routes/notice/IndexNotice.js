@@ -1,7 +1,3 @@
-// 2024.5.12 최소윤
-// 공지사항
-//2024.5.29 axios 요청
-
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";

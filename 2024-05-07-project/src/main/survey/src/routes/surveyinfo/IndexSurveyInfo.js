@@ -1,6 +1,3 @@
-//2024.05.09 최소윤
-//설문조사 안내
-
 import React from "react";
 import "./IndexSurveyInfo.css";
 import Logo from "./../../images/Logo.png";

@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import arrow from "../../../images/arrow.png";
 import search from "../../../images/search.png";
 import logo2 from "../../../images/logo2.png";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 
 export default function Search() {
-  let [text, setText] = useState("");
+  const [text, setText] = useState("");
   const onChange = (e) => {
     setText(e.target.value);
   };

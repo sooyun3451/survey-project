@@ -142,11 +142,7 @@ return (
     <br></br>
     <ol style={{ paddingLeft: "16px" }}>
         <li>설문조사 도중 뒤로가기 버튼을 사용하실 수 없습니다.</li>
-
         <br></br>
-
-        {/* zIndex는 정수 값을 가지며, 값이 클수록 해당 요소는 다른 요소
-            위에 표시됨, 즉 zIndex값이 큰 요소가 zIndex값이 작은 요소를 덮음 */}
         <div style={{ display: "flex", flexDirection: "row" }}>
         <div>
             <FontAwesomeIcon
@@ -171,7 +167,6 @@ return (
             }}
             />
         </div>
-
         <div>
             <FontAwesomeIcon
             icon={faChevronLeft}
@@ -195,25 +190,18 @@ return (
             />
         </div>
         </div>
-
         <br></br>
-
         <li>
         설문조사를 통해 습득한 모든 정보는 외부 발설 및 유포시 법적 불이익을
         받을 수 있습니다.
         </li>
-
         <br></br>
-
         <li>
         설문조사 응답이 불성실하다고 판단될 경우 조사가 즉시 종료될 수
         있으며, 여러번 반복될 경우 강제 탈퇴 <br></br> 또는 적립금 미지급
         등의 불이익이 있을 수 있습니다.{" "}
         </li>
     </ol>
-    {/* 조사 참여 가이드 */}
-
-    {/* 버튼 */}
     <div
         onClick={handleSurveyPageClick}
         style={{
@@ -231,7 +219,6 @@ return (
         onMouseLeave={() => setIsPressed(false)}
         />
     </div>
-    {/* 버튼 */}
     </div>
 </div>
 );

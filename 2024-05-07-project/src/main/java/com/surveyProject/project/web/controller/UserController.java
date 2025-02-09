@@ -48,7 +48,6 @@ public class UserController {
 
     }
 
-    //개인 로그인
     @PostMapping(LOGIN)
     public ResponseEntity<?> login(@RequestBody LoginReqDto loginReqDto) {
     	System.out.println("request" + loginReqDto);
@@ -63,7 +62,6 @@ public class UserController {
 
     }
 
-    //단체 로그인
     @PostMapping(LOGINCOM)
     public ResponseEntity<?> loginCom(@RequestBody LoginReqDto loginReqDto) {
         LoginComResDto loginComResDto = new LoginComResDto();
@@ -77,7 +75,6 @@ public class UserController {
         return ResponseEntity.ok().body(new CMRespDto<>(1, "Success", loginComResDto));
 
     }
-
 
     @GetMapping()
     public ResponseEntity<? super  GetLoginUserResDto> getLoginUser(@AuthenticationPrincipal String email){

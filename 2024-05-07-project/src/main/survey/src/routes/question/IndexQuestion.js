@@ -1,6 +1,3 @@
-//2024.5.10 최소윤
-//2024.5.17 map부분
-//자주 묻는 질문
 import React, { useState } from "react";
 import "./IndexQuestion.css";
 import Logo from "./../../images/Logo.png";

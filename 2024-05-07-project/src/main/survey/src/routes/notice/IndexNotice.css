@@ -3,7 +3,6 @@
   flex-direction: column;
 }
 
-/* 그라데이션 바 */
 .surveyBox-notice {
   display: flex;
   margin-top: 35px;
@@ -14,7 +13,6 @@
   color: white;
 }
 
-/* 그라데이션 바 안 박스들 */
 .infoBox-notice {
   padding-top: 15px;
   text-align: center;
@@ -29,7 +27,6 @@
   font-weight: 700;
 }
 
-/* 마지막 박스 오른쪽 흰줄 안보이게*/
 .surveyBox-notice :last-child {
   border-right: none;
 }
@@ -44,7 +41,6 @@ main {
   margin-top: 30px;
 }
 
-/* 공지사항 등록 버튼 */
 .notice-create-button {
   margin-top: 30px;
   width: 280px;
@@ -56,7 +52,6 @@ main {
   cursor: pointer;
 }
 
-/* main-box */
 .notice-main {
   margin-left: 80px;
   width: 850px;
@@ -67,7 +62,6 @@ main {
   flex-direction: column;
 }
 
-/* main-box-top */
 .notice-main-top {
   display: flex;
   justify-content: space-between;
@@ -110,7 +104,6 @@ main {
   height: 750px;
 }
 
-/* 공지사항표 */
 .notice-table {
   border-collapse: collapse;
   margin: auto;

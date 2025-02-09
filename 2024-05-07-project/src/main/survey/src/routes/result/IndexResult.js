@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import { useLocation } from "react-router-dom";
 import { useCookies } from "react-cookie";
-// import { PieChart } from '@mui/x-charts/PieChart';
 
 export default function IndexResult() {
   const [cookies] = useCookies(["token"]);
@@ -55,19 +54,6 @@ export default function IndexResult() {
           ))}
         </div>
       </div>
-      {/* <PieChart
-      series={[
-        {
-          data: [
-            { id: 0, value: 10, label: 'series A' },
-            { id: 1, value: 15, label: 'series B' },
-            { id: 2, value: 20, label: 'series C' },
-          ],
-        },
-      ]}
-      width={400} 
-      height={200}
-      /> */}
     </>
   );
 }

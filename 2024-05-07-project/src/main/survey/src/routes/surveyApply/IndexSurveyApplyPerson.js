@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./applyForm.css";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { startOfDay } from "date-fns";
 import { useCookies } from "react-cookie";
 
 export default function IndexSurveyApplyPerson() {
   const navigate = useNavigate();
-  const [name, setName] = useState("");
   const [surveyClass, setSurveyClass] = useState("");
   const [pwd, setPwd] = useState("");
   const [participantNum, setParticipantNum] = useState("");
@@ -17,7 +15,6 @@ export default function IndexSurveyApplyPerson() {
   const [periodStart, setPeriodStart] = useState("");
   const [periodStop, setPeriodStop] = useState("");
   const [category, setCategory] = useState("");
-  const [file, setFile] = useState("");
 
   const onAgree = (e) => {
     if (e.target.id === "no") alert("개인정보 수집에 동의해주셔야합니다.");
@@ -76,6 +73,7 @@ export default function IndexSurveyApplyPerson() {
 
   //첨부파일
   let formData = new FormData();
+  
   useEffect(() => {
     console.log(formData);
   }, [formData]);

@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import "../IndexSurvey.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faTruckMedical } from "@fortawesome/free-solid-svg-icons";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import "./SurveyGroup.css";
 import "../SurveyList.css";
 import Modal from "react-modal";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
-import qs from "qs";
 import { useCookies } from "react-cookie";
 
 Modal.setAppElement("#root");
@@ -77,34 +76,6 @@ const [ref, inView] = useInView();
 const [isLoading, setIsLoading] = useState(false);
 const observer = useRef();
 
-// const getSurveyList = async (page) => {
-//     try {
-//         setIsLoading(true);
-//         const response = await axios.get('/survey/group/list', {
-//             headers: {
-//                 Authorization: `Bearer ${token}`
-//             },
-//             params: {
-//                 page: page,
-//                 contentCount: 9,
-//                 surveyClass: '단체',
-//                 categoryCode: null, // null이면 전달되지 않음
-//                 surveyTargetGender: null, // 빈 문자열이면 전달되지 않음
-//                 surveyTargetAge: null // 빈 문자열이면 전달되지 않음
-//             }
-//         });
-//         if (response.data.data.length > 0) {
-//             setSurveyList(prevList => page === 1 ? response.data.data : [...prevList, ...response.data.data]);
-//         } else if(observer.current) {
-//             observer.current.disconnect();
-//         }
-//         setIsLoading(false);
-//     } catch (error) {
-//         console.log('Error:', error);
-//         setIsLoading(false);
-//     }
-// };
-
 useEffect(() => {
     const currentObserver = observer.current;
     if (currentObserver) {
@@ -136,14 +107,10 @@ useEffect(() => {
     };
 }, [ref, isLoading]);
 
-// useEffect(() => {
-//     getSurveyList(page);
-// }, [page]);
 
 useEffect(() => {
     setSurveyList([]);
     setPage(1);
-    // getSurveyList(1);
 }, []);
 
 const openModal = () => {
@@ -189,7 +156,6 @@ return (
         </div>
     </div>
 
-    {/* 필터 박스 */}
     <div>
         <div
         style={{ marginTop: "15px", display: "flex", flexDirection: "row" }}
@@ -234,8 +200,6 @@ return (
         />
         </div>
     </div>
-    {/* 필터 박스 */}
-
     <hr></hr>
     <div className="surveyList">
         <SurveyList
@@ -322,7 +286,6 @@ return (
                     top: 75,
                 }}
                 >
-                {/* 코드를 입력해주세요 네모 창 */}
                 <div
                     style={{
                     width: "400px",
@@ -378,8 +341,6 @@ return (
                     </div>
                 </div>
                 <br></br>
-
-                {/* 입력버튼 */}
                 <div>
                     <input
                     onClick={() => {}}

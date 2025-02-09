@@ -1,31 +1,20 @@
 import "./indexSignup.css";
-import google from "../../images/google.png";
-import facebook from "../../images/facebook.png";
-import naver from "../../images/naver.png";
 import logo2 from "../../images/logo2.png";
 import { useEffect, useState } from "react";
-// import Axios from 'axios';
 import axios from "axios";
 import "react-datepicker/dist/react-datepicker.css";
-import { Link } from "react-router-dom";
 import React from "react";
 
-// 날짜 : 2024.05.08
-// 작성자 : 심규창
-
 export default function IndexSignupCompany() {
-  let [email, setEmail] = useState("");
-  let [pwd, setPwd] = useState("");
-  let [name, setName] = useState("");
-  let [companyFile, setCompanyFile] = useState("");
-  let [image, setImage] = useState("");
+  const [email, setEmail] = useState("");
+  const [pwd, setPwd] = useState("");
+  const [name, setName] = useState("");
 
   // 오류메세지 상태 저장
   const [emailMessage, setEmailMessage] = React.useState("");
   const [passwordMessage, setPasswordMessage] = React.useState("");
 
   //유효성 검사
-
   const [isEmail, setIsEmail] = React.useState(false);
   const [isPassword, setIsPassword] = React.useState(false);
 
@@ -66,7 +55,8 @@ export default function IndexSignupCompany() {
     setName(e.target.value);
   };
 
-  let formData = new FormData();
+  const formData = new FormData();
+  
   useEffect(() => {
     console.log(formData);
   }, [formData]);
@@ -170,7 +160,7 @@ export default function IndexSignupCompany() {
           </button>
         </div>
       </div>
-      <img className="logo_image-bottom" src={logo2}></img>
+      <img className="logo_image-bottom" src={logo2} alt="logo2"></img>
     </div>
   );
 }

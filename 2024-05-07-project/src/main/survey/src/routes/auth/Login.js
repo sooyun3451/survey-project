@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import kakao from "../../images/kakao.webp";
 import naver from "../../images/naver.png";
 import logo2 from "../../images/logo2.png";
-import IndexSignup from "./indexSignup";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import useAuthStore from "../../store/auth.store";
-// 날짜 : 2024.05.08
-// 작성자 : 심규창
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");

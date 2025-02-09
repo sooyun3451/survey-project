@@ -16,13 +16,13 @@ export default function NavigationBar() {
 
   const userNsme = localStorage.getItem("userName");
   const companyName = localStorage.getItem("companyName")
-  const [dropdownStatus, setDropdownStatus] = useState(false);
   const [sessionId, setSessionId] = useState(userNsme || companyName);
+  const [dropdownStatus, setDropdownStatus] = useState(false);
 
   const onPerson = () => {
     if (sessionId === null) {
       alert("로그인을 해주세요.");
-      window.location.replace("http://localhost:3000/auth/login");
+      navigate("/auth/login");
     }
     else if (!token) {
       alert("로그인 후 이용가능합니다.")
@@ -39,7 +39,7 @@ export default function NavigationBar() {
   const onPeople = () => {
     if (sessionId === null) {
       alert("로그인을 해주세요.");
-      window.location.replace("http://localhost:3000/auth/login");
+      navigate("/auth/login");
     }
     else if (!token) {
       alert("로그인 후 이용가능합니다.")

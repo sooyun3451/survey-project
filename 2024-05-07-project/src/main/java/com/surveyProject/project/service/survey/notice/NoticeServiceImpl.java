@@ -24,13 +24,11 @@ public class NoticeServiceImpl implements NoticeService{
 	
 	private final NoticeMapper noticeMapper;
 	
-	//user정보가져오기
 	@Override
 	public GetUserRespDto getUserRole(int userCode) throws Exception {
 		return noticeMapper.getuser(userCode).toUserDto();
 	}
 	
-	//noticelist 페이지
 	@Override
 	public List<GetNoticeRespDto> getNoticeList(int page, int contentCount) throws Exception {
 		Map<String, Object> map = new HashMap<String,Object>();
@@ -48,31 +46,26 @@ public class NoticeServiceImpl implements NoticeService{
 		return noticeListRespDtos;
 	}
 	
-	//notice 작성 
 	@Override
 	public boolean createNotice(Createnotice createnotice) throws Exception {
 		return noticeMapper.savenotice(createnotice.toEntity()) > 0;
 	}
 
-	//noticedetail 페이지 
 	@Override
 	public GetNoticeDetailRespDto getNoticeDetailRespDto(int noticeCode) throws Exception {
 		return noticeMapper.noticedetail(noticeCode).toDto();
 	}
 
-	//notice 수정
 	@Override
 	public boolean updateNotice(UpdateNoticeReqDto updateNoticeReqDto) throws Exception {
 		return noticeMapper.updatenotice(updateNoticeReqDto.toEntity()) > 0;
 	}
 
-	//notice삭제 
 	@Override
 	public boolean deleteNotice(int noticeCode) throws Exception {
 		return noticeMapper.deletenotice(noticeCode) > 0;
 	}
 
-	//메인페이지 공지사항 띄우기
 	@Override
 	public List<NoticeRespDto> getNotice() {
 		return noticeMapper.getNoticeMain();

@@ -1,9 +1,9 @@
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import userImage from "../../images/userImg.jpg";
 import P from "../../images/P.png";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Axios from "axios";
 import { useCookies } from "react-cookie";
 

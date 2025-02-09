@@ -1,4 +1,3 @@
-// 2024.5.22 최소윤
 import React, { useEffect, useState } from "react";
 import "./IndexSurveyPage.css";
 import { Link, useLocation } from "react-router-dom";
@@ -28,7 +27,6 @@ export default function IndexSurveyPage2() {
         setSurveyDetailTitle(response.data.data.survey_title);
         setSurveyDetailContent(response.data.data.survey_content);
         setSurveyDetailQuestion(response.data.data.questionResDtoList);
-        console.log(response.data.data.questionResDtoList);
       })
       .catch((error) => {
         console.log(error);
@@ -39,7 +37,6 @@ export default function IndexSurveyPage2() {
     <>
       <div className="surveypage-container">
         <div className="surveypage-main">
-          {/* 설문조사 제목, 설명 박스 */}
           <div className="survey-title-box">
             <div
               style={{

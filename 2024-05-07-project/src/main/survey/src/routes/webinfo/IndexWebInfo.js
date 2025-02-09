@@ -1,5 +1,3 @@
-//2024/05/09 최소윤
-//웹사이트 소개
 import "./IndexWebInfo.css";
 import Logo from "./../../images/Logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

@@ -16,15 +16,6 @@ import com.surveyProject.project.web.dto.surveypage.surveylist.TopSurveyResDto;
 
 @Mapper
 public interface SurveyMapper {
-	List<SurveyList> checkFilterAndGetSurveyListR(Map<String, Object> params);
-
-	List<SurveyStartComplete> checkSurveyPasswordAndTargetAndSurveyStartR(Map<String, Object> map);
-
-	List<SurveyForm> getSurveyFormR(Map<String, Object> map);
-
-	boolean checkEssentialR(SurveyFormReqDto surveyFormReqDto);
-
-	List<SurveyForm> postSurveyFormR(Map<String, Object> map);
 
 	SurveyComplete SurveyComplete(int survey_code);
 
@@ -34,7 +25,7 @@ public interface SurveyMapper {
 
 	int updateSurveyCompleteRespondent(Map<String, Object> map);
 
-	boolean updateSurveyStatusR(int survey_code);
+	boolean updateSurveyStatus(int survey_code);
 
 	List<SurveyInformation> getSearchList(Map<String, Object> map);
 

@@ -32,7 +32,6 @@ public class SurveyPersonalController {
 	private static final String SEARCHLIST = "/searchList";
 	private static final String MAINSURVEY = "/main/survey";
 
-	// 설문조사 전체 띄우기
 	@GetMapping(GETSURVEYLIST)
 	public ResponseEntity<?> getSurveyList() {
 		List<SurveyListRespDto> surveyListRespDtoList = new ArrayList<>();
@@ -43,23 +42,6 @@ public class SurveyPersonalController {
 		}
 
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "Success", surveyListRespDtoList));
-	}
-
-	@GetMapping()
-	public ResponseEntity<?> filterGetSurveyList(@RequestParam int page, @RequestParam int contentCount,
-			@RequestParam String surveyClass, @RequestParam(required = false) List<Integer> selectedCategories,
-			@RequestParam(required = false) List<String> selectedGenders,
-			@RequestParam(required = false) List<String> selectedAges) {
-
-		List<SurveyListRespDto> surveyListRespDtos = null;
-		try {
-			surveyListRespDtos = surveyService.checkFilterAndGetSurveyListS(page, contentCount, surveyClass,
-					selectedCategories, selectedGenders, selectedAges);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return ResponseEntity.internalServerError().body(new CMRespDto<>(-1, "Failed", null));
-		}
-		return ResponseEntity.ok().body(new CMRespDto<>(1, "Success", surveyListRespDtos));
 	}
 
 	@GetMapping(GETSURVEYSTART)
@@ -106,7 +88,6 @@ public class SurveyPersonalController {
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "Success", status));
 	}
 
-	// 설문조사 디테일 페이지
 	@GetMapping(GETSURVEYDETAIL)
 	public ResponseEntity<?> getSurveyDetail(@PathVariable int surveyCode, @AuthenticationPrincipal String email) {
 		SurveyDetailResDto surveyDetailResDtoList = null;
@@ -121,7 +102,6 @@ public class SurveyPersonalController {
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "Success", surveyDetailResDtoList));
 	}
 
-	// 검색창
 	@GetMapping(SEARCHLIST)
 	public ResponseEntity<?> searchList(@RequestParam String word) {
 		List<SurveySearchListResDto> surveyInformationList = null;
@@ -135,7 +115,6 @@ public class SurveyPersonalController {
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "Success", surveyInformationList));
 	}
 
-	// 설문조사 인기설문
 	@GetMapping(MAINSURVEY)
 	public ResponseEntity<?> mainSurvey() {
 		List<TopSurveyResDto> topSurveyResDtoList = new ArrayList<>();

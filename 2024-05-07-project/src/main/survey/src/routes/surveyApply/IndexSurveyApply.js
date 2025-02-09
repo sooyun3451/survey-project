@@ -4,7 +4,7 @@ import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import person from "../../images/person.png";
 import people from "../../images/people.png";
 import "./surveyApply.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function IndexSurveyApply() {
   const sessionId =

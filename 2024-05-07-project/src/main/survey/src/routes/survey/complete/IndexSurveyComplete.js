@@ -5,7 +5,6 @@ import { Link, useLocation } from "react-router-dom";
 import Axios from "axios";
 import { useCookies } from "react-cookie";
 
-//개인 설문조사 완료 시 뜨는 페이지
 export default function IndexSurveyComplete() {
 const { state } = useLocation();
 const [cookies] = useCookies(["token"]);

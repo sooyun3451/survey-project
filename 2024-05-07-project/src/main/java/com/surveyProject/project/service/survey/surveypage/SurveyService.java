@@ -18,30 +18,20 @@ public interface SurveyService {
 	
 	public List<SurveySearchListResDto> getSearchList(String word) throws Exception;
 
-	
-	public List<SurveyListRespDto> checkFilterAndGetSurveyListS(int page, int contentCount, String surveyClass, List<Integer> selectedCategories, List<String> selectedGenders, List<String> selectedAges) throws Exception;
-
-	public List<SurveyStartCompleteDto> checkSurveyPasswordAndTargetAndSurveyStartS(String surveyPassword, int surveyCode, int userCode) throws Exception;
- 
 	public surveyCompleteDto surveyComplete(int surveyCode) throws Exception; //지영
 	
 	public boolean updateSurveyComplete(int surveyCode, int userCode, int money) throws Exception;
 
-	//설문조사 디테일 페이지
 	public SurveyDetailResDto getSurveyDetail(int surveyCode) throws Exception;
 
-	//메인페이지 설문조사 띄우기
 	public List<TopSurveyResDto> getTopSurvey();
 
-	//설문조사 전부 띄우기
     List<SurveyListRespDto> getSurveyList() throws Exception;
 
     List<SurveyListRespDto> getSurveyGroupList() throws Exception;	
 	
-    //survey personal Start페이지(소윤)
     public SurveyStartRespDto getSurveyStart(int surveyCode) throws Exception;
     
-    //survey group Start페이지(소윤)
     public SurveyStartRespDto getSurveyGroupStart(int surveyCode) throws Exception;
 	
 }

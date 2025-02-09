@@ -1,7 +1,3 @@
-// 2024.5.16 최소윤
-//공지사항 작성
-//2024.5.28 axios 요청
-
 import React, { useState } from "react";
 import "./IndexCreateNotice.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

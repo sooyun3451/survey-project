@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./applyForm.css";
 import { useNavigate } from "react-router-dom";
-import userEvent from "@testing-library/user-event";
 import axios from "axios";
 
 export default function IndexSurveyApplyPeople() {
   const navigate = useNavigate();
-  //변수 설정
-  const [name, setName] = useState("");
   const [surveyClass, setSurveyClass] = useState("");
   const [pwd, setPwd] = useState("");
   const [participantNum, setParticipantNum] = useState("");
@@ -17,12 +14,7 @@ export default function IndexSurveyApplyPeople() {
   const [periodStart, setPeriodStart] = useState("");
   const [periodStop, setPeriodStop] = useState("");
   const [category, setCategory] = useState("");
-  const [file, setFile] = useState("");
   const [toggle, setToggle] = useState(false);
-
-  //연령
-  const [checkedList, setCheckedList] = useState([]);
-  const [isChecked, setIsChecked] = useState(false);
 
   const onAge = (e) => {
     const copyAge = e.target.value;
@@ -85,6 +77,7 @@ export default function IndexSurveyApplyPeople() {
 
   //첨부파일
   let formData = new FormData();
+
   useEffect(() => {
     console.log(formData);
   }, [formData]);
@@ -200,7 +193,7 @@ export default function IndexSurveyApplyPeople() {
                 />
               </td>
             </tr>
-            {toggle == true ? (
+            {toggle === true ? (
               <tr className="apply_tr">
                 <th className="apply_th">비밀번호</th>
                 <td colSpan={3} className="apply_td">

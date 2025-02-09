@@ -2,7 +2,6 @@
     display: flex;
 }
 
-/* 회원가입 왼쪽화면 */
 .signup_left {
     margin-right: 200px;
     box-sizing: border-box;
@@ -15,7 +14,6 @@
     width: 669px;
     height: 392px;
     opacity: 0.7;
-    /* 배경 뒤로 보내기 */
     position: relative;
     z-index: -1;
 }
@@ -25,7 +23,6 @@
     margin-left: 650px;
 }
 
-/* 회원가입 오른쪽 화면 */
 .signup_right {
     margin-top: 50px;
     width: 350px;
@@ -36,7 +33,6 @@
     background-color: white;
 }
 
-/* 회원가입 오른쪽 화면 상단 */
 .signup_box {
     text-align: center;
     margin-bottom: 30x;
@@ -76,12 +72,10 @@
     color: white;
 }
 
-/* 회원가입 오른쪽 화면 하단 */
 .social-box {
     margin-left: 25px;
 }
 
-/* 회원가입 인풋박스 */
 .signup-input {
     display: inline-block;
     margin-top: 10px;
@@ -95,7 +89,6 @@
     height: 30px;
 }
 
-/* 성별 인풋박스 */
 .index-gender-box {
     display: inline-block;
     margin-top: 10px;
@@ -124,7 +117,6 @@
 
 }
 
-/* 남여버튼  - 기본 스타일 없애고 버튼 모양 구현 */
 input[type='radio'] {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -139,7 +131,6 @@ input[type='radio'] {
 
 }
 
-/* 남여버튼 - 체크될 시에 변화되는 스타일 */
 input[type='radio']:checked {
     background-color: #22d3ee;
     border: 3px solid white;
@@ -182,7 +173,6 @@ input[type='radio']:checked {
 }
 
 
-/* sns 로고 */
 .login_image {
     vertical-align: middle;
     width: 40px;
@@ -190,7 +180,6 @@ input[type='radio']:checked {
 
 }
 
-/* 회원가입 태그 */
 .signup-tag {
     display: block;
     margin-top: 20px;
@@ -221,14 +210,12 @@ input[type='radio']:checked {
     font-size: 15px;
 }
 
-/* 로고 이미지 바텀 */
 .logo_image-bottom {
     margin-top: 300px;
     margin-left: 600px;
     width: 669px;
     height: 392px;
     opacity: 0.7;
-    /* 배경 뒤로 보내기 */
     position: absolute;
     z-index: -100;
 }

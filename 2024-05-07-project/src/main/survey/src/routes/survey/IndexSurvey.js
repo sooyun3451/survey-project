@@ -12,25 +12,12 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
 
-// 날짜 : 2024.05.09
-// 작성자 : 김예찬
-//2024.5.21 최소윤 modal부분
-
 Modal.setAppElement("#root");
 
-//설문조사 개인 카테고리 필터
 export default function IndexSurvey() {
   const [surveyData, setSurveyData] = useState([]);
   const [cookies] = useCookies(["token"]);
   const token = cookies.token;
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!token) {
-      alert("로그인 후 사용 가능합니다.");
-      navigate("/auth/signup/person");
-    }
-  });
 
   useEffect(() => {
     axios
@@ -293,11 +280,22 @@ const SurveyList = ({
     return categoryMatch && genderMatch && ageMatch && searchMatch;
   });
 
+
+  const [cookies] = useCookies(["token"]);
+  const token = cookies.token;
   const navigate = useNavigate();
+  
 
   const handleSurveyClick = (surveyCode) => {
     navigate(`/survey/personal/list/start/${surveyCode}`);
   };
+
+  const checkLogIn = () => {
+    if(!token) {
+      alert("로그인 후 이용가능합니다.");
+      navigate("/auth/login");
+    }
+  }
 
   return (
     <>
@@ -305,7 +303,10 @@ const SurveyList = ({
         <div
           className="survey-list"
           key={survey.surveyCode}
-          onClick={() => handleSurveyClick(survey.surveyCode)}
+          onClick={() => {
+            handleSurveyClick(survey.surveyCode);
+            checkLogIn();
+          }}
         >
           <div
             className="survey-title"

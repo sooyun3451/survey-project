@@ -2,22 +2,18 @@
     display: flex;
 }
 
-/* 로그인 왼쪽화면 */
 .signin_left {
     margin-right: 200px;
     box-sizing: border-box;
-    /* display: inline-block; */
     width: 50%;
 }
 
 .logo_image {
-    /* margin: 50px; */
     margin-top: -100px;
     margin-left: 100px;
     width: 669px;
     height: 392px;
     opacity: 0.7;
-    /* 배경 뒤로 보내기 */
     position: relative;
     z-index: -1;
 }
@@ -28,7 +24,6 @@
     margin-left: 650px;
 }
 
-/* 로그인 오른쪽 화면 */
 .signin_right {
     margin-top: 50px;
     width: 350px;
@@ -40,7 +35,6 @@
 
 }
 
-/* 로그인 오른쪽 화면 상단 */
 .signin_box {
     text-align: center;
     margin-bottom: 40x;
@@ -86,20 +80,15 @@
     font-size: 20px;
     font-weight: 700;
     opacity: 0.5;
-
-
 }
 
-/* 박스 안 글씨 */
 #login-text {
     margin-top: 7px;
     font-size: 13px;
     color: black;
     vertical-align: middle;
-
 }
 
-/* 로그인 인풋박스 */
 .signin-input {
     display: inline-block;
     margin-top: 10px;
@@ -112,7 +101,6 @@
     width: 250px;
     height: 30px;
 }
-
 
 .login-btn {
     margin: 15px 0px 10px 30px;
@@ -129,8 +117,6 @@
     display: block;
 }
 
-
-/* 회원가입 태그 */
 .signup-button {
     margin: 0px 0px 10px 30px;
     align-items: center;
@@ -221,12 +207,9 @@
 .logo_image-bottom {
     margin-top: 300px;
     margin-left: 600px;
-
-
     width: 669px;
     height: 392px;
     opacity: 0.7;
-    /* 배경 뒤로 보내기 */
     position: absolute;
     z-index: -100;
 }

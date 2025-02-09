@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import "./SurveyForm.css";
 import img from "../../../images/image.png";
 import add from "../../../images/add.png";
 import deleteimg from "../../../images/delete.png";
 import detail from "../../../images/detailQuestion.png";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 

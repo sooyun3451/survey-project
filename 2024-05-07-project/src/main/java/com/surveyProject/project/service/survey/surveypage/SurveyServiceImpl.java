@@ -23,64 +23,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class SurveyServiceImpl implements SurveyService {
 
-
 	private final SurveyMapper surveyMapper;
 
-	@Override
-	public List<SurveyListRespDto> checkFilterAndGetSurveyListS(int page, int contentCount, String surveyClass, List<Integer> selectedCategories, List<String> selectedGenders, List<String> selectedAges) throws Exception {
-
-		Map<String, Object> params = new HashMap<>();
-
-		params.put("index", (page-1) * contentCount); 
-		params.put("contentCount", contentCount);
-		params.put("surveyClass", surveyClass); 
-
-		params.put("categoryCode", selectedCategories != null ? selectedCategories : new ArrayList<>());  
-		params.put("surveyTargetGender", selectedGenders != null ? selectedGenders : new ArrayList<>());  
-		params.put("surveyTargetAge", selectedAges != null ? selectedAges : new ArrayList<>()); 
-
-
-		System.out.println("params 테스트 = " + params);
-		System.out.println(surveyMapper.checkFilterAndGetSurveyListR(params));
-		List<SurveyList> surveyList = surveyMapper.checkFilterAndGetSurveyListR(params);
-
-
-		List<SurveyListRespDto> surveyListRespDtos = new ArrayList<SurveyListRespDto>();
-
-		surveyList.forEach(list -> {
-			surveyListRespDtos.add(list.toSurveyListRespDto());
-		});
-		System.out.println("서비스 테스트 : " + surveyListRespDtos);
-		return surveyListRespDtos;
-	}
-
-
-
-	@Override
-	public List<SurveyStartCompleteDto> checkSurveyPasswordAndTargetAndSurveyStartS(String surveyPassword, int surveyCode, int userCode) throws Exception {
-
-		Map<String, Object> map = new HashMap<>();
-
-		map.put("surveyPassword", surveyPassword);
-		map.put("surveyCode", surveyCode);
-		map.put("userCode", userCode);
-
-		System.out.println("map 테스트 = " + map);
-
-
-		List<SurveyStartComplete> surveyStartComplete = surveyMapper.checkSurveyPasswordAndTargetAndSurveyStartR(map);
-
-		System.out.println("surveyStartComplete 테스트 = " + surveyStartComplete);
-
-		List<SurveyStartCompleteDto> surveyStartCompleteDto = new ArrayList<SurveyStartCompleteDto>();
-		surveyStartComplete.forEach(list -> {
-			surveyStartCompleteDto.add(list.toSurveyStartCompleteDto());
-		});
-		System.out.println("서비스 테스트 : " + surveyStartCompleteDto);
-		return surveyStartCompleteDto;
-	}
-
-	//검색기능
 	@Override
 	public List<SurveySearchListResDto> getSearchList(String word) throws Exception {
 		Map<String, Object> map = new HashMap<String,Object>();
@@ -97,7 +41,6 @@ public class SurveyServiceImpl implements SurveyService {
 		return surveySearchListResDtoList;
 	}
 
-	//설문조사 디테일
 	@Override
 	public SurveyDetailResDto getSurveyDetail(int surveyCode) throws Exception{
 		Map<String, Object> map  = new HashMap<String,Object>();
@@ -132,7 +75,6 @@ public class SurveyServiceImpl implements SurveyService {
 	}
 
 
-	// 메인페이지 인기 설문
 	@Override
 	public List<TopSurveyResDto> getTopSurvey() {
 		List<TopSurveyResDto> topSurveyResDtoList = new ArrayList<>();
@@ -141,7 +83,6 @@ public class SurveyServiceImpl implements SurveyService {
 		return topSurveyResDtoList;
 	}
 
-	//개인 설문 전체 띄우기
 	@Override
 	public List<SurveyListRespDto> getSurveyList() throws Exception{
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -153,7 +94,6 @@ public class SurveyServiceImpl implements SurveyService {
 		return surveyListRespDtoList;
 	}
 	
-	//단체 설문 전체 띄우기
 	@Override
 	public List<SurveyListRespDto> getSurveyGroupList() throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -162,8 +102,6 @@ public class SurveyServiceImpl implements SurveyService {
 		surveyLists.forEach(surveyList -> surveyListRespDtoList.add(surveyList.toSurveyListRespDto()));
 		return surveyListRespDtoList;
 	}
-
-
 
 	@Override
 	public surveyCompleteDto surveyComplete(int surveyCode) throws Exception { //지영
@@ -174,7 +112,6 @@ public class SurveyServiceImpl implements SurveyService {
 
 		return completeDto;
 	}
-
 
 
 	@Override
@@ -199,16 +136,11 @@ public class SurveyServiceImpl implements SurveyService {
 		return status1 && status2 && status3;
 	}
 
-
-
-	//survey personal Start페이지(소윤)
 	@Override
 	public SurveyStartRespDto getSurveyStart(int surveyCode) throws Exception {
 		return surveyMapper.getSurveyStart(surveyCode).toSurveyStartRespDto();
 	}
 
-
-	//survey group Start페이지(소윤)
 	@Override
 	public SurveyStartRespDto getSurveyGroupStart(int surveyCode) throws Exception {
 		return surveyMapper.getSurveyGroupStart(surveyCode).toSurveyStartGroupRespDto();

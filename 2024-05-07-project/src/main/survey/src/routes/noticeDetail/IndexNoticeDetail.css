@@ -1,36 +1,24 @@
-/* 2024.5.13 최소윤
-   공지사항 detail */
-
-
 .container {
     display: flex;
     flex-direction: column;
 }
 
-/* 그라데이션 바 */
 .surveyBox-notice-detail {
     display: flex;
     margin-top: 35px;
-
     width: 874px;
     height: 60px;
-
     border-bottom-right-radius: 20px;
     background: linear-gradient(to right, #0F3360, #1F69C6);
     color: white;
 }
 
-/* 그라데이션 바 안 박스들 */
 .infoBox-notice-detail {
     padding-top: 15px;
-
     text-align: center;
     justify-content: center;
-
     width: 200px;
     height: 100%;
-
-
     border-right: 1px solid white;
 }
 
@@ -44,7 +32,6 @@
     height: 40px;
 }
 
-/* 마지막 박스 오른쪽 흰줄 안보이게*/
 .surveyBox-notice-detail :last-child {
     border-right: none;
 }
@@ -54,7 +41,6 @@ main {
     margin-top: 30px;
 }
 
-/* 수정 삭제 버튼 */
 .notice-detail-buttons {
     display: flex;
     justify-content: space-between;
@@ -63,35 +49,27 @@ main {
 
 .notice-update-button,
 .notice-delete-button {
-
     width: 135px;
     height: 50px;
-
     border: 1px solid black;
     border-radius: 8px;
     background-color: #0F3360;
     color: white;
-
     font-size: 15px;
     cursor: pointer;
 }
 
-/* main-box */
 .notice-detail-main {
     margin-left: 80px;
-
     width: 800px;
     height: 700px;
-
     border: 1px solid black;
     border-radius: 8px;
 }
 
-/* main-box-top */
 .notice-detail-main-top {
     display: flex;
     justify-content: space-between;
-
     height: 70px;
     background-color: #0F3360;
     border-top-left-radius: 6px;
@@ -121,39 +99,29 @@ main {
     font-weight: 700;
 }
 
-/* 공지사항 하늘색 큰박스 */
 .notice-detail-main-main {
     margin: auto;
     margin-top: 24px;
-
     width: 750px;
     height: 580px;
-
     border: 1px solid black;
     border-radius: 8px;
-
     background-color: #F0F7FF;
 }
 
-/* 공지사항 들어가는 박스 */
 .notice-detail {
     margin: auto;
     margin-top: 25px;
-
     width: 700px;
     height: 500px;
     border: 1px solid black;
     border-radius: 8px;
-
     background-color: white;
-
 }
 
-/* 공지사항 제목 */
 .notice-detail-title {
     display: flex;
     align-items: center;
-
     width: 700px;
     height: 70px;
     border-bottom: 1px solid black;
@@ -161,15 +129,12 @@ main {
 
 .notice-detail-title>p {
     margin-left: 15px;
-
     font-size: 25px;
     font-weight: 600;
 }
 
-/* 공지사항 내용 */
 .notice-detail-content {
     margin: 10px;
-
     width: 700px;
     height: 430px;
 }

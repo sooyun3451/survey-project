@@ -34,7 +34,6 @@ public class AdminpageController {
 	private static final String UPDATESURVEYSTATUS = "/adminpage/survey/{surveyCode}";
 	private static final String DELETESURVEY = "/adminpage/survey/{surveyCode}";
 
-	// 회사 회원가입 목록 불러오는 get 요청
 	@GetMapping(GETCOMPANYSIGNUPLIST)
 	public ResponseEntity<?> getCompanySignupList(@PathVariable int page, @PathVariable int contentCount, @AuthenticationPrincipal String email) {
 		List<ReadCompanyDto> CompanyList = null;
@@ -48,7 +47,6 @@ public class AdminpageController {
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "Success", CompanyList));
 	}
 
-	// 신청된 설문조사 목록 불어오는 get 요청
 	@GetMapping(GETSURVEYLIST)
 	public ResponseEntity<?> getSurveyList(@PathVariable int page, @PathVariable int contentCount, @AuthenticationPrincipal String email) {
 
@@ -64,7 +62,6 @@ public class AdminpageController {
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "Success", readSurveyDto));
 	}
 
-	// 회사 회원가입 처리 수정하는 update 요청 (승인, 삭제)
 	@PutMapping(COMPANYAPPROVAL)
 	public ResponseEntity<?> companyApproval(@PathVariable int companyCode, @AuthenticationPrincipal String email) {
 
@@ -94,7 +91,6 @@ public class AdminpageController {
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "Success", status));
 	}
 
-	// 설문신청 상태 변경 update 요청 (승인, 삭제)
 	@PutMapping(UPDATESURVEYSTATUS)
 	public ResponseEntity<?> updateSurveyStatus(@PathVariable int surveyCode, @AuthenticationPrincipal String email) {
 

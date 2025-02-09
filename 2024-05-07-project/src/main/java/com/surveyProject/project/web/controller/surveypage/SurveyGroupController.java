@@ -1,4 +1,3 @@
-//2024.05.24 김예찬
 package com.surveyProject.project.web.controller.surveypage;
 
 import java.util.ArrayList;

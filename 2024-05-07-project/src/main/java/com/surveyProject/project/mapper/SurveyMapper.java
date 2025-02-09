@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.surveyProject.project.domain.survey.survey.SurveyAnswer;
 import com.surveyProject.project.domain.survey.survey.SurveyComplete;
 import com.surveyProject.project.domain.survey.survey.SurveyForm;
 import com.surveyProject.project.domain.survey.survey.SurveyInformation;
@@ -35,6 +36,8 @@ public interface SurveyMapper {
 
 	List<SurveyInformation> getSurveyDetailOption(int question_code);
 
+	int saveSurveyAnswer(List<SurveyAnswer> answers);
+	
 	List<TopSurveyResDto> getTopSurvey();
 
 	List<SurveyList> getSurveyList(Map<String, Object> map);
@@ -43,10 +46,8 @@ public interface SurveyMapper {
 
 	List<SurveyList> getSurveyGroupList(Map<String, Object> map);
 
-	// surveyStart개인 페이지(소윤)
 	SurveyList getSurveyStart(int survey_code);
 
-	// surveyStart단체 페이지(소윤)
 	SurveyList getSurveyGroupStart(int survey_code);
 
 }

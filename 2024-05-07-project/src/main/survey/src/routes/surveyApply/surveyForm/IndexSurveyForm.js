@@ -234,9 +234,7 @@ export default function IndexSurveyForm() {
     const detailQuestions = questions.map(
       (question) => question.detailQuestion
     );
-
-    console.log(surveyTitle);
-    console.log(applyClass);
+    
     axios
       .post(
         "/api/v1/survey/surveyform",

@@ -9,6 +9,7 @@ import com.surveyProject.project.domain.survey.survey.SurveyInformation;
 import com.surveyProject.project.domain.survey.survey.SurveyList;
 import com.surveyProject.project.domain.survey.survey.SurveyStartComplete;
 import com.surveyProject.project.web.dto.surveypage.surveyCompleteDto;
+import com.surveyProject.project.web.dto.surveypage.SurveyAnswerReqDto;
 import com.surveyProject.project.web.dto.surveypage.SurveyStartRespDto;
 import com.surveyProject.project.web.dto.surveypage.surveylist.*;
 import com.surveyProject.project.web.dto.surveypage.surveystartcomplete.SurveyStartCompleteDto;
@@ -18,11 +19,13 @@ public interface SurveyService {
 	
 	public List<SurveySearchListResDto> getSearchList(String word) throws Exception;
 
-	public surveyCompleteDto surveyComplete(int surveyCode) throws Exception; //지영
+	public surveyCompleteDto surveyComplete(int surveyCode) throws Exception;
 	
 	public boolean updateSurveyComplete(int surveyCode, int userCode, int money) throws Exception;
 
 	public SurveyDetailResDto getSurveyDetail(int surveyCode) throws Exception;
+	
+	public boolean createSurveyAnswer(int surveyCode, SurveyAnswerReqDto surveyAnswerReqDto) throws Exception;
 
 	public List<TopSurveyResDto> getTopSurvey();
 

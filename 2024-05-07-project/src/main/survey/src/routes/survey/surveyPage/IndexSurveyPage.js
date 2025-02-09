@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 
-export default function IndexSurveyPage2() {
+export default function IndexSurveyPage() {
   const { state } = useLocation();
 
   const [surveyDetailTitle, setSurveyDetailTitle] = useState("");
@@ -12,6 +12,7 @@ export default function IndexSurveyPage2() {
   const [surveyDetailQuestion, setSurveyDetailQuestion] = useState([]);
   const [cookies] = useCookies(["token"]);
   const token = cookies.token;
+  const [answer, setAnswer] = useState([]);
 
   useEffect(() => {
     axios
@@ -27,11 +28,18 @@ export default function IndexSurveyPage2() {
         setSurveyDetailTitle(response.data.data.survey_title);
         setSurveyDetailContent(response.data.data.survey_content);
         setSurveyDetailQuestion(response.data.data.questionResDtoList);
+        console.log(response.data.data);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
+
+  const submitAnswer = () => {
+    axios.post(
+      `http://localhost:8000/survey/answer`
+    )
+  }
 
   return (
     <>

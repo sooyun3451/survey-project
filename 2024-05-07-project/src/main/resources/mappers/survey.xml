@@ -44,7 +44,7 @@
 	<insert id="updateSurveyCompleteRespondent" parameterType="hashmap">
 		insert into
 			survey_respondent
-		value
+		values
 			(
 			0, 
 			#{survey_code}, 
@@ -83,6 +83,22 @@
 		SELECT option_code, question_code, option_content FROM question_choice
 		WHERE question_code = #{question_code};
 	</select>
+	
+	<insert id="saveSurveyAnswer" parameterType="com.surveyProject.project.domain.survey.survey.SurveyAnswer">
+		insert into 
+			survey_answer
+		values 
+		(
+		0,
+		#{survey_code},
+		#{question_code},
+		#{option_code},
+		#{short_answer},
+		#{duplication_answer},
+		#{subjective_answer},
+		#{detail_answer}
+		)
+	</insert>
 
 	<select id="getTopSurvey" resultType="com.surveyProject.project.web.dto.surveypage.surveylist.TopSurveyResDto">
 		SELECT survey_code, survey_title

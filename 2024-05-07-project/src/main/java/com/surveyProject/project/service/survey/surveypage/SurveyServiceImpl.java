@@ -1,4 +1,3 @@
-//2024.05.24 김예찬
 package com.surveyProject.project.service.survey.surveypage;
 
 import java.util.ArrayList;
@@ -7,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.surveyProject.project.web.dto.surveypage.surveyCompleteDto;
+import com.surveyProject.project.web.dto.surveypage.SurveyAnswerReqDto;
 import com.surveyProject.project.web.dto.surveypage.SurveyStartRespDto;
 import com.surveyProject.project.web.dto.surveypage.surveylist.*;
 import org.springframework.stereotype.Service;
@@ -35,9 +35,6 @@ public class SurveyServiceImpl implements SurveyService {
 		surveyInformationList.forEach(surveyInformation -> {surveySearchListResDtoList.add(surveyInformation.toListDto());
 
 		});
-
-
-		System.out.println("서비스 : surveyInformationList = " + surveyInformationList);
 		return surveySearchListResDtoList;
 	}
 
@@ -67,11 +64,15 @@ public class SurveyServiceImpl implements SurveyService {
 				exception.printStackTrace();
 			}
 			questionResDtoList.add(questionResDto);
-			System.out.println("서비스 : "+questionResDtoList);
 		});
 		surveyDetailResDto.setQuestionResDtoList(questionResDtoList);
 		
 		return surveyDetailResDto;
+	}
+	
+	@Override
+	public boolean createSurveyAnswer(int surveyCode, SurveyAnswerReqDto surveyAnswerReqDto) throws Exception {
+		return surveyMapper.saveSurveyAnswer(surveyAnswerReqDto.toEntity()) > 0;
 	}
 
 
@@ -90,7 +91,6 @@ public class SurveyServiceImpl implements SurveyService {
 		System.out.println("surveyLists" + surveyLists);
 		List<SurveyListRespDto> surveyListRespDtoList = new ArrayList<>();
 		surveyLists.forEach(surveyList -> surveyListRespDtoList.add(surveyList.toSurveyListRespDto()));
-		System.out.println(surveyListRespDtoList);
 		return surveyListRespDtoList;
 	}
 	
@@ -104,7 +104,7 @@ public class SurveyServiceImpl implements SurveyService {
 	}
 
 	@Override
-	public surveyCompleteDto surveyComplete(int surveyCode) throws Exception { //지영
+	public surveyCompleteDto surveyComplete(int surveyCode) throws Exception { 
 
 		surveyCompleteDto completeDto = null;
 

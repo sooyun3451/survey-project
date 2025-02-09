@@ -1,7 +1,7 @@
-//2024.05.24 김예찬
 package com.surveyProject.project.web.controller.surveypage;
 
 import com.surveyProject.project.web.dto.surveypage.surveyCompleteDto;
+import com.surveyProject.project.web.dto.surveypage.SurveyAnswerReqDto;
 import com.surveyProject.project.web.dto.surveypage.SurveyStartRespDto;
 import com.surveyProject.project.web.dto.surveypage.surveylist.*;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +14,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -29,6 +31,7 @@ public class SurveyPersonalController {
 	private static final String SURVEYPERSONCOMPLETE = "/{surveyCode}/complete";
 	private static final String UPDATESURVEYCOMPLETE = "/{surveyCode}/complete/{userCode}/{money}";
 	private static final String GETSURVEYDETAIL = "/details/{surveyCode}";
+	private static final String SURVEYANSWER = "/answer/{surveyCode}";
 	private static final String SEARCHLIST = "/searchList";
 	private static final String MAINSURVEY = "/main/survey";
 
@@ -100,6 +103,19 @@ public class SurveyPersonalController {
 		}
 
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "Success", surveyDetailResDtoList));
+	}
+	
+	@PostMapping(SURVEYANSWER)
+	public ResponseEntity<?> createSurveyAnswer(@PathVariable int surveyCode, @RequestBody SurveyAnswerReqDto surveyAnswerReqDto, @AuthenticationPrincipal String email) {
+		boolean status = false;
+		try {
+			status = surveyService.createSurveyAnswer(surveyCode, surveyAnswerReqDto);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.badRequest().body(new CMRespDto<>(-1, "Failed", status));
+		}
+		return ResponseEntity.ok(new CMRespDto<>(1, "Success", status));
 	}
 
 	@GetMapping(SEARCHLIST)

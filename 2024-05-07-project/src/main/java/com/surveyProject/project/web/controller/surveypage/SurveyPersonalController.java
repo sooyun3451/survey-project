@@ -109,6 +109,7 @@ public class SurveyPersonalController {
 	public ResponseEntity<?> createSurveyAnswer(@PathVariable int surveyCode, @RequestBody SurveyAnswerReqDto surveyAnswerReqDto, @AuthenticationPrincipal String email) {
 		boolean status = false;
 		try {
+			System.out.println(surveyAnswerReqDto);
 			status = surveyService.createSurveyAnswer(surveyCode, surveyAnswerReqDto);
 			
 		} catch (Exception e) {

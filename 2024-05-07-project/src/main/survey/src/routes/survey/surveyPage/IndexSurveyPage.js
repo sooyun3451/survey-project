@@ -21,40 +21,6 @@ export default function IndexSurveyPage() {
   //   detailAnswer: []
   // });
 
-  // const handleAnswerChange = (questionIndex, value) => {
-  //   setAnswers((prev) => {
-  //     const updatedShortAnswers = [...prev.shortAnswer];
-  //     updatedShortAnswers[questionIndex] = value;
-  //     return { ...prev, shortAnswer: updatedShortAnswers };
-  //   });
-  // };
-
-  // const handleOptionChange = (questionIndex, optionCode) => {
-  //   setAnswers((prev) => {
-  //     const updatedOptionCodes = [...prev.optionCode];
-  //     updatedOptionCodes[questionIndex] = optionCode;
-  //     return { ...prev, optionCode: updatedOptionCodes };
-  //   });
-  // };
-
-  // const handleCheckboxChange = (questionIndex, optionCode) => {
-  //   setAnswers((prev) => {
-  //     const updatedDuplicationAnswers = [...prev.duplicationAnswer];
-  //     if (!updatedDuplicationAnswers[questionIndex]) {
-  //       updatedDuplicationAnswers[questionIndex] = [];
-  //     }
-  //     if (updatedDuplicationAnswers[questionIndex].includes(optionCode)) {
-  //       updatedDuplicationAnswers[questionIndex] = updatedDuplicationAnswers[questionIndex].filter(
-  //         (code) => code !== optionCode
-  //       );
-  //     } else {
-  //       updatedDuplicationAnswers[questionIndex].push(optionCode);
-  //     }
-  //     return { ...prev, duplicationAnswer: updatedDuplicationAnswers };
-  //   });
-  // };
-  
-
   useEffect(() => {
     axios
       .get(
@@ -166,7 +132,6 @@ export default function IndexSurveyPage() {
                       borderBottom: "1px solid black",
                       width: "560px",
                     }}
-                    // onChange={(e) => handleAnswerChange(i, e.target.value)}
                   />
                 </div>
               ) : question.select_type === 1 ? (
@@ -188,7 +153,6 @@ export default function IndexSurveyPage() {
                                 marginLeft: "10px",
                               }}
                               placeholder={"옵션" + (index2 + 1)}
-                              // onChange={() => handleOptionChange(i, option.oprion_code)}
                               readOnly
                             />
                           </div>
@@ -211,7 +175,6 @@ export default function IndexSurveyPage() {
                                 marginLeft: "10px",
                               }}
                               placeholder={"옵션" + (index2 + 1)}
-                              // onChange={() => handleCheckboxChange(i, option.oprion_code)}
                               readOnly
                             />
                           </div>

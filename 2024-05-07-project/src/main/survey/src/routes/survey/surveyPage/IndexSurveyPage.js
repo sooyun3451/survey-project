@@ -196,10 +196,7 @@ export default function IndexSurveyPage() {
                 question.detail_question.trim() !== "" && (
                   <div className="detail_question_box">
                     <div className="detail_question_title">
-                      <input
-                        value={question.detail_question}
-                        name={i}
-                      />
+                      <input value={question.detail_question} name={i} />
                     </div>
                     <div>
                       <textarea

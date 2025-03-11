@@ -12,14 +12,38 @@ export default function IndexSurveyPage() {
   const [surveyDetailQuestion, setSurveyDetailQuestion] = useState([]);
   const [cookies] = useCookies(["token"]);
   const token = cookies.token;
-  // const [answers, setAnswers] = useState({
-  //   questionCode: [],
-  //   optionCode: [],
-  //   shortAnswer: [],
-  //   duplicationAnswer: [],
-  //   subjectiveAnswer: [],
-  //   detailAnswer: []
-  // });
+
+  const [questionCode, setQuestionCode] = useState("");
+  const [optionCode, setOptionCode] = useState("");
+  const [shortAnswer, setShortAnswer] = useState("");
+  const [duplicationAnswer, setDuplicationAnswer] = useState("");
+  const [subjectiveAnswer, setSubjectiveAnswer] = useState("");
+  const [detailAnswer, setDetailAnswer] = useState("");
+
+  const [answers, setAnswers] = useState({
+    questionCode: [],
+    optionCode: [],
+    shortAnswer: [],
+    duplicationAnswer: [],
+    subjectiveAnswer: [],
+    detailAnswer: []
+  });
+
+  const onChangeShortAnswer = (e) => {
+    setShortAnswer(e.target.value);
+  };
+
+  const onChangeDuplicationAnswer = (e) => {
+    setDuplicationAnswer(e.target.value);
+  };
+
+  const onChangeSubjectiveAnswer = (e) => {
+    setSubjectiveAnswer(e.target.value);
+  };
+
+  const onChangeDetailAnswer = (e) => {
+    setDetailAnswer(e.target.value);
+  };
 
   useEffect(() => {
     axios

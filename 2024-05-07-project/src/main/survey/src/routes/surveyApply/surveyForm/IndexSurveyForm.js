@@ -221,7 +221,10 @@ export default function IndexSurveyForm() {
 
   //공지사항 요청
   const surveyPost = () => {
-    const questionTitles = questions.map((question) => question.questionTitle);
+    const questionTitles = questions.map(
+      (question) => question.questionTitle
+    );
+
     const questionOptions = questions.map(
       (question) => question.questionOptions
     );

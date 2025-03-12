@@ -73,23 +73,23 @@ export default function IndexSurveyPage() {
       });
   }, []);
 
-  // const submitAnswer = () => {
-  //   axios.post(
-  //     `http://localhost:8000/survey/personal/list/answer/${state.surveyCode}`,
-  //     answers,
-  //     {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     }
-  //   )
-  //   .then((response) => {
-  //     console.log(response);
-  //   })
-  //   .catch((error) => {
-  //     console.error(error);
-  //   });
-  // }
+  const submitAnswer = () => {
+    axios.post(
+      `http://localhost:8000/survey/personal/list/answer/${state.surveyCode}`,
+      answers,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  }
 
   return (
     <>

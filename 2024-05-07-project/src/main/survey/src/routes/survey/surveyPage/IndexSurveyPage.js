@@ -29,6 +29,14 @@ export default function IndexSurveyPage() {
     detailAnswer: []
   });
 
+  const onChangeQuestionCode = (e) => {
+    setQuestionCode(e.target.value);
+  }
+
+  const onChangeOptionCode = (e) => {
+    setOptionCode(e.target.value);
+  }
+
   const onChangeShortAnswer = (e) => {
     setShortAnswer(e.target.value);
   };

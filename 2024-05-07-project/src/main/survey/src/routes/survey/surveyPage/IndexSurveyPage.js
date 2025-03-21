@@ -13,45 +13,45 @@ export default function IndexSurveyPage() {
   const [cookies] = useCookies(["token"]);
   const token = cookies.token;
 
-  const [questionCode, setQuestionCode] = useState("");
-  const [optionCode, setOptionCode] = useState("");
-  const [shortAnswer, setShortAnswer] = useState("");
-  const [duplicationAnswer, setDuplicationAnswer] = useState("");
-  const [subjectiveAnswer, setSubjectiveAnswer] = useState("");
-  const [detailAnswer, setDetailAnswer] = useState("");
+  // const [questionCode, setQuestionCode] = useState("");
+  // const [optionCode, setOptionCode] = useState("");
+  // const [shortAnswer, setShortAnswer] = useState("");
+  // const [duplicationAnswer, setDuplicationAnswer] = useState("");
+  // const [subjectiveAnswer, setSubjectiveAnswer] = useState("");
+  // const [detailAnswer, setDetailAnswer] = useState("");
 
-  const [answers, setAnswers] = useState({
-    questionCode: [],
-    optionCode: [],
-    shortAnswer: [],
-    duplicationAnswer: [],
-    subjectiveAnswer: [],
-    detailAnswer: []
-  });
+  // const [answers, setAnswers] = useState({
+  //   questionCode: [],
+  //   optionCode: [],
+  //   shortAnswer: [],
+  //   duplicationAnswer: [],
+  //   subjectiveAnswer: [],
+  //   detailAnswer: []
+  // });
 
-  const onChangeQuestionCode = (e) => {
-    setQuestionCode(e.target.value);
-  }
+  // const onChangeQuestionCode = (e) => {
+  //   setQuestionCode(e.target.value);
+  // }
 
-  const onChangeOptionCode = (e) => {
-    setOptionCode(e.target.value);
-  }
+  // const onChangeOptionCode = (e) => {
+  //   setOptionCode(e.target.value);
+  // }
 
-  const onChangeShortAnswer = (e) => {
-    setShortAnswer(e.target.value);
-  };
+  // const onChangeShortAnswer = (e) => {
+  //   setShortAnswer(e.target.value);
+  // };
 
-  const onChangeDuplicationAnswer = (e) => {
-    setDuplicationAnswer(e.target.value);
-  };
+  // const onChangeDuplicationAnswer = (e) => {
+  //   setDuplicationAnswer(e.target.value);
+  // };
 
-  const onChangeSubjectiveAnswer = (e) => {
-    setSubjectiveAnswer(e.target.value);
-  };
+  // const onChangeSubjectiveAnswer = (e) => {
+  //   setSubjectiveAnswer(e.target.value);
+  // };
 
-  const onChangeDetailAnswer = (e) => {
-    setDetailAnswer(e.target.value);
-  };
+  // const onChangeDetailAnswer = (e) => {
+  //   setDetailAnswer(e.target.value);
+  // };
 
   useEffect(() => {
     axios
@@ -76,7 +76,7 @@ export default function IndexSurveyPage() {
   const submitAnswer = () => {
     axios.post(
       `http://localhost:8000/survey/personal/list/answer/${state.surveyCode}`,
-      answers,
+      // answers,
       {
         headers: {
           Authorization: `Bearer ${token}`,

@@ -31,11 +31,11 @@ public class SurveyAnswerReqDto {
 			SurveyAnswer surveyAnswer = SurveyAnswer.builder()
 					.survey_code(surveyCode)
 					.question_code(questionCode.get(i))
-					.option_code(optionCode.get(i))
-					.short_answer(shortAnswer.get(i))
-					.duplication_answer(duplicationAnswer.get(i))
-					.subjective_answer(subjectiveAnswer.get(i))
-					.detail_answer(detailAnswer.get(i))
+					.option_code(optionCode.get(i) != null ? optionCode.get(i) : 0)
+					.short_answer(shortAnswer.get(i) != null ? shortAnswer.get(i) : null)
+					.duplication_answer(duplicationAnswer.get(i) != null ? duplicationAnswer.get(i) : null)
+					.subjective_answer(subjectiveAnswer.get(i) != null ? subjectiveAnswer.get(i) : null)
+					.detail_answer(detailAnswer.get(i) != null ? detailAnswer.get(i) : null)
 					.build();
 			
 			answers.add(surveyAnswer);

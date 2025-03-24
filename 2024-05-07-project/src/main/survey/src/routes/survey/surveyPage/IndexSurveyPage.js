@@ -13,45 +13,74 @@ export default function IndexSurveyPage() {
   const [cookies] = useCookies(["token"]);
   const token = cookies.token;
 
-  // const [questionCode, setQuestionCode] = useState("");
-  // const [optionCode, setOptionCode] = useState("");
-  // const [shortAnswer, setShortAnswer] = useState("");
-  // const [duplicationAnswer, setDuplicationAnswer] = useState("");
-  // const [subjectiveAnswer, setSubjectiveAnswer] = useState("");
-  // const [detailAnswer, setDetailAnswer] = useState("");
+  const [questionCode, setQuestionCode] = useState(0);
+  const [optionCode, setOptionCode] = useState(0);
+  const [shortAnswer, setShortAnswer] = useState("");
+  const [duplicationAnswer, setDuplicationAnswer] = useState("");
+  const [subjectiveAnswer, setSubjectiveAnswer] = useState("");
+  const [detailAnswer, setDetailAnswer] = useState("");
 
-  // const [answers, setAnswers] = useState({
-  //   questionCode: [],
-  //   optionCode: [],
-  //   shortAnswer: [],
-  //   duplicationAnswer: [],
-  //   subjectiveAnswer: [],
-  //   detailAnswer: []
-  // });
+  const [answers, setAnswers] = useState([]);
 
-  // const onChangeQuestionCode = (e) => {
-  //   setQuestionCode(e.target.value);
-  // }
+  const onChangeQuestionCode = (i) => {
+    setQuestionCode(i);
+    setAnswers((prev) => [...prev, { questionCode: i }]);
+  };
 
-  // const onChangeOptionCode = (e) => {
-  //   setOptionCode(e.target.value);
-  // }
+  const onChangeOptionCode = (i) => {
+    setOptionCode(i);
+    setAnswers((prev) => prev.map((answer) => answer.questionCode === questionCode ? {
+      ...answer, optionCode: i
+    } : answer));
+  };
 
-  // const onChangeShortAnswer = (e) => {
-  //   setShortAnswer(e.target.value);
-  // };
+  const onChangeShortAnswer = (e) => {
+    const value = e.target.value;
+    setShortAnswer(value);
+    setAnswers((prev) =>
+      prev.map((answer) =>
+        answer.questionCode === questionCode
+          ? { ...answer, shortAnswer: value }
+          : answer
+      )
+    );
+  };
 
-  // const onChangeDuplicationAnswer = (e) => {
-  //   setDuplicationAnswer(e.target.value);
-  // };
-
-  // const onChangeSubjectiveAnswer = (e) => {
-  //   setSubjectiveAnswer(e.target.value);
-  // };
-
-  // const onChangeDetailAnswer = (e) => {
-  //   setDetailAnswer(e.target.value);
-  // };
+  const onChangeDuplicationAnswer = (e) => {
+    const value = e.target.value;
+    setDuplicationAnswer(value);
+    setAnswers((prev) =>
+      prev.map((answer) =>
+        answer.questionCode === questionCode
+          ? { ...answer, duplicationAnswer: value }
+          : answer
+      )
+    );
+  };
+  
+  const onChangeSubjectiveAnswer = (e) => {
+    const value = e.target.value;
+    setSubjectiveAnswer(value);
+    setAnswers((prev) =>
+      prev.map((answer) =>
+        answer.questionCode === questionCode
+          ? { ...answer, subjectiveAnswer: value }
+          : answer
+      )
+    );
+  };
+  
+  const onChangeDetailAnswer = (e) => {
+    const value = e.target.value;
+    setDetailAnswer(value);
+    setAnswers((prev) =>
+      prev.map((answer) =>
+        answer.questionCode === questionCode
+          ? { ...answer, detailAnswer: value }
+          : answer
+      )
+    );
+  };
 
   useEffect(() => {
     axios
@@ -64,6 +93,7 @@ export default function IndexSurveyPage() {
         }
       )
       .then((response) => {
+        console.log(response.data.data);
         setSurveyDetailTitle(response.data.data.survey_title);
         setSurveyDetailContent(response.data.data.survey_content);
         setSurveyDetailQuestion(response.data.data.questionResDtoList);
@@ -74,22 +104,38 @@ export default function IndexSurveyPage() {
   }, []);
 
   const submitAnswer = () => {
-    axios.post(
-      `http://localhost:8000/survey/personal/list/answer/${state.surveyCode}`,
-      // answers,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
+    const questionCodes = answers.map((answer) => answer.questionCode);
+    const optionCodes = answers.map((answer) => answer.optionCode);
+    const shortAnswers = answers.map((answer) => answer.shortAnswer);
+    const duplicationAnswers = answers.map((answer) => answer.duplicationAnswer);
+    const subjectiveAnswers = answers.map((answer) => answer.subjectiveAnswer);
+    const detailAnswers = answers.map((answer) => answer.detailAnswer);
+
+    axios
+      .post(
+        `http://localhost:8000/survey/personal/list/answer/${state.surveyCode}`,
+        {
+          surveyCode: state.surveyCode,
+          questionCode: questionCodes,
+          optionCode: optionCodes,
+          shortAnswer: shortAnswers,
+          duplicationAnswer: duplicationAnswers,
+          subjectiveAnswer: subjectiveAnswers,
+          detailAnswer: detailAnswers
         },
-      }
-    )
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  }
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   return (
     <>
@@ -130,7 +176,11 @@ export default function IndexSurveyPage() {
             </div>
           </div>
           {surveyDetailQuestion.map((question, i) => (
-            <div className="question_box_input">
+            <div
+              className="question_box_input"
+              key={i}
+              onClick={() => onChangeQuestionCode(i)}
+            >
               <div className="question_title_box">
                 <div>
                   <input
@@ -164,6 +214,10 @@ export default function IndexSurveyPage() {
                       borderBottom: "1px solid black",
                       width: "560px",
                     }}
+                    onChange={(e) => {
+                      onChangeSubjectiveAnswer(e);
+                      onChangeOptionCode(i);
+                    }}
                   />
                 </div>
               ) : question.select_type === 1 ? (
@@ -177,6 +231,10 @@ export default function IndexSurveyPage() {
                               type="radio"
                               name="question_option"
                               readOnly
+                              onChange={(e) => {
+                                onChangeShortAnswer(e);
+                                onChangeOptionCode(i);
+                              }}
                             />
                             <input
                               value={option.option_content}
@@ -199,7 +257,14 @@ export default function IndexSurveyPage() {
                       option.option_content !== "" && (
                         <div>
                           <div>
-                            <input type="checkbox" name="question_checkbox" />
+                            <input
+                              type="checkbox"
+                              name="question_checkbox"
+                              onChange={(e) => {
+                                onChangeDuplicationAnswer(e);
+                                onChangeOptionCode(i);
+                              }}
+                            />
                             <input
                               value={option.option_content}
                               name={[i, index2]}
@@ -238,6 +303,7 @@ export default function IndexSurveyPage() {
                           resize: "none",
                           marginTop: "10px",
                         }}
+                        onChange={onChangeDetailAnswer}
                       ></textarea>
                     </div>
                   </div>
@@ -268,7 +334,7 @@ export default function IndexSurveyPage() {
                 to={"/survey/personal/list/{surveyCode}/complete"}
                 state={{ surveyCode: state.surveyCode }}
               >
-                <button type="button" className="surveypage-submit-button">
+                <button type="button" className="surveypage-submit-button" onClick={submitAnswer}>
                   제출
                 </button>
               </Link>

@@ -106,11 +106,11 @@ public class SurveyPersonalController {
 	}
 	
 	@PostMapping(SURVEYANSWER)
-	public ResponseEntity<?> createSurveyAnswer(@PathVariable int surveyCode, @RequestBody SurveyAnswerReqDto surveyAnswerReqDto, @AuthenticationPrincipal String email) {
+	public ResponseEntity<?> createSurveyAnswer(@RequestBody SurveyAnswerReqDto surveyAnswerReqDto, @AuthenticationPrincipal String email) {
 		boolean status = false;
 		try {
 			System.out.println(surveyAnswerReqDto);
-			status = surveyService.createSurveyAnswer(surveyCode, surveyAnswerReqDto);
+			status = surveyService.createSurveyAnswer(surveyAnswerReqDto);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -11,11 +11,10 @@ import com.surveyProject.project.web.dto.surveypage.SurveyStartRespDto;
 import com.surveyProject.project.web.dto.surveypage.surveylist.*;
 import org.springframework.stereotype.Service;
 
+import com.surveyProject.project.domain.survey.survey.SurveyAnswer;
 import com.surveyProject.project.domain.survey.survey.SurveyInformation;
 import com.surveyProject.project.domain.survey.survey.SurveyList;
-import com.surveyProject.project.domain.survey.survey.SurveyStartComplete;
 import com.surveyProject.project.mapper.SurveyMapper;
-import com.surveyProject.project.web.dto.surveypage.surveystartcomplete.SurveyStartCompleteDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -71,8 +70,9 @@ public class SurveyServiceImpl implements SurveyService {
 	}
 	
 	@Override
-	public boolean createSurveyAnswer(int surveyCode, SurveyAnswerReqDto surveyAnswerReqDto) throws Exception {
-		return surveyMapper.saveSurveyAnswer(surveyAnswerReqDto.toEntity()) > 0;
+	public boolean createSurveyAnswer(SurveyAnswerReqDto surveyAnswerReqDto) throws Exception {
+		List<SurveyAnswer> answers = surveyAnswerReqDto.toEntity();
+		return surveyMapper.saveSurveyAnswer(answers) > 0;
 	}
 
 

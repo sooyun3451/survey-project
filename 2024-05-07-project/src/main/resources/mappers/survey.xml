@@ -84,20 +84,27 @@
 		WHERE question_code = #{question_code};
 	</select>
 	
-	<insert id="saveSurveyAnswer" parameterType="com.surveyProject.project.domain.survey.survey.SurveyAnswer">
-		insert into 
-			survey_answer
-		values 
-		(
-		0,
-		#{survey_code},
-		#{question_code},
-		#{option_code},
-		#{short_answer},
-		#{duplication_answer},
-		#{subjective_answer},
-		#{detail_answer}
-		)
+	<insert id="saveSurveyAnswer" parameterType="list">
+	    INSERT INTO survey_answer (
+	        survey_code, 
+	        question_code, 
+	        option_code, 
+	        short_answer, 
+	        duplication_answer, 
+	        subjective_answer, 
+	        detail_answer
+	    ) VALUES 
+	    <foreach collection="answers" item="answer" separator=",">
+	        (
+	        #{answer.survey_code},
+	        #{answer.question_code},
+	        #{answer.option_code},
+	        #{answer.short_answer},
+	        #{answer.duplication_answer},
+	        #{answer.subjective_answer},
+	        #{answer.detail_answer}
+	        )
+	    </foreach>
 	</insert>
 
 	<select id="getTopSurvey" resultType="com.surveyProject.project.web.dto.surveypage.surveylist.TopSurveyResDto">

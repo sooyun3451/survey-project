@@ -97,6 +97,17 @@ export default function IndexSurveyPage() {
         setSurveyDetailTitle(response.data.data.survey_title);
         setSurveyDetailContent(response.data.data.survey_content);
         setSurveyDetailQuestion(response.data.data.questionResDtoList);
+
+        const initialAnswers = response.data.data.questionResDtoList.map((q) => ({
+          questionCode: q.question_code,  
+          optionCode: null,
+          shortAnswer: "",
+          duplicationAnswer: "",
+          subjectiveAnswer: "",
+          detailAnswer: "",
+        }));
+  
+        setAnswers(initialAnswers);
       })
       .catch((error) => {
         console.log(error);

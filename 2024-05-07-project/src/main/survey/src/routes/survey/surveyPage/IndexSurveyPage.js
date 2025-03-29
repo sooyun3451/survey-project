@@ -7,7 +7,6 @@ import { useCookies } from "react-cookie";
 export default function IndexSurveyPage() {
   const { state } = useLocation();
 
-  const [optionCode, setOptionCode] = useState(0);
   const [surveyDetailTitle, setSurveyDetailTitle] = useState("");
   const [surveyDetailContent, setSurveyDetailContent] = useState("");
   const [surveyDetailQuestion, setSurveyDetailQuestion] = useState([]);
@@ -15,6 +14,7 @@ export default function IndexSurveyPage() {
   const token = cookies.token;
 
   const [questionCode, setQuestionCode] = useState(0);
+  const [optionCode, setOptionCode] = useState(0);
   const [shortAnswer, setShortAnswer] = useState("");
   const [duplicationAnswer, setDuplicationAnswer] = useState("");
   const [subjectiveAnswer, setSubjectiveAnswer] = useState("");

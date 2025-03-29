@@ -10,16 +10,17 @@ import com.surveyProject.project.domain.survey.surveyform.SurveyFormOption;
 
 @Mapper
 public interface SurveyFormMapper {
+	
 	int applySurvey(ApplyInformation applyInformation);
 		
 	int saveSurveyForm(SurveyForm surveyForm);
- 
-	int saveSurveyStatus(SurveyForm surveyForm);
-				
+	
 	int saveSurveyFormQuestion(SurveyForm form);
 
 	int saveSurveyFormOption(SurveyFormOption option);
-	
+ 
+	int saveSurveyStatus(SurveyForm surveyForm);
+				
 	int getLastInsertId();
 	
 	Payment getPaymentInfo(int userCode);

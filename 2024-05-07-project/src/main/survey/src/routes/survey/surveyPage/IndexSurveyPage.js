@@ -14,7 +14,6 @@ export default function IndexSurveyPage() {
   const token = cookies.token;
 
   const [questionCode, setQuestionCode] = useState(0);
-  const [optionCode, setOptionCode] = useState(0);
   const [shortAnswer, setShortAnswer] = useState("");
   const [duplicationAnswer, setDuplicationAnswer] = useState("");
   const [subjectiveAnswer, setSubjectiveAnswer] = useState("");
@@ -89,7 +88,7 @@ export default function IndexSurveyPage() {
         }
       )
       .then((response) => {
-        setOptionCode(response.data.data.optionCode);
+        console.log(response.data.data.questionResDtoList)
         setSurveyDetailTitle(response.data.data.survey_title);
         setSurveyDetailContent(response.data.data.survey_content);
         setSurveyDetailQuestion(response.data.data.questionResDtoList);
@@ -239,7 +238,7 @@ export default function IndexSurveyPage() {
                               readOnly
                               onChange={() => {
                                 onChangeShortAnswer(option.option_content);
-                                onChangeOptionCode(option.option_code);
+                                onChangeOptionCode(i, option.option_code);
                               }}
                             />
                             <input
@@ -268,7 +267,7 @@ export default function IndexSurveyPage() {
                               name="question_checkbox"
                               onChange={() => {
                                 onChangeDuplicationAnswer(option.option_content);
-                                onChangeOptionCode(option.option_code);
+                                onChangeOptionCode(i, option.option_code);
                               }}
                             />
                             <input

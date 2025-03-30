@@ -29,7 +29,7 @@ export default function footer() {
                 fontSize: "12px",
               }}
             >
-              E-mail : jiyoung@gmail.com
+              E-mail : soyun@gmail.com
             </p>
           </div>
           <div>

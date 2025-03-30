@@ -27,15 +27,13 @@ export default function IndexSurveyPage() {
     setAnswers((prev) => [...prev, { questionCode: i }]);
   };
 
-  const onChangeOptionCode = (i) => {
-    setOptionCode(i);
-    setAnswers((prev) => prev.map((answer) => answer.questionCode === questionCode ? {
-      ...answer, optionCode: i
+  const onChangeOptionCode = (i, selectedOptionCode) => {
+    setAnswers((prev) => prev.map((answer, index) => index === i ? {
+      ...answer, optionCode: selectedOptionCode
     } : answer));
   };
 
-  const onChangeShortAnswer = (e) => {
-    const value = e.target.value;
+  const onChangeShortAnswer = (value) => {
     setShortAnswer(value);
     setAnswers((prev) =>
       prev.map((answer) =>
@@ -46,8 +44,7 @@ export default function IndexSurveyPage() {
     );
   };
 
-  const onChangeDuplicationAnswer = (e) => {
-    const value = e.target.value;
+  const onChangeDuplicationAnswer = (value) => {
     setDuplicationAnswer(value);
     setAnswers((prev) =>
       prev.map((answer) =>
@@ -58,8 +55,7 @@ export default function IndexSurveyPage() {
     );
   };
   
-  const onChangeSubjectiveAnswer = (e) => {
-    const value = e.target.value;
+  const onChangeSubjectiveAnswer = (value) => {
     setSubjectiveAnswer(value);
     setAnswers((prev) =>
       prev.map((answer) =>
@@ -226,8 +222,7 @@ export default function IndexSurveyPage() {
                       width: "560px",
                     }}
                     onChange={(e) => {
-                      onChangeSubjectiveAnswer(e);
-                      onChangeOptionCode(i);
+                      onChangeSubjectiveAnswer(e.target.value);
                     }}
                   />
                 </div>
@@ -242,9 +237,9 @@ export default function IndexSurveyPage() {
                               type="radio"
                               name="question_option"
                               readOnly
-                              onChange={(e) => {
-                                onChangeShortAnswer(e);
-                                onChangeOptionCode(i);
+                              onChange={() => {
+                                onChangeShortAnswer(option.option_content);
+                                onChangeOptionCode(option.option_code);
                               }}
                             />
                             <input
@@ -271,9 +266,9 @@ export default function IndexSurveyPage() {
                             <input
                               type="checkbox"
                               name="question_checkbox"
-                              onChange={(e) => {
-                                onChangeDuplicationAnswer(e);
-                                onChangeOptionCode(i);
+                              onChange={() => {
+                                onChangeDuplicationAnswer(option.option_content);
+                                onChangeOptionCode(option.option_code);
                               }}
                             />
                             <input

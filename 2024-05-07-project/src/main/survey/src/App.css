@@ -11,11 +11,11 @@
 .containerApp {
   margin: auto;
   width: 1348px;
-  min-height: 800px;
+  min-height: 1000px;
 }
 
 footer {
-  min-width: 1400px;
+  min-width: 1348px;
   height: 100px;
   margin-top: 30px;
   border-top: 1px solid #909aab;

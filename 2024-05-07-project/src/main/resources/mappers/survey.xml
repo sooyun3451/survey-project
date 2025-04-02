@@ -89,9 +89,6 @@
 	        survey_code, 
 	        question_code, 
 	        option_code, 
-	        short_answer, 
-	        duplication_answer, 
-	        subjective_answer, 
 	        detail_answer
 	    ) VALUES 
 	    <foreach collection="answers" item="answer" separator=",">
@@ -99,9 +96,6 @@
 	        #{answer.survey_code},
 	        #{answer.question_code},
 	        #{answer.option_code},
-	        #{answer.short_answer},
-	        #{answer.duplication_answer},
-	        #{answer.subjective_answer},
 	        #{answer.detail_answer}
 	        )
 	    </foreach>

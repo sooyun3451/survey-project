@@ -14,9 +14,6 @@ export default function IndexSurveyPage() {
   const token = cookies.token;
 
   const [questionCode, setQuestionCode] = useState(0);
-  const [shortAnswer, setShortAnswer] = useState("");
-  const [duplicationAnswer, setDuplicationAnswer] = useState("");
-  const [subjectiveAnswer, setSubjectiveAnswer] = useState("");
   const [detailAnswer, setDetailAnswer] = useState("");
 
   const [answers, setAnswers] = useState([]);
@@ -30,39 +27,6 @@ export default function IndexSurveyPage() {
     setAnswers((prev) => prev.map((answer, index) => index === i ? {
       ...answer, optionCode: selectedOptionCode
     } : answer));
-  };
-
-  const onChangeShortAnswer = (value) => {
-    setShortAnswer(value);
-    setAnswers((prev) =>
-      prev.map((answer) =>
-        answer.questionCode === questionCode
-          ? { ...answer, shortAnswer: value }
-          : answer
-      )
-    );
-  };
-
-  const onChangeDuplicationAnswer = (value) => {
-    setDuplicationAnswer(value);
-    setAnswers((prev) =>
-      prev.map((answer) =>
-        answer.questionCode === questionCode
-          ? { ...answer, duplicationAnswer: value }
-          : answer
-      )
-    );
-  };
-  
-  const onChangeSubjectiveAnswer = (value) => {
-    setSubjectiveAnswer(value);
-    setAnswers((prev) =>
-      prev.map((answer) =>
-        answer.questionCode === questionCode
-          ? { ...answer, subjectiveAnswer: value }
-          : answer
-      )
-    );
   };
   
   const onChangeDetailAnswer = (e) => {
@@ -220,9 +184,6 @@ export default function IndexSurveyPage() {
                       borderBottom: "1px solid black",
                       width: "560px",
                     }}
-                    onChange={(e) => {
-                      onChangeSubjectiveAnswer(e.target.value);
-                    }}
                   />
                 </div>
               ) : question.select_type === 1 ? (
@@ -237,7 +198,6 @@ export default function IndexSurveyPage() {
                               name="question_option"
                               readOnly
                               onChange={() => {
-                                onChangeShortAnswer(option.option_content);
                                 onChangeOptionCode(i, option.option_code);
                               }}
                             />
@@ -266,7 +226,6 @@ export default function IndexSurveyPage() {
                               type="checkbox"
                               name="question_checkbox"
                               onChange={() => {
-                                onChangeDuplicationAnswer(option.option_content);
                                 onChangeOptionCode(i, option.option_code);
                               }}
                             />

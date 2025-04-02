@@ -19,9 +19,6 @@ public class SurveyAnswerReqDto {
 	private int surveyCode;
 	private List<Integer> questionCode;
 	private List<Integer> optionCode;
-	private List<String> shortAnswer;
-	private List<String> duplicationAnswer;
-	private List<String> subjectiveAnswer;
 	private List<String> detailAnswer;
 	
 	public List<SurveyAnswer> toEntity() {
@@ -32,9 +29,6 @@ public class SurveyAnswerReqDto {
 					.survey_code(surveyCode)
 					.question_code(questionCode.get(i))
 					.option_code(optionCode.get(i) != null ? optionCode.get(i) : 0)
-					.short_answer(shortAnswer.get(i) != null ? shortAnswer.get(i) : null)
-					.duplication_answer(duplicationAnswer.get(i) != null ? duplicationAnswer.get(i) : null)
-					.subjective_answer(subjectiveAnswer.get(i) != null ? subjectiveAnswer.get(i) : null)
 					.detail_answer(detailAnswer.get(i) != null ? detailAnswer.get(i) : null)
 					.build();
 			

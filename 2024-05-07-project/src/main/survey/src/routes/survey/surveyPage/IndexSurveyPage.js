@@ -19,26 +19,28 @@ export default function IndexSurveyPage() {
   const [answers, setAnswers] = useState([]);
 
   const onChangeQuestionCode = (i) => {
-    setQuestionCode(i);
-    setAnswers((prev) => [...prev, { questionCode: i }]);
+    setQuestionCode(surveyDetailQuestion[i].question_code)
   };
 
-  const onChangeOptionCode = (i, selectedOptionCode) => {
-    setAnswers((prev) => prev.map((answer, index) => index === i ? {
-      ...answer, optionCode: selectedOptionCode
-    } : answer));
+  const onChangeOptionCode = (questionCode, seletedOptionCode) => {
+    setAnswers((prev) => 
+      prev.map((answer) => 
+        answer.questionCode === questionCode
+        ? {...answer, optionCode: seletedOptionCode}
+        : answer
+      )
+    )
   };
   
-  const onChangeDetailAnswer = (e) => {
-    const value = e.target.value;
-    setDetailAnswer(value);
-    setAnswers((prev) =>
-      prev.map((answer) =>
+  const onChangeDetailAnswer = (questionCode, value) => {
+    setAnswers((prev) => {
+      if(!Array.isArray(prev)) return [];
+      return prev.map((answer) => 
         answer.questionCode === questionCode
-          ? { ...answer, detailAnswer: value }
-          : answer
+        ? {...answer, detailAnswer: value}
+        : answer
       )
-    );
+    })
   };
 
   useEffect(() => {
@@ -52,7 +54,6 @@ export default function IndexSurveyPage() {
         }
       )
       .then((response) => {
-        console.log(response.data.data.questionResDtoList)
         setSurveyDetailTitle(response.data.data.survey_title);
         setSurveyDetailContent(response.data.data.survey_content);
         setSurveyDetailQuestion(response.data.data.questionResDtoList);
@@ -196,9 +197,8 @@ export default function IndexSurveyPage() {
                             <input
                               type="radio"
                               name="question_option"
-                              readOnly
                               onChange={() => {
-                                onChangeOptionCode(i, option.option_code);
+                                onChangeOptionCode(question.questionCode, option.option_code);
                               }}
                             />
                             <input
@@ -226,7 +226,7 @@ export default function IndexSurveyPage() {
                               type="checkbox"
                               name="question_checkbox"
                               onChange={() => {
-                                onChangeOptionCode(i, option.option_code);
+                                onChangeOptionCode(question.questionCode, option.option_code);
                               }}
                             />
                             <input
@@ -267,7 +267,7 @@ export default function IndexSurveyPage() {
                           resize: "none",
                           marginTop: "10px",
                         }}
-                        onChange={onChangeDetailAnswer}
+                        onChange={(e) => onChangeDetailAnswer(question.questionCode, e.target.value)}
                       ></textarea>
                     </div>
                   </div>

@@ -14,5 +14,6 @@ public class SurveyAnswer {
 	private int survey_code;
 	private int question_code;
 	private int option_code;
+	private String subjective_answer;
 	private String detail_answer;
 }

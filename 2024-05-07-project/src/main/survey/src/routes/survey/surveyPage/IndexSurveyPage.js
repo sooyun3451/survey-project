@@ -22,15 +22,27 @@ export default function IndexSurveyPage() {
     setQuestionCode(surveyDetailQuestion[i].question_code)
   };
 
-  const onChangeOptionCode = (questionCode, seletedOptionCode) => {
-    setAnswers((prev) => 
-      prev.map((answer) => 
-        answer.questionCode === questionCode
-        ? {...answer, optionCode: seletedOptionCode}
-        : answer
-      )
-    )
+  const onChangeOptionCode = (questionCode, selectedOptionCode, isCheckbox = false) => {
+    setAnswers((prev) =>
+      prev.map((answer) => {
+        if (answer.questionCode === questionCode) {
+          if (isCheckbox) {
+            const alreadySelected = answer.optionCode.includes(selectedOptionCode);
+            return {
+              ...answer,
+              optionCode: alreadySelected
+                ? answer.optionCode.filter((code) => code !== selectedOptionCode)
+                : [...answer.optionCode, selectedOptionCode],
+            };
+          } else {
+            return { ...answer, optionCode: [selectedOptionCode] }; 
+          }
+        }
+        return answer;
+      })
+    );
   };
+  
   
   const onChangeDetailAnswer = (questionCode, value) => {
     setAnswers((prev) => {
@@ -60,7 +72,7 @@ export default function IndexSurveyPage() {
 
         const initialAnswers = response.data.data.questionResDtoList.map((q) => ({
           questionCode: q.question_code,  
-          optionCode: null,
+          optionCode: [],
           shortAnswer: "",
           duplicationAnswer: "",
           subjectiveAnswer: "",

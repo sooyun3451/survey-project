@@ -86,16 +86,20 @@
 	
 	<insert id="saveSurveyAnswer" parameterType="list">
 	    INSERT INTO survey_answer (
+	    	answer_code,
 	        survey_code, 
 	        question_code, 
 	        option_code, 
+	        subjective_answer,
 	        detail_answer
 	    ) VALUES 
 	    <foreach collection="answers" item="answer" separator=",">
 	        (
+	        0,
 	        #{answer.survey_code},
 	        #{answer.question_code},
 	        #{answer.option_code},
+	        #{answer.subjective_answer},
 	        #{answer.detail_answer}
 	        )
 	    </foreach>

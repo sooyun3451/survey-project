@@ -42,6 +42,15 @@ export default function IndexSurveyPage() {
       })
     );
   };
+
+  const onChangeSubjectiveAnswer = (questionCode, value) => {
+    setAnswers((prev) => 
+      prev.map((answer) => 
+        answer.questionCode === questionCode
+        ? { ...answer, subjectiveAnswer: value}
+        : answer
+      ))
+    }
   
   
   const onChangeDetailAnswer = (questionCode, value) => {
@@ -89,8 +98,6 @@ export default function IndexSurveyPage() {
   const submitAnswer = () => {
     const questionCodes = answers.map((answer) => answer.questionCode);
     const optionCodes = answers.map((answer) => answer.optionCode);
-    const shortAnswers = answers.map((answer) => answer.shortAnswer);
-    const duplicationAnswers = answers.map((answer) => answer.duplicationAnswer);
     const subjectiveAnswers = answers.map((answer) => answer.subjectiveAnswer);
     const detailAnswers = answers.map((answer) => answer.detailAnswer);
 
@@ -101,8 +108,6 @@ export default function IndexSurveyPage() {
           surveyCode: state.surveyCode,
           questionCode: questionCodes,
           optionCode: optionCodes,
-          shortAnswer: shortAnswers,
-          duplicationAnswer: duplicationAnswers,
           subjectiveAnswer: subjectiveAnswers,
           detailAnswer: detailAnswers
         },
@@ -197,6 +202,7 @@ export default function IndexSurveyPage() {
                       borderBottom: "1px solid black",
                       width: "560px",
                     }}
+                    onChange={(e) => onChangeSubjectiveAnswer(question.questionCode, e.target.value)}
                   />
                 </div>
               ) : question.select_type === 1 ? (
@@ -238,7 +244,7 @@ export default function IndexSurveyPage() {
                               type="checkbox"
                               name="question_checkbox"
                               onChange={() => {
-                                onChangeOptionCode(question.questionCode, option.option_code);
+                                onChangeOptionCode(question.questionCode, option.option_code, true);
                               }}
                             />
                             <input

@@ -26,15 +26,26 @@ public class SurveyAnswerReqDto {
 		List<SurveyAnswer> answers = new ArrayList<>();
 		
 		for(int i = 0; i < questionCode.size(); i++) {			
-			SurveyAnswer surveyAnswer = SurveyAnswer.builder()
-					.survey_code(surveyCode)
-					.question_code(questionCode.get(i))
-					.option_code(optionCode.get(i) != null ? optionCode.get(i) : 0)
-					.subjective_answer(subjectiveAnswer.get(i) != null ? subjectiveAnswer.get(i): null)
-					.detail_answer(detailAnswer.get(i) != null ? detailAnswer.get(i) : null)
-					.build();
-			
-			answers.add(surveyAnswer);
+			List<Integer> options = optionCode.get(i);
+			if(options.isEmpty()) {
+				answers.add(SurveyAnswer.builder() 
+						.survey_code(surveyCode)
+						.question_code(questionCode.get(i))
+						.option_code(0)
+						.subjective_answer(subjectiveAnswer.get(i))
+						.detail_answer(detailAnswer.get(i))
+						.build());
+			}else {
+				for(int option: options) {
+					answers.add(SurveyAnswer.builder()
+							.survey_code(surveyCode)
+							.question_code(questionCode.get(i))
+							.option_code(option)
+							.subjective_answer(subjectiveAnswer.get(i))
+							.detail_answer(detailAnswer.get(i))
+							.build());
+				}
+			}
 		}
 		return answers;
 	}
